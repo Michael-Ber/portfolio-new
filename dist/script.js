@@ -86,14 +86,84 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./src/assets/js/burger.js":
+/*!*********************************!*\
+  !*** ./src/assets/js/burger.js ***!
+  \*********************************/
+/*! exports provided: burger */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "burger", function() { return burger; });
+
+
+const burger = _ref => {
+  let {
+    btn: btnSelector,
+    menu: menuSelector,
+    overlay: overlaySelector,
+    btnActive: btnActiveClass,
+    menuActive: menuActiveClass,
+    overlayActive: overlayActiveClass,
+    close: closeSelector
+  } = _ref;
+  const burgerBtn = document.querySelector(btnSelector),
+    burgerMenu = document.querySelector(menuSelector),
+    overlay = document.querySelector(overlaySelector),
+    close = document.querySelector(closeSelector);
+  //   body = document.querySelector('body');
+
+  burgerBtn.addEventListener('click', function () {
+    if (!this.classList.contains(btnActiveClass)) {
+      this.classList.add(btnActiveClass);
+      burgerMenu.classList.add(menuActiveClass);
+      overlay.classList.add(overlayActiveClass);
+      // body.style.overflow = "hidden";
+      // body.style.paddingRight = `${offset}px`;
+    } else {
+      this.classList.remove(btnActiveClass);
+      burgerMenu.classList.remove(menuActiveClass);
+      overlay.classList.remove(overlayActiveClass);
+      // body.style.overflow = 'unset';
+      // body.style.paddingRight = 'unset';
+    }
+  });
+
+  close.addEventListener('click', () => {
+    burgerBtn.classList.remove(btnActiveClass);
+    burgerMenu.classList.remove(menuActiveClass);
+    overlay.classList.remove(overlayActiveClass);
+  });
+};
+
+
+/***/ }),
+
 /***/ "./src/assets/js/main.js":
 /*!*******************************!*\
   !*** ./src/assets/js/main.js ***!
   \*******************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-console.log('hello');
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _burger__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./burger */ "./src/assets/js/burger.js");
+
+
+
+window.addEventListener('DOMContentLoaded', () => {
+  Object(_burger__WEBPACK_IMPORTED_MODULE_0__["burger"])({
+    btn: '.burger__btn',
+    menu: '.burger__menu',
+    overlay: '.overlay',
+    btnActive: 'burger__btn_active',
+    menuActive: 'burger__menu_active',
+    overlayActive: 'overlay_active',
+    close: '.menu__close'
+  });
+});
 
 /***/ })
 
