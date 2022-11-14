@@ -175,6 +175,10 @@
   font-size: 24px;
 }
 
+.intro {
+  height: 100vh;
+  background: url("./assets/img/bg.jpg") center center/cover no-repeat;
+}
 * {
   margin: 0;
   padding: 0;
@@ -194,3 +198,20 @@
 .overlay_active {
   display: block;
 }
+
+.btn {
+  display: inline-block;
+  width: 220px;
+  height: 50px;
+  border: 2px solid #fff;
+  font-size: 20px;
+  line-height: 44px;
+  color: #fff;
+  text-decoration: none;
+  text-align: center;
+}
+.btn:hover {
+  background-color: red;
+}
+
+@keyframes btnAnimation {}
