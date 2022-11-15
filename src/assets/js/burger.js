@@ -13,21 +13,16 @@ const burger = ({
           burgerMenu = document.querySelector(menuSelector),
           overlay = document.querySelector(overlaySelector),
           close = document.querySelector(closeSelector);
-        //   body = document.querySelector('body');
           
     burgerBtn.addEventListener('click', function() {
         if(!this.classList.contains(btnActiveClass)) {
             this.classList.add(btnActiveClass);
             burgerMenu.classList.add(menuActiveClass);
             overlay.classList.add(overlayActiveClass);
-            // body.style.overflow = "hidden";
-            // body.style.paddingRight = `${offset}px`;
         }else {
             this.classList.remove(btnActiveClass);
             burgerMenu.classList.remove(menuActiveClass);
             overlay.classList.remove(overlayActiveClass);
-            // body.style.overflow = 'unset';
-            // body.style.paddingRight = 'unset';
         }
     });
     close.addEventListener('click', () => {

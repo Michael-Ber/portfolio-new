@@ -1,14 +1,22 @@
 .intro {
     height: 100vh;
     background: url('./assets/img/bg.jpg') center center/cover no-repeat;
+    padding: 250px 0 200px 250px;
     &__wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        flex-direction: column;
+        height: 100%;
     }
 
     &__title {
+        color: #ffffff;
+        font-size: 80px;
+
     }
 
     &__contact {
+        margin-top: 100px;
     }
-}
-.btn {
 }

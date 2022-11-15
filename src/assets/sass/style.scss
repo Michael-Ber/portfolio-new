@@ -24,6 +24,7 @@
 }
 
 .btn {
+    position: relative;
     display: inline-block;
     width: 220px;
     height: 50px;
@@ -33,13 +34,63 @@
     color: #fff;
     text-decoration: none;
     text-align: center;
+    z-index: 10;
+    overflow: hidden;
+    transition: .4s all;
+    &::before {
+        content: '';
+        transition: .4s width, 1s border-right;
+        position: absolute;
+        top: 0;
+        left: -35px;
+        width: 0;
+        height: 100%;
+        z-index: -1;
+        border-top: 48px solid $fourth-color;
+        border-right: 35px solid transparent;
+    }
     &:hover {
-        background-color: red;
+        &:before {
+            width: 100%;
+            border-right: 0 solid transparent;
+            left: 0;
+        }
+        color: #000;
     }
 }
 
-@keyframes btnAnimation {
 
+@keyframes btnAnimation {
+    0% {
+        background: linear-gradient(to right, red 10%, transparent 10%);
+    }
+    10% {
+        background: linear-gradient(to right, red 20%, transparent 20%);
+    }
+    20% {
+        background: linear-gradient(to right, red 30%, transparent 30%);
+    }
+    30% {
+        background: linear-gradient(to right, red 40%, transparent 40%);
+    }
+    40% {
+        background: linear-gradient(to right, red 50%, transparent 50%);
+    }
+    50% {
+        background: linear-gradient(to right, red 60%, transparent 60%);
+    }
+    60% {
+        background: linear-gradient(to right, red 70%, transparent 70%);
+    }
+    70% {
+        background: linear-gradient(to right, red 80%, transparent 80%);
+    }
+    80% {
+        background: linear-gradient(to right, red 90%, transparent 90%);
+    }
+    90% {
+        background: linear-gradient(to right, red 100%, transparent 100%);
+    }
 }
 
 

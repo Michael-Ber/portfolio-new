@@ -112,24 +112,17 @@ const burger = _ref => {
     burgerMenu = document.querySelector(menuSelector),
     overlay = document.querySelector(overlaySelector),
     close = document.querySelector(closeSelector);
-  //   body = document.querySelector('body');
-
   burgerBtn.addEventListener('click', function () {
     if (!this.classList.contains(btnActiveClass)) {
       this.classList.add(btnActiveClass);
       burgerMenu.classList.add(menuActiveClass);
       overlay.classList.add(overlayActiveClass);
-      // body.style.overflow = "hidden";
-      // body.style.paddingRight = `${offset}px`;
     } else {
       this.classList.remove(btnActiveClass);
       burgerMenu.classList.remove(menuActiveClass);
       overlay.classList.remove(overlayActiveClass);
-      // body.style.overflow = 'unset';
-      // body.style.paddingRight = 'unset';
     }
   });
-
   close.addEventListener('click', () => {
     burgerBtn.classList.remove(btnActiveClass);
     burgerMenu.classList.remove(menuActiveClass);
@@ -163,6 +156,36 @@ window.addEventListener('DOMContentLoaded', () => {
     overlayActive: 'overlay_active',
     close: '.menu__close'
   });
+
+  // function animateBtn() {
+  //     let target = this;
+  //     for(let i = 0; i <= 100; i++) {
+  //         changeBgFwd(i);
+  //     }
+  //     function changeBgFwd(i) {
+  //         setTimeout(() => {
+  //             target.style.background = `linear-gradient(to right, red ${i}%, transparent ${i}%)`
+  //         }, i * 2.5)
+  //     }
+  // }
+  // function removeAnimateBtn() {
+  //     let target = this;
+  //     for(let i = 100; i >= 0; i--) {
+  //         changeBgBwd(i);
+  //     }
+  //     function changeBgBwd(i) {
+  //         setTimeout(() => {
+  //             target.style.background = `linear-gradient(to left, transparent ${i}%, red ${i}%)`
+  //         }, i * 2.5)
+  //     }
+  // }
+
+  // for(let i = 0; i <= 100; i++) {
+
+  // }
+
+  // document.querySelector('.btn').addEventListener('mouseenter', animateBtn);
+  // document.querySelector('.btn').addEventListener('mouseleave', removeAnimateBtn);
 });
 
 /***/ })

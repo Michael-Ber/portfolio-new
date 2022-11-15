@@ -26,11 +26,9 @@
         @media(max-width: $container-media-575) {
             width: 130px;
         }
-        // height: 89px;
     }
 
     &__links {
-        // width: 40%;
         
         @media(max-width: $container-media-991) {
             display: none;
@@ -38,7 +36,6 @@
     }
 
     &__lang {
-        // width: 10%;
         span {
             font-size: 10px;
             color: #fff;
@@ -113,7 +110,7 @@
         svg {
             g {
                 path {
-                    fill: rgb(255, 255, 255);
+                    fill: rgba(255, 255, 255, 0.6);
                 }
             }
         }
