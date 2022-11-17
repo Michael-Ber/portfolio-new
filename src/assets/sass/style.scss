@@ -4,12 +4,15 @@
 @import './blocks/intro';
 @import './blocks/about';
 @import './blocks/skills';
+@import './blocks/works';
+@import './blocks/contact';
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
 }
 
 body {
@@ -73,6 +76,10 @@ body {
         }
         color: #000;
     }
+    &_dark {
+        color: #000;
+        border: 2px solid #000;
+    }
 }
 
 .section-title {
@@ -105,6 +112,12 @@ body {
         height: 3px;
         background-color: #000;
     }
+}
+.section-subtitle {
+    font-size: 20px;
+    font-weight: 500;
+    color: #000;
+    text-align: center;
 }
 
 
