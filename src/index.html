@@ -12,6 +12,9 @@
 </head>
 <body>
     <div class="overlay"></div>
+    <div class="arrow-up">
+        <a href="#intro"><img src="./assets/icons/arrow-up.svg" alt="arrow up"></a>
+    </div>
     <header class="header">
         <div class="header__wrapper">
             <div class="header__logo logo">
@@ -21,10 +24,10 @@
             </div>
             <nav class="header__links links-header">
                 <ul class="links-header__list">
-                    <li class="links-header__item"><a href="#" class="links-header__link link">About</a></li>
-                    <li class="links-header__item"><a href="#" class="links-header__link link">Skills</a></li>
-                    <li class="links-header__item"><a href="#" class="links-header__link link">Works</a></li>
-                    <li class="links-header__item"><a href="#" class="links-header__link link">Contact</a></li>
+                    <li class="links-header__item"><a href="#about" class="links-header__link link lng lng-about">About</a></li>
+                    <li class="links-header__item"><a href="#skills" class="links-header__link link lng lng-skills">Skills</a></li>
+                    <li class="links-header__item"><a href="#works" class="links-header__link link lng lng-works">Works</a></li>
+                    <li class="links-header__item"><a href="#contact" class="links-header__link link lng lng-contact">Contact</a></li>
                     <li class="links-header__item">
                         <a href="#" class="links-header__link github-icon">
                             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="30" height="30" viewBox="0 0 256 256" xml:space="preserve">
@@ -47,10 +50,10 @@
                 <div class="burger__menu menu">
                     <nav class="menu__links">
                         <ul class="menu__list">
-                            <li class="menu__item"><a href="#" class="menu__link link">About</a></li>
-                            <li class="menu__item"><a href="#" class="menu__link link">Skills</a></li>
-                            <li class="menu__item"><a href="#" class="menu__link link">Works</a></li>
-                            <li class="menu__item"><a href="#" class="menu__link link">Contact</a></li>
+                            <li class="menu__item"><a href="#" class="menu__link link lng lng-about">About</a></li>
+                            <li class="menu__item"><a href="#" class="menu__link link lng lng-skills">Skills</a></li>
+                            <li class="menu__item"><a href="#" class="menu__link link lng lng-works">Works</a></li>
+                            <li class="menu__item"><a href="#" class="menu__link link lng lng-contact">Contact</a></li>
                             <li class="menu__item">
                                 <a href="#" class="menu__link github-icon github-icon_burger">
                                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="30" height="30" viewBox="0 0 256 256" xml:space="preserve">
@@ -70,45 +73,45 @@
             <div class="header__lang">
                 <a href="#" class="links-header__link link lang-selector">ENG</a>
                 <span>/</span>
-                <a href="#" class="links-header__link link lang-selector">RU</a>
+                <a href="#" class="links-header__link link lang-selector rus">RU</a>
             </div>
         </div>
     </header>
 
-    <section class="intro">
+    <section class="intro" id="intro">
         <div class="intro__wrapper">
-            <h1 class="intro__title">Hi, <br> I'm Michael, <br> web developer</h1>
-            <a href="#" class="intro__contact btn">Contact me!</a>
+            <h1 class="intro__title lng-intro">Hi, <br> I'm Michael, <br> web developer</h1>
+            <a href="#" class="intro__contact btn lng lng-btn-contact">Contact me!</a>
             <aside class="intro__email">
                 <a href="#" class="intro__link">mikeber000@gmail.com</a>
             </aside>
         </div>
     </section>
 
-    <section class="about">
+    <section class="about" id="about">
         <div class="about__wrapper">
             <div class="about__left">
                 <img src="./assets/img/bg.jpg" alt="photo">
             </div>
             <div class="about__right">
                 <h2 class="about__title section-title">
-                    <span>about</span> 
+                    <span class="lng lng-about">about</span> 
                 </h2>
-                <div class="about__subtitle">Freelancer</div>
-                <div class="about__descr">Hello, my name is Michael. I'm junior front-end developer.I've been learning front-end for two years, finished five
+                <div class="about__subtitle lng lng-prof">Freelancer</div>
+                <div class="about__descr lng lng-descr">Hello, my name is Michael. I'm junior front-end developer.I've been learning front-end for two years, finished five
                 web developing courses on Udemy and have been practicing 
-                all that time. My <a href="#" class="about__link">works</a> you can see below.
+                all that time. My <a href="#" class="about__link lng lng-works">works</a> you can see below.
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="skills">
+    <section class="skills" id="skills">
         <div class="container">
             <h2 class="skills__title section-title">
-                <span>Skills</span> 
+                <span class="lng lng-skills">Skills</span> 
             </h2>
-            <h3 class="skills__subtitle section-subtitle">What i use in my work</h3>
+            <h3 class="skills__subtitle section-subtitle lng lng-works-subtitle">What i use in my work</h3>
             <ul class="skills__list">
                 <li class="skills__item">
                     <article class="skills__card card-skills">
@@ -127,7 +130,7 @@
                             </svg>
                         </div>
                         <h4 class="card-skills__title">HTML5</h4>
-                        <p class="card-skills__text">
+                        <p class="card-skills__text lng lng-html">
                             HTML can be described as the language that ultimately gives web pages (and websites) the appearance and structure that is seen by end users.
                         </p>
                     </article>
@@ -144,7 +147,7 @@
                             </svg>
                         </div>
                         <h4 class="card-skills__title">CSS3</h4>
-                        <p class="card-skills__text">
+                        <p class="card-skills__text lng lng-css">
                             CSS is the abbreviation for the term “cascading style sheets” and describes how HTML elements should be displayed.
                         </p>
                     </article>
@@ -159,7 +162,7 @@
                             </svg>
                         </div>
                         <h4 class="card-skills__title">Javascript</h4>
-                        <p class="card-skills__text">
+                        <p class="card-skills__text lng lng-js">
                             This programming language allows you to bring anything to life: sliders, windows, tooltips, tabs, receiving data from the server, and much more.
                         </p>
                     </article>
@@ -175,7 +178,7 @@
                             </svg>
                         </div>
                         <h4 class="card-skills__title">React</h4>
-                        <p class="card-skills__text">
+                        <p class="card-skills__text lng lng-react">
                             This library allows you to create web applications. I can create the most interactive product for your purposes.
                         </p>
                     </article>
@@ -197,8 +200,8 @@
                             </svg>
                         </div>
                         <h4 class="card-skills__title">jQuery</h4>
-                        <p class="card-skills__text">
-                            The Jquery library will speed up development. Without the need to integrate it into the project, we will not, but the skill of working with it is present
+                        <p class="card-skills__text lng lng-jquery">
+                            The Jquery library will speed up development. Without the need to integrate it into the project, we will not, but the skill of working with it is present.
                         </p>
                     </article>
                 </li>
@@ -207,7 +210,7 @@
             <ul class="skills__diagrams-list">
                 <li class="skills__diagrams-item diagrams-item">
                     <div class="diagrams-item__up">
-                        <h4 class="diagrams-item__title">Web sites creating</h4>
+                        <h4 class="diagrams-item__title lng lng-sites">Web sites creating</h4>
                         <div class="diagrams-item__percent">
                             <span>70</span>%
                         </div>
@@ -219,7 +222,7 @@
                 </li>
                 <li class="skills__diagrams-item">
                     <div class="diagrams-item__up">
-                        <h4 class="diagrams-item__title">Web applications creating</h4>
+                        <h4 class="diagrams-item__title lng lng-apps">Web applications creating</h4>
                         <div class="diagrams-item__percent">
                             <span>70</span>%
                         </div>
@@ -231,7 +234,7 @@
                 </li>
                 <li class="skills__diagrams-item">
                     <div class="diagrams-item__up">
-                        <h4 class="diagrams-item__title">Work with data</h4>
+                        <h4 class="diagrams-item__title lng lng-data">Work with data</h4>
                         <div class="diagrams-item__percent">
                             <span>70</span>%
                         </div>
@@ -243,7 +246,7 @@
                 </li>
                 <li class="skills__diagrams-item">
                     <div class="diagrams-item__up">
-                        <h4 class="diagrams-item__title">Creativity</h4>
+                        <h4 class="diagrams-item__title lng lng-creativity">Creativity</h4>
                         <div class="diagrams-item__percent">
                             <span>70</span>%
                         </div>
@@ -255,7 +258,7 @@
                 </li>
                 <li class="skills__diagrams-item">
                     <div class="diagrams-item__up">
-                        <h4 class="diagrams-item__title">Design creating</h4>
+                        <h4 class="diagrams-item__title lng lng-design">Design creating</h4>
                         <div class="diagrams-item__percent">
                             <span>70</span>%
                         </div>
@@ -267,7 +270,7 @@
                 </li>
                 <li class="skills__diagrams-item">
                     <div class="diagrams-item__up">
-                        <h4 class="diagrams-item__title">Soft skills</h4>
+                        <h4 class="diagrams-item__title lng lng-soft-skills">Soft skills</h4>
                         <div class="diagrams-item__percent">
                             <span>70</span>%
                         </div>
@@ -281,12 +284,12 @@
         </div>
     </section>
 
-    <section class="works">
+    <section class="works" id="works">
         <div class="container">
             <h2 class="works__title section-title">
-                <span>Portfolio</span> 
+                <span class="lng lng-portfolio">Portfolio</span> 
             </h2>
-            <h3 class="works__subtitle section-subtitle">Some of my works</h3>
+            <h3 class="works__subtitle section-subtitle lng lng-works-subtitle">Some of my works</h3>
             <ul class="works__list">
                 <li class="works__item norm">
                     <img src="./assets/img/bg.jpg" alt="1">
@@ -310,33 +313,45 @@
         </div>
     </section>
 
-    <section class="contact">
+    <section class="contact" id="contact">
         <div class="container">
             <h2 class="contact__title section-title">
-                <span>Contact</span> 
+                <span class="lng-contact">Contact</span> 
             </h2>
-            <h3 class="contact__subtitle section-subtitle">Form for contact</h3>
-            <h4 class="contact__descr">I'm interested in freelance opportunities. However, if you have other request or question, you can use a form.
+            <h3 class="contact__subtitle section-subtitle lng lng-contact-subtitle">Form for contact</h3>
+            <h4 class="contact__descr lng lng-contact-descr">I'm interested in freelance opportunities. However, if you have other request or question, you can use a form.
             </h4>
             <form action="#" class="contact__form">
                 <div class="contact__wrapper">
                     <div class="contact__field contact__field_sm">
-                        <label for="name" class="contact__label">Name</label>
+                        <label for="name" class="contact__label lng lng-name">Name</label>
                     <input type="text" name="name" id="name" class="contact__input">
                     </div>
                     <div class="contact__field contact__field_sm">
-                        <label for="email" class="contact__label">Email</label>
+                        <label for="email" class="contact__label lng lng-email">Email</label>
                         <input type="email" name="email" id="email" class="contact__input">
                     </div>
                     <div class="contact__field contact__field_lg">
-                        <label for="message" class="contact__label">Message</label>
+                        <label for="message" class="contact__label lng lng-msg">Message</label>
                         <textarea name="message" id="message" cols="30" rows="10"class="contact__textarea"></textarea>
                     </div>
                 </div>
                 
-                <a href="#" class="contact__submit btn btn_dark">Send message!</a>
-                <input id="privacy" type="checkbox">
-                <label for="privacy">I agree with the <a href="#" class="privacy-link">privacy policy</a></label>
+                <div class="contact__send">
+                    <a href="#" class="contact__submit btn btn_dark lng lng-btn-send">Send message!</a>
+                    <div class="contact__privacy privacy">
+                        <div class="privacy__input-wrapper">
+                            <input id="privacy" type="checkbox" class="privacy__input">
+                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 80 80" xml:space="preserve" width="15" height="15" class="mark-svg">
+                                <g>
+                                    <polygon style="fill:#BAE0BD;" points="2.711,43.997 8.995,37.712 26.497,55.714 71.002,10.709 77.291,16.998 26.498,67.298  "/>
+                                    <path style="fill:#5E9C76;" d="M71.004,11.418l5.578,5.578l-50.086,49.6L3.422,43.993l5.568-5.568l16.793,17.273l0.711,0.731   l0.717-0.725L71.004,11.418 M71,10L26.5,55L9,37l-7,7l24.5,24L78,17L71,10L71,10z"/>
+                                </g>
+                            </svg>
+                        </div>
+                        <label for="privacy lng lng-privacy">I agree with the <a href="#" class="privacy__link lng lng-privacy-link">privacy policy</a></label>
+                    </div>
+                </div>
             </form>
         </div>
     </section>

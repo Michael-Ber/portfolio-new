@@ -1,4 +1,5 @@
 .works {
+    padding: 100px 0 0 0;
     &__title {
         text-align: center;
         &::after {
@@ -23,11 +24,17 @@
     }
 
     &__item {
-        box-shadow: 0 0 5px 0 #000;
+        opacity: .5;
+        transition: .5s all;
+        cursor: pointer;
         img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+        }
+        &:hover {
+            opacity: 1;
+            transform: translate(0, -5px);
         }
     }
 }

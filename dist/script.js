@@ -143,6 +143,8 @@ const burger = _ref => {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _burger__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./burger */ "./src/assets/js/burger.js");
+/* harmony import */ var _scroll__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./scroll */ "./src/assets/js/scroll.js");
+
 
 
 
@@ -156,7 +158,72 @@ window.addEventListener('DOMContentLoaded', () => {
     overlayActive: 'overlay_active',
     close: '.menu__close'
   });
+  Object(_scroll__WEBPACK_IMPORTED_MODULE_1__["scroll"])({
+    arrow: '.arrow-up',
+    arrowActive: 'arrow-up_active'
+  });
+  document.querySelectorAll('.lng').forEach(item => {
+    console.log(item.classList.contains('lng-about'));
+  });
 });
+
+/***/ }),
+
+/***/ "./src/assets/js/scroll.js":
+/*!*********************************!*\
+  !*** ./src/assets/js/scroll.js ***!
+  \*********************************/
+/*! exports provided: scroll */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "scroll", function() { return scroll; });
+
+
+const scroll = _ref => {
+  let {
+    arrow: arrowSelector,
+    arrowActive: arrowActiveClass
+  } = _ref;
+  const links = document.querySelectorAll('[href^="#"]');
+  const speed = 0.2;
+  window.addEventListener('scroll', () => {
+    let fromTop = document.documentElement.scrollTop;
+    let arrow = document.querySelector(arrowSelector);
+    if (fromTop > 1650) {
+      arrow.classList.add(arrowActiveClass);
+    } else {
+      arrow.classList.remove(arrowActiveClass);
+    }
+  });
+  links.forEach(link => {
+    if (link.hash) {
+      link.addEventListener('click', function (e) {
+        e.preventDefault();
+        let toSection = document.querySelector(link.hash).getBoundingClientRect().top - 100;
+        let hash = this.hash;
+        let fromTop = document.documentElement.scrollTop;
+        let start = null;
+        requestAnimationFrame(step);
+        function step(time) {
+          if (start === null) {
+            start = time;
+          }
+          let progress = time - start;
+          let r = toSection < 0 ? Math.max(fromTop - progress / speed, fromTop + toSection) : Math.min(fromTop + progress / speed, fromTop + toSection);
+          document.documentElement.scrollTo(0, r);
+          if (r != fromTop + toSection) {
+            requestAnimationFrame(step);
+          } else {
+            location.hash = hash;
+          }
+        }
+      });
+    }
+  });
+};
+
 
 /***/ })
 
