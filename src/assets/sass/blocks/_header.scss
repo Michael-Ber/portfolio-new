@@ -37,11 +37,12 @@
     }
 
     &__lang {
-        span {
-            font-size: 10px;
-            color: #fff;
-            margin: 0 10px;
-        }
+        position: relative;
+        // span {
+        //     font-size: 10px;
+        //     color: #fff;
+        //     margin: 0 10px;
+        // }
     }
     &__burger {
         display: none;
@@ -94,9 +95,18 @@
     }
 }
 .lang-selector {
+    font-size: 20px;
+    text-transform: uppercase;
+    background-color: transparent;
+    color: #fff;
+    padding: 5px;
     @media(max-width: $container-media-575) {
         font-size: 14px;
     }
+}
+.lang-option {
+    color: #000;
+    
 }
 .github-icon {
     display: inline-block;

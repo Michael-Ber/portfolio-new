@@ -36,10 +36,8 @@
     display: none;
   }
 }
-.header__lang span {
-  font-size: 10px;
-  color: #fff;
-  margin: 0 10px;
+.header__lang {
+  position: relative;
 }
 .header__burger {
   display: none;
@@ -89,10 +87,21 @@
   }
 }
 
+.lang-selector {
+  font-size: 20px;
+  text-transform: uppercase;
+  background-color: transparent;
+  color: #fff;
+  padding: 5px;
+}
 @media (max-width: 575px) {
   .lang-selector {
     font-size: 14px;
   }
+}
+
+.lang-option {
+  color: #000;
 }
 
 .github-icon {

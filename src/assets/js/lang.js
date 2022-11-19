@@ -1,3 +1,4 @@
+
 const lang = {
     'lng-about' : {
         'en' : 'about',
@@ -16,10 +17,10 @@ const lang = {
         'ru': 'контакты'
     },
     'lng-intro' : {
-        'en' : "Hi, <br> I'm Michael, <br> web developer",
-        'ru': 'Привет, <br> меня зовут Михаил <br> я веб-разработчик'
+        'en' : `Hi, <br>I'm Michael,<br> web developer`,
+        'ru': 'Привет,<br> меня зовут Михаил,<br> я веб-разработчик'
     },
-    'lng-btn-contact' : {
+    'lng-btnContact' : {
         'en' : 'Contact me!',
         'ru': 'Свяжитесь со мной'
     },
@@ -31,7 +32,7 @@ const lang = {
         'en' : "Hello, my name is Michael. I'm junior front-end developer.I've been learning front-end for two years, finished five web developing courses on Udemy and have been practicing all that time. My you can see below.",
         'ru': 'Привет, меня зовут Михаил. Я джуниор фронт-енд разработчик. Я изучаю фронт-енд два года, закончил пять курсов веб-разработки на Udemy, все это время практикуюсь. вы можете посмотреть ниже '
     },
-    'lng-works-subtitle' : {
+    'lng-worksSubtitle' : {
         'en' : 'What i use in my work',
         'ru': 'Что я использую в работе'
     },
@@ -75,7 +76,7 @@ const lang = {
         'en' : 'Design creating',
         'ru': 'Создание дизайна'
     },
-    'lng-soft-skills' : {
+    'lng-softSkills' : {
         'en' : 'Soft skills',
         'ru': 'Soft skills'
     },
@@ -83,15 +84,15 @@ const lang = {
         'en' : 'Portfolio',
         'ru': 'Портфолио'
     },
-    'lng-works-subtitle' : {
+    'lng-worksSubtitle' : {
         'en' : 'Some of my works',
         'ru': 'Мои работы'
     },
-    'lng-contact-subtitle' : {
+    'lng-contactSubtitle' : {
         'en' : 'Form for contact',
         'ru': 'Форма для связи'
     },
-    'lng-contact-descr' : {
+    'lng-contactDescr' : {
         'en' : "I'm interested in freelance opportunities. However, if you have other request or question, you can use a form.",
         'ru': 'Мне интересны фриланс-возможности. Если у вас остались вопросы, можете использовать форму для связи'
     },
@@ -107,7 +108,7 @@ const lang = {
         'en' : 'Message',
         'ru': 'Сообщение'
     },
-    'lng-btn-send' : {
+    'lng-btnSend' : {
         'en' : 'Send message!',
         'ru': 'Отправить!'
     },
@@ -115,32 +116,33 @@ const lang = {
         'en' : 'I agree with the',
         'ru': 'Я согласен(а) с'
     },
-    'lng-privacy-link' : {
+    'lng-privacyLink' : {
         'en' : 'privacy policy',
         'ru': 'политикой конфиденциальности'
     },
-    'lng-about' : {
-        'en' : 'about',
-        'ru': 'обо мне'
-    },
-    'lng-about' : {
-        'en' : 'about',
-        'ru': 'обо мне'
-    },
-    'lng-about' : {
-        'en' : 'about',
-        'ru': 'обо мне'
-    },
-    'lng-about' : {
-        'en' : 'about',
-        'ru': 'обо мне'
-    },
-    'lng-about' : {
-        'en' : 'about',
-        'ru': 'обо мне'
-    },
-    'lng-about' : {
-        'en' : 'about',
-        'ru': 'обо мне'
-    },
 };
+
+function setLanguage(langObject, langSelector) {
+    const select = document.querySelector(langSelector);
+    const tagsForLangChange =  document.querySelectorAll('.lng');
+    window.location.hash = '#en';
+    select.addEventListener('change', () => {
+        let language = select.value;
+        
+        window.location.hash  = `#${language}`;
+        
+        let hash = window.location.hash;
+
+        tagsForLangChange.forEach(item => {
+            const clsNameStr = item.classList.value.match(/lng-[a-z]*/ig).join('');
+            console.log(item);
+            if(item.classList.contains(clsNameStr)) {
+                item.innerHTML = langObject[clsNameStr][hash.substring(1)];
+            }
+            // console.log(clsNameStr);
+            // console.log(lang[clsNameStr]['ru']);
+        });
+    })
+}
+
+export {setLanguage, lang};

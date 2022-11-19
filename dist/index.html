@@ -24,7 +24,7 @@
             </div>
             <nav class="header__links links-header">
                 <ul class="links-header__list">
-                    <li class="links-header__item"><a href="#about" class="links-header__link link lng lng-about">About</a></li>
+                    <li class="links-header__item"><a href="#about" class="links-header__link link lng lng-about"></a></li>
                     <li class="links-header__item"><a href="#skills" class="links-header__link link lng lng-skills">Skills</a></li>
                     <li class="links-header__item"><a href="#works" class="links-header__link link lng lng-works">Works</a></li>
                     <li class="links-header__item"><a href="#contact" class="links-header__link link lng lng-contact">Contact</a></li>
@@ -71,17 +71,18 @@
                 </div>
             </div>
             <div class="header__lang">
-                <a href="#" class="links-header__link link lang-selector">ENG</a>
-                <span>/</span>
-                <a href="#" class="links-header__link link lang-selector rus">RU</a>
+                <select name="lang-selector" id="lang-selector" class="lang-selector">
+                    <option value="en" selected class="lang-option">eng</option>
+                    <option value="ru" class="lang-option">ru</option>
+                </select>
             </div>
         </div>
     </header>
 
     <section class="intro" id="intro">
         <div class="intro__wrapper">
-            <h1 class="intro__title lng-intro">Hi, <br> I'm Michael, <br> web developer</h1>
-            <a href="#" class="intro__contact btn lng lng-btn-contact">Contact me!</a>
+            <h1 class="intro__title lng lng-intro">Hi, <br> I'm Michael, <br> web developer</h1>
+            <a href="#" class="intro__contact btn lng lng-btnContact">Contact me!</a>
             <aside class="intro__email">
                 <a href="#" class="intro__link">mikeber000@gmail.com</a>
             </aside>
@@ -111,7 +112,7 @@
             <h2 class="skills__title section-title">
                 <span class="lng lng-skills">Skills</span> 
             </h2>
-            <h3 class="skills__subtitle section-subtitle lng lng-works-subtitle">What i use in my work</h3>
+            <h3 class="skills__subtitle section-subtitle lng lng-worksSubtitle">What i use in my work</h3>
             <ul class="skills__list">
                 <li class="skills__item">
                     <article class="skills__card card-skills">
@@ -270,7 +271,7 @@
                 </li>
                 <li class="skills__diagrams-item">
                     <div class="diagrams-item__up">
-                        <h4 class="diagrams-item__title lng lng-soft-skills">Soft skills</h4>
+                        <h4 class="diagrams-item__title lng lng-softSkills">Soft skills</h4>
                         <div class="diagrams-item__percent">
                             <span>70</span>%
                         </div>
@@ -289,7 +290,7 @@
             <h2 class="works__title section-title">
                 <span class="lng lng-portfolio">Portfolio</span> 
             </h2>
-            <h3 class="works__subtitle section-subtitle lng lng-works-subtitle">Some of my works</h3>
+            <h3 class="works__subtitle section-subtitle lng lng-worksSubtitle">Some of my works</h3>
             <ul class="works__list">
                 <li class="works__item norm">
                     <img src="./assets/img/bg.jpg" alt="1">
@@ -316,10 +317,10 @@
     <section class="contact" id="contact">
         <div class="container">
             <h2 class="contact__title section-title">
-                <span class="lng-contact">Contact</span> 
+                <span class="lng lng-contact">Contact</span> 
             </h2>
-            <h3 class="contact__subtitle section-subtitle lng lng-contact-subtitle">Form for contact</h3>
-            <h4 class="contact__descr lng lng-contact-descr">I'm interested in freelance opportunities. However, if you have other request or question, you can use a form.
+            <h3 class="contact__subtitle section-subtitle lng lng-contactSubtitle">Form for contact</h3>
+            <h4 class="contact__descr lng lng-contactDescr">I'm interested in freelance opportunities. However, if you have other request or question, you can use a form.
             </h4>
             <form action="#" class="contact__form">
                 <div class="contact__wrapper">
@@ -338,7 +339,7 @@
                 </div>
                 
                 <div class="contact__send">
-                    <a href="#" class="contact__submit btn btn_dark lng lng-btn-send">Send message!</a>
+                    <a href="#" class="contact__submit btn btn_dark lng lng-btnSend">Send message!</a>
                     <div class="contact__privacy privacy">
                         <div class="privacy__input-wrapper">
                             <input id="privacy" type="checkbox" class="privacy__input">
@@ -349,7 +350,7 @@
                                 </g>
                             </svg>
                         </div>
-                        <label for="privacy lng lng-privacy">I agree with the <a href="#" class="privacy__link lng lng-privacy-link">privacy policy</a></label>
+                        <label for="privacy"><span class="lng lng-privacy">I agree with the</span> <a href="#" class="privacy__link lng lng-privacyLink">privacy policy</a></label>
                     </div>
                 </div>
             </form>
