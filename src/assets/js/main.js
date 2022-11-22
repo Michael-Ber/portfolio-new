@@ -1,8 +1,8 @@
 'use strict';
-
 import {burger} from './burger';
 import {scroll} from './scroll';
 import {setLanguage, lang} from './lang';
+
 window.addEventListener('DOMContentLoaded', () => {
     burger({
         btn: '.burger__btn',
@@ -15,10 +15,9 @@ window.addEventListener('DOMContentLoaded', () => {
     });
     scroll({arrow: '.arrow-up', arrowActive: 'arrow-up_active'});
 
-    document.querySelectorAll('.lng').forEach(item => {
-        const clsNameStr = item.classList.value.match(/lng-[a-z]*/ig).join('');
-        // console.log(clsNameStr);
-        // console.log(lang[clsNameStr]['ru']);
-    });
     setLanguage(lang, '.lang-selector');
+    
+    
+   
+   
 });

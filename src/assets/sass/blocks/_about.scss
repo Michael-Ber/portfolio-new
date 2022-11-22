@@ -53,10 +53,12 @@
     }
 
     &__subtitle {
+        display: inline-block;
         font-size: 20px;
         font-weight: 600;
         color: #000;
         margin-bottom: 30px;
+        min-height: 20px; //removing twitching 
         @media(max-width: $container-media-767) {
             text-align: center;
         }

@@ -1,6 +1,7 @@
 .intro {
     position: relative;
     // height: 100vh;
+    // overflow: hidden;
     background: url('./assets/img/bg.jpg') center center/cover no-repeat;
     padding: 100px 50px 200px 250px;
     @media(max-width: $container-media-1239) {
@@ -22,18 +23,18 @@
     }
 
     &__title {
-        color: #ffffff;
-        font-size: 80px;
-        font-weight: 700;
-        // margin-top: 100px;
-        @media(max-width: $container-media-1239) {
-            font-size: 60px;
+        display: flex;
+        align-items: flex-start;
+        flex-direction: column;
+        min-height: 300px;
+        @media(max-width: $container-media-991) {
+            min-height: 240px;
         }
         @media(max-width: $container-media-767) {
-            font-size: 40px;
+            min-height: 180px;
         }
         @media(max-width: $container-media-575) {
-            font-size: 28px;
+            min-height: 135px;
         }
     }
 
@@ -71,5 +72,74 @@
             background-color: #fff;
             margin-left: 50px;
         }
+    }
+}
+
+.title-intro {
+    &__str {
+        display: inline-block;
+        color: #ffffff;
+        font-size: 80px;
+        line-height: 100px;
+        font-weight: 700;
+        @media(max-width: $container-media-1239) {
+            font-size: 60px;
+            line-height: 80px;
+        }
+        @media(max-width: $container-media-767) {
+            font-size: 40px;
+            line-height: 60px;
+        }
+        @media(max-width: $container-media-575) {
+            font-size: 25px;
+            line-height: 45px;
+        }
+    }
+    &__letter {
+        display: inline-block;
+        color: #ffffff;
+        font-size: 80px;
+        line-height: 100px;
+        font-weight: 700;
+        @media(max-width: $container-media-1239) {
+            font-size: 60px;
+            line-height: 80px;
+        }
+        @media(max-width: $container-media-767) {
+            font-size: 40px;
+            line-height: 60px;
+        }
+        @media(max-width: $container-media-575) {
+            font-size: 25px;
+            line-height: 45px;
+        }
+        &:hover {
+            color: $fourth-color;
+            animation: dotTransform 1.5s ease-in;
+        }
+    }
+}
+
+@keyframes dotTransform {
+    0% {
+        transform: scale3d(1, 1, 1)
+    }
+    30% {
+        transform: scale3d(1.25, .75, 1)
+    }
+    40% {
+        transform: scale3d(.75, 1.25, 1)
+    }
+    50% {
+        transform: scale3d(1.15, 0.85, 1)
+    }
+    65% {
+        transform: scale3d(0.95, 1.05, 1)
+    }
+    75% {
+        transform: scale3d(1.05, 0.95, 1)
+    }
+    100% {
+        transform: scale3d(1, 1, 1)
     }
 }
