@@ -50,10 +50,10 @@
                 <div class="burger__menu menu">
                     <nav class="menu__links">
                         <ul class="menu__list">
-                            <li class="menu__item"><a href="#" class="menu__link link lng lng-about">About</a></li>
-                            <li class="menu__item"><a href="#" class="menu__link link lng lng-skills">Skills</a></li>
-                            <li class="menu__item"><a href="#" class="menu__link link lng lng-works">Works</a></li>
-                            <li class="menu__item"><a href="#" class="menu__link link lng lng-contact">Contact</a></li>
+                            <li class="menu__item"><a href="#about" class="menu__link link lng lng-about">About</a></li>
+                            <li class="menu__item"><a href="#skills" class="menu__link link lng lng-skills">Skills</a></li>
+                            <li class="menu__item"><a href="#works" class="menu__link link lng lng-works">Works</a></li>
+                            <li class="menu__item"><a href="#contact" class="menu__link link lng lng-contact">Contact</a></li>
                             <li class="menu__item">
                                 <a href="#" class="menu__link github-icon github-icon_burger">
                                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="30" height="30" viewBox="0 0 256 256" xml:space="preserve">
@@ -80,16 +80,21 @@
     </header>
 
     <section class="intro" id="intro">
-        <div class="intro__wrapper">
-            <h1 class="intro__title title-intro">
-                <span class="title-intro__str str-title-intro-1"></span>
-                <span class="title-intro__str str-title-intro-2"></span>
-                <span class="title-intro__str str-title-intro-3"></span>
-            </h1>
-            <a href="#" class="intro__contact btn lng lng-btnContact">Contact me!</a>
-            <aside class="intro__email">
-                <a href="#" class="intro__link">mikeber000@gmail.com</a>
-            </aside>
+        <div class="intro__parallax">
+            <div class="intro__bg">
+                <img src="./assets/img/bg.jpg" alt="background image">
+            </div>
+            <div class="intro__wrapper">
+                <h1 class="intro__title title-intro">
+                    <span class="title-intro__str str-title-intro-1"></span>
+                    <span class="title-intro__str str-title-intro-2"></span>
+                    <span class="title-intro__str str-title-intro-3"></span>
+                </h1>
+                <a href="#" class="intro__contact btn lng lng-btnContact">Contact me!</a>
+                <aside class="intro__email">
+                    <a href="#" class="intro__link">mikeber000@gmail.com</a>
+                </aside>
+            </div>
         </div>
     </section>
 
@@ -217,7 +222,7 @@
                     <div class="diagrams-item__up">
                         <h4 class="diagrams-item__title lng lng-sites">Web sites creating</h4>
                         <div class="diagrams-item__percent">
-                            <span>70</span>%
+                            <span>100</span>%
                         </div>
                     </div>
                     <div class="diagrams-item__bottom bottom-diagrams-item">
@@ -229,7 +234,7 @@
                     <div class="diagrams-item__up">
                         <h4 class="diagrams-item__title lng lng-apps">Web applications creating</h4>
                         <div class="diagrams-item__percent">
-                            <span>70</span>%
+                            <span>80</span>%
                         </div>
                     </div>
                     <div class="diagrams-item__bottom bottom-diagrams-item">
@@ -265,7 +270,7 @@
                     <div class="diagrams-item__up">
                         <h4 class="diagrams-item__title lng lng-design">Design creating</h4>
                         <div class="diagrams-item__percent">
-                            <span>70</span>%
+                            <span>75</span>%
                         </div>
                     </div>
                     <div class="diagrams-item__bottom bottom-diagrams-item">
@@ -277,7 +282,7 @@
                     <div class="diagrams-item__up">
                         <h4 class="diagrams-item__title lng lng-softSkills">Soft skills</h4>
                         <div class="diagrams-item__percent">
-                            <span>70</span>%
+                            <span>90</span>%
                         </div>
                     </div>
                     <div class="diagrams-item__bottom bottom-diagrams-item">
@@ -346,7 +351,7 @@
                     <a href="#" class="contact__submit btn btn_dark lng lng-btnSend">Send message!</a>
                     <div class="contact__privacy privacy">
                         <div class="privacy__input-wrapper">
-                            <input id="privacy" type="checkbox" class="privacy__input">
+                            <input id="privacy" required type="checkbox" class="privacy__input">
                             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 80 80" xml:space="preserve" width="15" height="15" class="mark-svg">
                                 <g>
                                     <polygon style="fill:#BAE0BD;" points="2.711,43.997 8.995,37.712 26.497,55.714 71.002,10.709 77.291,16.998 26.498,67.298  "/>

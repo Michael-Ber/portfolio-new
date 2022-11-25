@@ -1,5 +1,11 @@
 .works {
+    position: relative;
+    background-color: $sec-color;
     padding: 100px 0 0 0;
+    z-index: 10;
+    @media(max-width: $container-media-575) {
+        padding: 50px 0 0 0;
+    }
     &__title {
         text-align: center;
         &::after {

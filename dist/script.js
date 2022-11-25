@@ -1440,6 +1440,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _burger__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./burger */ "./src/assets/js/burger.js");
 /* harmony import */ var _scroll__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./scroll */ "./src/assets/js/scroll.js");
 /* harmony import */ var _lang__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./lang */ "./src/assets/js/lang.js");
+/* harmony import */ var _parallax__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./parallax */ "./src/assets/js/parallax.js");
+/* harmony import */ var _percents__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./percents */ "./src/assets/js/percents.js");
+
+
 
 
 
@@ -1460,7 +1464,82 @@ window.addEventListener('DOMContentLoaded', () => {
     arrowActive: 'arrow-up_active'
   });
   Object(_lang__WEBPACK_IMPORTED_MODULE_2__["setLanguage"])(_lang__WEBPACK_IMPORTED_MODULE_2__["lang"], '.lang-selector');
+  Object(_parallax__WEBPACK_IMPORTED_MODULE_3__["parallax"])('#intro', '.intro__bg');
+  Object(_percents__WEBPACK_IMPORTED_MODULE_4__["percentCreation"])('.skills__diagrams-item', '.diagrams-item__percent', '.bottom-diagrams-item__bg-front');
 });
+
+/***/ }),
+
+/***/ "./src/assets/js/parallax.js":
+/*!***********************************!*\
+  !*** ./src/assets/js/parallax.js ***!
+  \***********************************/
+/*! exports provided: parallax */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "parallax", function() { return parallax; });
+
+
+const parallax = (sectionSelector, bgSelector) => {
+  const bg = document.querySelector(bgSelector);
+  let xCoord = 0,
+    yCoord = 0;
+  let translateXTo = 0;
+  let translateYTo = 0;
+  document.querySelector(sectionSelector).addEventListener('mousemove', e => {
+    if (e.screenX < xCoord) {
+      if (translateXTo < 20) {
+        bg.style.transform = `translate(calc(-50% + ${translateXTo}px), calc(-50% + ${translateYTo}px))`;
+        translateXTo += .2;
+      }
+    } else {
+      if (translateXTo > -20) {
+        bg.style.transform = `translate(calc(-50% + ${translateXTo}px), calc(-50% + ${translateYTo}px))`;
+        translateXTo += -.2;
+      }
+    }
+    if (e.screenY < yCoord) {
+      if (translateYTo < 20) {
+        bg.style.transform = `translate(calc(-50% + ${translateXTo}px), calc(-50% + ${translateYTo}px))`;
+        translateYTo += .2;
+      }
+    } else {
+      if (translateYTo > -20) {
+        bg.style.transform = `translate(calc(-50% + ${translateXTo}px), calc(-50% + ${translateYTo}px))`;
+        translateYTo += -.2;
+      }
+    }
+    xCoord = e.screenX;
+    yCoord = e.screenY;
+  });
+};
+
+
+/***/ }),
+
+/***/ "./src/assets/js/percents.js":
+/*!***********************************!*\
+  !*** ./src/assets/js/percents.js ***!
+  \***********************************/
+/*! exports provided: percentCreation */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "percentCreation", function() { return percentCreation; });
+
+
+const percentCreation = (itemSelector, percentSelector, diagramSelector) => {
+  const item = document.querySelectorAll(itemSelector);
+  item.forEach(node => {
+    const percent = node.querySelector(percentSelector);
+    const diagram = node.querySelector(diagramSelector);
+    diagram.style.width = `${Array.from(percent.children)[0].textContent}%`;
+  });
+};
+
 
 /***/ }),
 

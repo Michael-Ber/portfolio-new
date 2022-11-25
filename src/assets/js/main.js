@@ -2,6 +2,8 @@
 import {burger} from './burger';
 import {scroll} from './scroll';
 import {setLanguage, lang} from './lang';
+import {parallax} from './parallax';
+import {percentCreation} from './percents';
 
 window.addEventListener('DOMContentLoaded', () => {
     burger({
@@ -16,8 +18,7 @@ window.addEventListener('DOMContentLoaded', () => {
     scroll({arrow: '.arrow-up', arrowActive: 'arrow-up_active'});
 
     setLanguage(lang, '.lang-selector');
+    parallax('#intro', '.intro__bg');
+    percentCreation('.skills__diagrams-item', '.diagrams-item__percent', '.bottom-diagrams-item__bg-front')
     
-    
-   
-   
 });

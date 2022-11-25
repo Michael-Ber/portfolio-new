@@ -1,14 +1,26 @@
 .intro {
     position: relative;
-    // height: 100vh;
+    min-height: 100vh;
     // overflow: hidden;
-    background: url('./assets/img/bg.jpg') center center/cover no-repeat;
-    padding: 100px 50px 200px 250px;
-    @media(max-width: $container-media-1239) {
-        padding: 100px 50px 200px 50px;
-    }
-    @media(max-width: $container-media-575) {
-        padding: 100px 30px 100px 10px;
+    // padding: 100px 50px 200px 250px;
+    
+    &__parallax {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        // padding: 100px 50px 200px 250px;
+        // padding: 0px 50px 0px 250px;
+        @media(max-width: $container-media-1239) {
+            // padding: 100px 50px 200px 50px;
+            // padding: 0 50px 0 50px;
+        }
+        @media(max-width: $container-media-575) {
+            // padding: 100px 30px 100px 10px;
+            // padding: 0 30px 0 10px;
+        }
+        // overflow: hidden;
     }
     &__wrapper {
         position: relative;
@@ -16,13 +28,33 @@
         justify-content: center;
         align-items: flex-start;
         flex-direction: column;
-        margin-top: 200px;
+        top: 50%;
+        left: 10%;
+        transform: translateY(-50%);
+        z-index: 10;
+        
+        // padding-top: 200px;
         @media(max-width: $container-media-575) {
-            margin-top: 100px;
+            left: 5%;
         }
     }
-
+    &__bg {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 110%;
+        height: 110%;
+        z-index: 1;
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
     &__title {
+        position: relative;
+        z-index: 10;
         display: flex;
         align-items: flex-start;
         flex-direction: column;
@@ -40,17 +72,20 @@
 
     &__contact {
         margin-top: 100px;
-        @media(max-width: $container-media-575) {
-            width: 160px !important;
-        }
+        // @media(max-width: $container-media-575) {
+        //     width: 160px !important;
+        // }
     }
     &__email {
         position: absolute;
         top: 100%;
-        right: 0;
-        transform: rotate(90deg);
+        right: 20%;
+        transform: rotate(90deg) translateX(34%);
         transform-origin: bottom right;
-        
+        @media(max-width: $container-media-575) {
+            right: 12%;
+            transform: rotate(90deg) translateX(50%);
+        }
     }
     &__link {
         display: flex;
@@ -77,6 +112,7 @@
 
 .title-intro {
     &__str {
+        
         display: inline-block;
         color: #ffffff;
         font-size: 80px;
@@ -117,6 +153,23 @@
             color: $fourth-color;
             animation: dotTransform 1.5s ease-in;
         }
+    }
+}
+.bg-intro {
+    &__item {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+    }
+    &__img {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background: url('./assets/img/bg.jpg') center center/cover no-repeat;
     }
 }
 

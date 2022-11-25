@@ -1,5 +1,11 @@
 .skills {
-    padding: 100px 0 0 0;
+    position: relative;
+    padding: 100px 0 10px 0;
+    background-color: $sec-color;
+    z-index: 10;
+    @media(max-width: $container-media-575) {
+        padding: 30px 0 10px 0;
+    }
     &__title {
         text-align: center;
         
