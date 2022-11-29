@@ -1,7 +1,8 @@
 .about {
     position: relative;
     z-index: 10;
-    background-color: $sec-color;
+    // background-color: $sec-color;
+    background-color: $preload-color;
     &__wrapper {
         display: flex;
         justify-content: space-between;
@@ -58,7 +59,7 @@
         display: inline-block;
         font-size: 20px;
         font-weight: 600;
-        color: $black;
+        color: $white;
         margin-bottom: 30px;
         min-height: 20px; //removing twitching 
         @media(max-width: $container-media-767) {
@@ -70,7 +71,7 @@
         font-size: 18px;
         line-height: 42px;
         font-weight: 500;
-        color: $black;
+        color: $white;
         @media(max-width: $container-media-991) {
             font-size: 16px;
         }

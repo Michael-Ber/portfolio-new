@@ -1,6 +1,7 @@
 .works {
     position: relative;
-    background-color: $sec-color;
+    // background-color: $sec-color;
+    background-color: $preload-color;
     padding: 100px 0 0 0;
     z-index: 10;
     @media(max-width: $container-media-575) {
