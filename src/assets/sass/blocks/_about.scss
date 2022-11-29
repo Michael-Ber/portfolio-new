@@ -58,7 +58,7 @@
         display: inline-block;
         font-size: 20px;
         font-weight: 600;
-        color: #000;
+        color: $black;
         margin-bottom: 30px;
         min-height: 20px; //removing twitching 
         @media(max-width: $container-media-767) {
@@ -70,7 +70,7 @@
         font-size: 18px;
         line-height: 42px;
         font-weight: 500;
-        color: #000;
+        color: $black;
         @media(max-width: $container-media-991) {
             font-size: 16px;
         }

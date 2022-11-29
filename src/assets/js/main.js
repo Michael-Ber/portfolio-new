@@ -1,4 +1,5 @@
 'use strict';
+import {preload} from './preload';
 import {burger} from './burger';
 import {scroll} from './scroll';
 import {setLanguage, lang} from './lang';
@@ -6,6 +7,15 @@ import {parallax} from './parallax';
 import {percentCreation} from './percents';
 
 window.addEventListener('DOMContentLoaded', () => {
+    preload('.preload', '.preload__loading').then(
+        res => {
+            if(res === true) {
+                setTimeout(() => {
+                    setLanguage(lang, '.lang-selector');//delay for make text typed visible
+                }, 1500);
+            }
+        }
+    );
     burger({
         btn: '.burger__btn',
         menu: '.burger__menu',
@@ -16,9 +26,6 @@ window.addEventListener('DOMContentLoaded', () => {
         close: '.menu__close'
     });
     scroll({arrow: '.arrow-up', arrowActive: 'arrow-up_active'});
-
-    setLanguage(lang, '.lang-selector');
     parallax('#intro', '.intro__bg');
-    percentCreation('.skills__diagrams-item', '.diagrams-item__percent', '.bottom-diagrams-item__bg-front')
-    
+    percentCreation('.skills__diagrams-item', '.diagrams-item__percent', '.bottom-diagrams-item__bg-front');
 });

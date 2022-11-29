@@ -140,9 +140,9 @@ function setLanguage(langObject, langSelector) {
     const aboutTitle = document.querySelector('.about__subtitle');
 
     window.location.hash = '#en';
+    
     let hashOld = window.location.hash.substring(1);
     let typed1 = [];
-
     // Typed.js for intro__title, no loop
     
     for(let i = 0; i < introTitle.length; i++) {
@@ -183,27 +183,39 @@ function setLanguage(langObject, langSelector) {
             self.strings.options = lang['lng-prof'][window.location.hash.substring(1)];
         }
     });
-    //
+
+    //change hash
+    
     select.addEventListener('input', () => {
         let language = select.value;
         window.location.hash  = `#${language}`;
         let hash = window.location.hash.substring(1);
         
         if(hashOld !== hash) {
-            hashOld = hash;
-            typed1.forEach((obj, j) => {
-                obj.reset();
-            });
-            typed2.reset();
+            changeLanguage(hash);
         }
         
+        
+    })
+
+    window.addEventListener('popstate', () => {
+        let hash = window.location.hash.substring(1);
+        select.value = window.location.hash.substring(1);
+        changeLanguage(hash);
+    });
+
+    function changeLanguage(hash) {
+        typed1.forEach((obj, j) => {
+            obj.reset();
+        });
+        typed2.reset();
         tagsForLangChange.forEach(item => {
             const clsNameStr = item.classList.value.match(/lng-[a-z]*/ig).join('');
             if(item.classList.contains(clsNameStr)) {
                 item.innerHTML = langObject[clsNameStr][hash];
             }
         });
-    })
+    }
 
     //Animate literals
     function animateText(parentNode, letterClass) {

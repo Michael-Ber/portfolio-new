@@ -1168,24 +1168,42 @@ const burger = _ref => {
   const burgerBtn = document.querySelector(btnSelector),
     burgerMenu = document.querySelector(menuSelector),
     overlay = document.querySelector(overlaySelector),
-    close = document.querySelector(closeSelector);
+    close = document.querySelector(closeSelector),
+    body = document.querySelector('body');
   burgerBtn.addEventListener('click', function () {
     if (!this.classList.contains(btnActiveClass)) {
       this.classList.add(btnActiveClass);
       burgerMenu.classList.add(menuActiveClass);
       overlay.classList.add(overlayActiveClass);
+      body.style.overflow = 'hidden';
+      body.style.marginRight = `${getScrollWidth()}px`;
     } else {
       this.classList.remove(btnActiveClass);
       burgerMenu.classList.remove(menuActiveClass);
       overlay.classList.remove(overlayActiveClass);
+      body.style.overflow = 'unset';
+      body.style.marginRight = `0px`;
     }
   });
   close.addEventListener('click', () => {
     burgerBtn.classList.remove(btnActiveClass);
     burgerMenu.classList.remove(menuActiveClass);
     overlay.classList.remove(overlayActiveClass);
+    body.style.overflow = 'unset';
+    body.style.marginRight = `0px`;
   });
 };
+function getScrollWidth() {
+  let div = document.createElement('div');
+  div.style.width = '50px';
+  div.style.height = '50px';
+  div.style.overflowY = 'scroll';
+  div.style.visibility = 'hidden';
+  document.body.appendChild(div);
+  let scrollWidth = div.offsetWidth - div.clientWidth;
+  div.remove();
+  return scrollWidth;
+}
 
 
 /***/ }),
@@ -1344,7 +1362,6 @@ function setLanguage(langObject, langSelector) {
   window.location.hash = '#en';
   let hashOld = window.location.hash.substring(1);
   let typed1 = [];
-
   // Typed.js for intro__title, no loop
 
   for (let i = 0; i < introTitle.length; i++) {
@@ -1385,25 +1402,34 @@ function setLanguage(langObject, langSelector) {
       self.strings.options = lang['lng-prof'][window.location.hash.substring(1)];
     }
   });
-  //
+
+  //change hash
+
   select.addEventListener('input', () => {
     let language = select.value;
     window.location.hash = `#${language}`;
     let hash = window.location.hash.substring(1);
     if (hashOld !== hash) {
-      hashOld = hash;
-      typed1.forEach((obj, j) => {
-        obj.reset();
-      });
-      typed2.reset();
+      changeLanguage(hash);
     }
+  });
+  window.addEventListener('popstate', () => {
+    let hash = window.location.hash.substring(1);
+    select.value = window.location.hash.substring(1);
+    changeLanguage(hash);
+  });
+  function changeLanguage(hash) {
+    typed1.forEach((obj, j) => {
+      obj.reset();
+    });
+    typed2.reset();
     tagsForLangChange.forEach(item => {
       const clsNameStr = item.classList.value.match(/lng-[a-z]*/ig).join('');
       if (item.classList.contains(clsNameStr)) {
         item.innerHTML = langObject[clsNameStr][hash];
       }
     });
-  });
+  }
 
   //Animate literals
   function animateText(parentNode, letterClass) {
@@ -1437,11 +1463,13 @@ function setLanguage(langObject, langSelector) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _burger__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./burger */ "./src/assets/js/burger.js");
-/* harmony import */ var _scroll__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./scroll */ "./src/assets/js/scroll.js");
-/* harmony import */ var _lang__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./lang */ "./src/assets/js/lang.js");
-/* harmony import */ var _parallax__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./parallax */ "./src/assets/js/parallax.js");
-/* harmony import */ var _percents__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./percents */ "./src/assets/js/percents.js");
+/* harmony import */ var _preload__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./preload */ "./src/assets/js/preload.js");
+/* harmony import */ var _burger__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./burger */ "./src/assets/js/burger.js");
+/* harmony import */ var _scroll__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./scroll */ "./src/assets/js/scroll.js");
+/* harmony import */ var _lang__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./lang */ "./src/assets/js/lang.js");
+/* harmony import */ var _parallax__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./parallax */ "./src/assets/js/parallax.js");
+/* harmony import */ var _percents__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./percents */ "./src/assets/js/percents.js");
+
 
 
 
@@ -1450,7 +1478,14 @@ __webpack_require__.r(__webpack_exports__);
 
 
 window.addEventListener('DOMContentLoaded', () => {
-  Object(_burger__WEBPACK_IMPORTED_MODULE_0__["burger"])({
+  Object(_preload__WEBPACK_IMPORTED_MODULE_0__["preload"])('.preload', '.preload__loading').then(res => {
+    if (res === true) {
+      setTimeout(() => {
+        Object(_lang__WEBPACK_IMPORTED_MODULE_3__["setLanguage"])(_lang__WEBPACK_IMPORTED_MODULE_3__["lang"], '.lang-selector'); //delay for make text typed visible
+      }, 1500);
+    }
+  });
+  Object(_burger__WEBPACK_IMPORTED_MODULE_1__["burger"])({
     btn: '.burger__btn',
     menu: '.burger__menu',
     overlay: '.overlay',
@@ -1459,13 +1494,12 @@ window.addEventListener('DOMContentLoaded', () => {
     overlayActive: 'overlay_active',
     close: '.menu__close'
   });
-  Object(_scroll__WEBPACK_IMPORTED_MODULE_1__["scroll"])({
+  Object(_scroll__WEBPACK_IMPORTED_MODULE_2__["scroll"])({
     arrow: '.arrow-up',
     arrowActive: 'arrow-up_active'
   });
-  Object(_lang__WEBPACK_IMPORTED_MODULE_2__["setLanguage"])(_lang__WEBPACK_IMPORTED_MODULE_2__["lang"], '.lang-selector');
-  Object(_parallax__WEBPACK_IMPORTED_MODULE_3__["parallax"])('#intro', '.intro__bg');
-  Object(_percents__WEBPACK_IMPORTED_MODULE_4__["percentCreation"])('.skills__diagrams-item', '.diagrams-item__percent', '.bottom-diagrams-item__bg-front');
+  Object(_parallax__WEBPACK_IMPORTED_MODULE_4__["parallax"])('#intro', '.intro__bg');
+  Object(_percents__WEBPACK_IMPORTED_MODULE_5__["percentCreation"])('.skills__diagrams-item', '.diagrams-item__percent', '.bottom-diagrams-item__bg-front');
 });
 
 /***/ }),
@@ -1538,6 +1572,60 @@ const percentCreation = (itemSelector, percentSelector, diagramSelector) => {
     const diagram = node.querySelector(diagramSelector);
     diagram.style.width = `${Array.from(percent.children)[0].textContent}%`;
   });
+};
+
+
+/***/ }),
+
+/***/ "./src/assets/js/preload.js":
+/*!**********************************!*\
+  !*** ./src/assets/js/preload.js ***!
+  \**********************************/
+/*! exports provided: preload */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "preload", function() { return preload; });
+
+
+const preload = async (parentSelector, loadingSelector) => {
+  const app = document.querySelector('.app');
+  const parent = document.querySelector(parentSelector);
+  const loading = document.querySelector(loadingSelector);
+  const lines = loading.querySelectorAll('span');
+  const img = parent.querySelector('img');
+  document.querySelector('.content').style.transform = `translateY(${parent.getBoundingClientRect().height}px)`;
+  window.addEventListener('scroll', scrollTo0);
+  function scrollTo0() {
+    window.scrollTo(0, 0);
+  }
+  for (let line of lines) {
+    await lineWidthSetting(line);
+  }
+  lines.forEach(line => {
+    setTimeout(() => {
+      line.style.animation = `lineAnimation .7s ease`;
+    }, 200);
+  });
+  setTimeout(() => {
+    parent.classList.add('preload_loaded');
+    document.querySelector('.content').style.transform = `translateY(0px)`;
+    window.removeEventListener('scroll', scrollTo0);
+  }, 1000);
+  async function lineWidthSetting(line) {
+    return new Promise(resolve => {
+      setTimeout(() => {
+        for (let j = 0; j <= 100; j++) {
+          setTimeout(() => {
+            line.style.background = `linear-gradient(to right, #fff ${j}%, transparent ${j}%)`;
+          }, 1 * j);
+        }
+        resolve();
+      }, 100);
+    });
+  }
+  return new Promise(resolve => resolve(true));
 };
 
 
