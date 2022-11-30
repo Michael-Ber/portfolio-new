@@ -1,13 +1,13 @@
 .header {
-  position: relative;
+  position: fixed;
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
   height: 100px;
-  background-color: rgba(0, 0, 0, 0.9);
-  position: fixed;
-  inset: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  top: 0;
+  left: 0;
   z-index: 100;
   padding: 10px 60px 10px 50px;
 }
@@ -214,7 +214,7 @@
   justify-content: center;
   align-items: flex-start;
   flex-direction: column;
-  top: 50%;
+  top: 40%;
   left: 10%;
   transform: translateY(-50%);
   z-index: 10;
@@ -223,20 +223,6 @@
   .intro__wrapper {
     left: 5%;
   }
-}
-.intro__bg {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 110%;
-  height: 110%;
-  z-index: 1;
-}
-.intro__bg img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
 }
 .intro__title {
   position: relative;
@@ -398,7 +384,7 @@
 .about {
   position: relative;
   z-index: 10;
-  background-color: #021615;
+  background-color: #141414;
 }
 .about__wrapper {
   display: flex;
@@ -504,7 +490,7 @@
 .skills {
   position: relative;
   padding: 100px 0 10px 0;
-  background-color: #021615;
+  background-color: #141414;
   z-index: 10;
 }
 @media (max-width: 575px) {
@@ -629,7 +615,7 @@
 
 .works {
   position: relative;
-  background-color: #021615;
+  background-color: #141414;
   padding: 100px 0 0 0;
   z-index: 10;
 }
@@ -730,7 +716,7 @@
 
 .contact {
   position: relative;
-  background-color: #021615;
+  background-color: #141414;
   padding: 100px 10px 100px 10px;
   z-index: 10;
 }
@@ -807,6 +793,9 @@
   transform: translateY(-50%);
   padding: 0 10px;
   color: #ffffff;
+}
+.contact__label_textarea {
+  top: 12%;
 }
 .contact__input {
   width: 100%;
@@ -962,6 +951,20 @@ body {
 .app {
   position: relative;
 }
+.app__container {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.app__bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  background: url("./assets/img/bg-3.jpg") center center/cover no-repeat;
+}
 
 .content {
   position: relative;
@@ -981,7 +984,7 @@ body {
   bottom: 0;
   width: 100%;
   height: 100vh;
-  background: radial-gradient(#05736d, #021615);
+  background: radial-gradient(#05736d, #141414);
   z-index: 1000;
   transition: 0.8s all;
 }
@@ -1049,11 +1052,11 @@ body {
   left: 0;
   width: 100%;
   height: 100vh;
-  background-color: rgba(255, 255, 255, 0.6);
+  background-color: rgba(0, 0, 0, 0.9);
 }
 .overlay_active {
   display: block;
-  z-index: 10;
+  z-index: 20;
 }
 
 .arrow-up {
@@ -1109,7 +1112,7 @@ body {
   border-right: 35px solid transparent;
 }
 .btn:hover {
-  color: #021615;
+  color: #141414;
 }
 .btn:hover:before {
   width: 100%;

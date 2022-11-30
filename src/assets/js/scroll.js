@@ -37,8 +37,6 @@ const scroll = ({
                     document.documentElement.scrollTo(0, r);
                     if(r != fromTop + toSection) {
                         requestAnimationFrame(step);
-                    }else {
-                        location.hash = hash;
                     }
                 }
             });

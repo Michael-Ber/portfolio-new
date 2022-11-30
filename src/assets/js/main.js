@@ -13,6 +13,7 @@ window.addEventListener('DOMContentLoaded', () => {
                 setTimeout(() => {
                     setLanguage(lang, '.lang-selector');//delay for make text typed visible
                 }, 1500);
+                
             }
         }
     );
@@ -26,6 +27,6 @@ window.addEventListener('DOMContentLoaded', () => {
         close: '.menu__close'
     });
     scroll({arrow: '.arrow-up', arrowActive: 'arrow-up_active'});
-    parallax('#intro', '.intro__bg');
+    // parallax('.app', '.app__bg');
     percentCreation('.skills__diagrams-item', '.diagrams-item__percent', '.bottom-diagrams-item__bg-front');
 });

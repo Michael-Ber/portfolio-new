@@ -1498,7 +1498,7 @@ window.addEventListener('DOMContentLoaded', () => {
     arrow: '.arrow-up',
     arrowActive: 'arrow-up_active'
   });
-  Object(_parallax__WEBPACK_IMPORTED_MODULE_4__["parallax"])('#intro', '.intro__bg');
+  // parallax('.app', '.app__bg');
   Object(_percents__WEBPACK_IMPORTED_MODULE_5__["percentCreation"])('.skills__diagrams-item', '.diagrams-item__percent', '.bottom-diagrams-item__bg-front');
 });
 
@@ -1524,25 +1524,29 @@ const parallax = (sectionSelector, bgSelector) => {
   let translateYTo = 0;
   document.querySelector(sectionSelector).addEventListener('mousemove', e => {
     if (e.screenX < xCoord) {
-      if (translateXTo < 20) {
-        bg.style.transform = `translate(calc(-50% + ${translateXTo}px), calc(-50% + ${translateYTo}px))`;
-        translateXTo += .2;
+      if (translateXTo < 10) {
+        // bg.style.transform = `translate(calc(-50% + ${translateXTo}px), calc(-50% + ${translateYTo}px))`;
+        bg.style.transform = `translate(${translateXTo}px, ${translateYTo}px)`;
+        translateXTo += .5;
       }
     } else {
-      if (translateXTo > -20) {
-        bg.style.transform = `translate(calc(-50% + ${translateXTo}px), calc(-50% + ${translateYTo}px))`;
-        translateXTo += -.2;
+      if (translateXTo > -10) {
+        // bg.style.transform = `translate(calc(-50% + ${translateXTo}px), calc(-50% + ${translateYTo}px))`;
+        bg.style.transform = `translate(${translateXTo}px, ${translateYTo}px)`;
+        translateXTo += -.5;
       }
     }
     if (e.screenY < yCoord) {
-      if (translateYTo < 20) {
-        bg.style.transform = `translate(calc(-50% + ${translateXTo}px), calc(-50% + ${translateYTo}px))`;
-        translateYTo += .2;
+      if (translateYTo < 10) {
+        // bg.style.transform = `translate(calc(-50% + ${translateXTo}px), calc(-50% + ${translateYTo}px))`;
+        bg.style.transform = `translate(${translateXTo}px, ${translateYTo}px)`;
+        translateYTo += .5;
       }
     } else {
-      if (translateYTo > -20) {
-        bg.style.transform = `translate(calc(-50% + ${translateXTo}px), calc(-50% + ${translateYTo}px))`;
-        translateYTo += -.2;
+      if (translateYTo > -10) {
+        // bg.style.transform = `translate(calc(-50% + ${translateXTo}px), calc(-50% + ${translateYTo}px))`;
+        bg.style.transform = `translate(${translateXTo}px, ${translateYTo}px)`;
+        translateYTo += -.5;
       }
     }
     xCoord = e.screenX;
@@ -1677,8 +1681,6 @@ const scroll = _ref => {
           document.documentElement.scrollTo(0, r);
           if (r != fromTop + toSection) {
             requestAnimationFrame(step);
-          } else {
-            location.hash = hash;
           }
         }
       });

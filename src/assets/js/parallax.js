@@ -9,25 +9,29 @@ const parallax = (sectionSelector, bgSelector) => {
 
     document.querySelector(sectionSelector).addEventListener('mousemove', (e) => {
         if(e.screenX < xCoord) {
-            if(translateXTo < 20) {
-                bg.style.transform = `translate(calc(-50% + ${translateXTo}px), calc(-50% + ${translateYTo}px))`;
-                translateXTo += .2;
+            if(translateXTo < 10) {
+                // bg.style.transform = `translate(calc(-50% + ${translateXTo}px), calc(-50% + ${translateYTo}px))`;
+                bg.style.transform = `translate(${translateXTo}px, ${translateYTo}px)`;
+                translateXTo += .5;
             }
         }else {
-            if(translateXTo > -20) {
-                bg.style.transform = `translate(calc(-50% + ${translateXTo}px), calc(-50% + ${translateYTo}px))`;
-                translateXTo += -.2;
+            if(translateXTo > -10) {
+                // bg.style.transform = `translate(calc(-50% + ${translateXTo}px), calc(-50% + ${translateYTo}px))`;
+                bg.style.transform = `translate(${translateXTo}px, ${translateYTo}px)`;
+                translateXTo += -.5;
             }
         }
         if(e.screenY < yCoord) {
-            if(translateYTo < 20) {
-                bg.style.transform = `translate(calc(-50% + ${translateXTo}px), calc(-50% + ${translateYTo}px))`;
-                translateYTo += .2;
+            if(translateYTo < 10) {
+                // bg.style.transform = `translate(calc(-50% + ${translateXTo}px), calc(-50% + ${translateYTo}px))`;
+                bg.style.transform = `translate(${translateXTo}px, ${translateYTo}px)`;
+                translateYTo += .5;
             }
         }else {
-            if(translateYTo > -20) {
-                bg.style.transform = `translate(calc(-50% + ${translateXTo}px), calc(-50% + ${translateYTo}px))`;
-                translateYTo += -.2;
+            if(translateYTo > -10) {
+                // bg.style.transform = `translate(calc(-50% + ${translateXTo}px), calc(-50% + ${translateYTo}px))`;
+                bg.style.transform = `translate(${translateXTo}px, ${translateYTo}px)`;
+                translateYTo += -.5;
             }
         }
         xCoord = e.screenX;

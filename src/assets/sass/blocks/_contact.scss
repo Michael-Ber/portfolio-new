@@ -1,7 +1,7 @@
 .contact {
     position: relative;
-    // background-color: $sec-color;
     background-color: $preload-color;
+    // background-color: #1c1c1a;
     padding: 100px 10px 100px 10px;
     z-index: 10;
     &__title {
@@ -80,6 +80,9 @@
         // background-color: $sec-color;
         padding: 0 10px;
         color: $white;
+        &_textarea {
+            top: 12%;
+        }
     }
 
     &__input {
