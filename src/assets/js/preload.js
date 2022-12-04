@@ -1,14 +1,13 @@
 'use strict';
 
 const preload = async (parentSelector, loadingSelector) => {
-    const app = document.querySelector('.app');
     const parent = document.querySelector(parentSelector);
     const loading = document.querySelector(loadingSelector);
     const lines = loading.querySelectorAll('span');
-    const img = parent.querySelector('img');
 
 
     document.querySelector('.content').style.transform = `translateY(${parent.getBoundingClientRect().height}px)`;
+    document.querySelector('.content').style.opacity = `0`;
     window.addEventListener('scroll', scrollTo0);
 
     function scrollTo0() {
@@ -26,8 +25,10 @@ const preload = async (parentSelector, loadingSelector) => {
     setTimeout(() => {
         parent.classList.add('preload_loaded');
         document.querySelector('.content').style.transform = `translateY(0px)`;
+        document.querySelector('.content').style.opacity = `1`;
         window.removeEventListener('scroll', scrollTo0);
     }, 1000);
+
     
 
     async function lineWidthSetting(line) {

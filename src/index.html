@@ -358,21 +358,23 @@
                         <form action="#" class="contact__form">
                             <div class="contact__wrapper">
                                 <div class="contact__field contact__field_sm">
-                                    <input type="text" name="name" id="name" class="contact__input">
+                                    <input required type="text" name="name" id="name" class="contact__input">
                                     <label for="name" class="contact__label lng lng-name">Name</label>
                                 </div>
                                 <div class="contact__field contact__field_sm">
-                                    <input type="email" name="email" id="email" class="contact__input">
+                                    <input required type="email" name="email" id="email" class="contact__input">
                                     <label for="email" class="contact__label lng lng-email">Email</label>
                                 </div>
                                 <div class="contact__field contact__field_lg">
-                                    <textarea name="message" id="message" cols="30" rows="10"class="contact__textarea"></textarea>
+                                    <textarea required name="message" id="message" cols="30" rows="10"class="contact__textarea"></textarea>
                                     <label for="message" class="contact__label contact__label_textarea lng lng-msg">Message</label>
                                 </div>
                             </div>
                             
                             <div class="contact__send">
-                                <a href="#" class="contact__submit btn btn_dark lng lng-btnSend">Send message!</a>
+                                <div class="contact__submit btn btn_dark">
+                                    <button type="submit" class="contact__submit-input">Send Message!</button>
+                                </div>
                                 <div class="contact__privacy privacy">
                                     <div class="privacy__input-wrapper">
                                         <input id="privacy" required type="checkbox" class="privacy__input">

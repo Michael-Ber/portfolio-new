@@ -1208,6 +1208,31 @@ function getScrollWidth() {
 
 /***/ }),
 
+/***/ "./src/assets/js/form.js":
+/*!*******************************!*\
+  !*** ./src/assets/js/form.js ***!
+  \*******************************/
+/*! exports provided: form */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "form", function() { return form; });
+/* harmony import */ var _services_sendRequest__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./services/sendRequest */ "./src/assets/js/services/sendRequest.js");
+
+
+
+const form = formSelector => {
+  const form = document.querySelector(formSelector);
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    console.log('submit');
+  });
+};
+
+
+/***/ }),
+
 /***/ "./src/assets/js/lang.js":
 /*!*******************************!*\
   !*** ./src/assets/js/lang.js ***!
@@ -1469,6 +1494,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _lang__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./lang */ "./src/assets/js/lang.js");
 /* harmony import */ var _parallax__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./parallax */ "./src/assets/js/parallax.js");
 /* harmony import */ var _percents__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./percents */ "./src/assets/js/percents.js");
+/* harmony import */ var _form__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./form */ "./src/assets/js/form.js");
+
 
 
 
@@ -1500,6 +1527,7 @@ window.addEventListener('DOMContentLoaded', () => {
   });
   // parallax('.app', '.app__bg');
   Object(_percents__WEBPACK_IMPORTED_MODULE_5__["percentCreation"])('.skills__diagrams-item', '.diagrams-item__percent', '.bottom-diagrams-item__bg-front');
+  Object(_form__WEBPACK_IMPORTED_MODULE_6__["form"])('.contact__form');
 });
 
 /***/ }),
@@ -1594,12 +1622,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const preload = async (parentSelector, loadingSelector) => {
-  const app = document.querySelector('.app');
   const parent = document.querySelector(parentSelector);
   const loading = document.querySelector(loadingSelector);
   const lines = loading.querySelectorAll('span');
-  const img = parent.querySelector('img');
   document.querySelector('.content').style.transform = `translateY(${parent.getBoundingClientRect().height}px)`;
+  document.querySelector('.content').style.opacity = `0`;
   window.addEventListener('scroll', scrollTo0);
   function scrollTo0() {
     window.scrollTo(0, 0);
@@ -1615,6 +1642,7 @@ const preload = async (parentSelector, loadingSelector) => {
   setTimeout(() => {
     parent.classList.add('preload_loaded');
     document.querySelector('.content').style.transform = `translateY(0px)`;
+    document.querySelector('.content').style.opacity = `1`;
     window.removeEventListener('scroll', scrollTo0);
   }, 1000);
   async function lineWidthSetting(line) {
@@ -1686,6 +1714,32 @@ const scroll = _ref => {
       });
     }
   });
+};
+
+
+/***/ }),
+
+/***/ "./src/assets/js/services/sendRequest.js":
+/*!***********************************************!*\
+  !*** ./src/assets/js/services/sendRequest.js ***!
+  \***********************************************/
+/*! exports provided: sendReq */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "sendReq", function() { return sendReq; });
+
+
+const sendReq = async (url, data) => {
+  let res = await fetch(url, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data)
+  });
+  return await res;
 };
 
 
