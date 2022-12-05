@@ -28,7 +28,7 @@
         align-items: flex-start;
         flex-wrap: wrap;
         gap: 40px;
-        margin-bottom: 30px;
+        margin-bottom: 50px;
         @media(max-width: $container-media-767) {
             flex-direction: column;
             align-items: stretch;
@@ -59,7 +59,6 @@
                 background-color: $fourth-color;
                 display: inline-block;
             }
-            
         }
         &_sm {
             flex: 0 0 calc(50% - 20px);
@@ -101,6 +100,7 @@
                 display: none;
             }
         }
+        
     }
     &__textarea {
         width: 100%;
@@ -139,6 +139,7 @@
     }
 
     &__submit {
+        position: relative;
         margin-right: 30px;
         padding: 0 !important;
 
@@ -162,6 +163,16 @@
         &:hover {
             color: $black;
         }
+    }
+    &__notfilled {
+        display: block;
+        position: absolute;
+        top: calc(100% + 5px);
+        left: 0;
+        color: red;
+        font-size: 14px;
+        font-weight: 600;
+        width: 300px;
     }
 }
 .lng-privacy {
@@ -238,4 +249,8 @@
     @media(max-width: $container-media-767) {
         font-size: 14px;
     }
+}
+
+.wrong {
+    border-bottom: 1px solid red;
 }

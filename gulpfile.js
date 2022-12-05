@@ -10,7 +10,7 @@ const postcss = require("gulp-postcss");
 const imagemin = require('gulp-imagemin');
 
 
-const dist = "../../js/OpenServer/domains/portfolio";
+const dist = "../../../js/OpenServer/domains/portfolio";
 // const dist = "./dist";
 
 gulp.task("copy-html", () => {
@@ -61,14 +61,14 @@ gulp.task("build-js", () => {
 gulp.task('imagemin', function() {
   return gulp.src('./src/assets/img/**/*.*')
       .pipe(imagemin())
-      .pipe(gulp.dest('../../js/OpenServer/domains/portfolio/assets/img'));
+      .pipe(gulp.dest('../../../js/OpenServer/domains/portfolio/assets/img'));
       // .pipe(gulp.dest('./dist/assets/img'));
 });
 
 gulp.task('iconsmin', function() {
   return gulp.src('./src/assets/icons/**/*.*')
       .pipe(imagemin())
-      .pipe(gulp.dest('../../js/OpenServer/domains/portfolio/assets/icons'));
+      .pipe(gulp.dest('../../../js/OpenServer/domains/portfolio/assets/icons'));
       // .pipe(gulp.dest('./dist/assets/icons'));
 });
 

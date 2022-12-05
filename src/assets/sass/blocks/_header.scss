@@ -77,7 +77,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: .1s all;
+            transition: .2s all;
             &:hover {
                 transform: scale(1.1);
             }
@@ -150,19 +150,21 @@
     display: inline-block;
     width: 30px;
     height: 30px;
+    transition: .3s all;
     img {
         width: 100%;
         height: 100%;
         object-fit: cover;
     }
     &:hover {
-        svg {
-            g {
-                path {
-                    fill: rgba(255, 255, 255, 0.6);
-                }
-            }
-        }
+        transform: scale(1.2);
+        // svg {
+        //     g {
+        //         path {
+        //             fill: rgba(255, 255, 255, 0.6);
+        //         }
+        //     }
+        // }
     }
     &_burger {
         svg {
