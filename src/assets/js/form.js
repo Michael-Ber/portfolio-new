@@ -8,8 +8,11 @@ const form = (formSelector) => {
     const overlay = document.querySelector('.overlay');
     const submit = form.querySelector('.contact__submit');
 
+
+    
+
     const message = {
-        'loading': './assets/icons/spinner.gif',
+        'loading': './assets/icons/spinner.svg',
         'error': {
             'en': 'something goes wrong :(',
             'ru': 'что-то пошло не так :(',
@@ -55,6 +58,12 @@ const form = (formSelector) => {
 
     form.addEventListener('submit', function(e) {
         e.preventDefault();
+        let spinner = document.createElement('img');
+        spinner.setAttribute('src', message['loading']);
+        spinner.style.cssText = `width: 40px; height: 40px; margin-left: 20px`;
+        submit.appendChild(spinner);
+        
+
         let a = 0;
         let hash = window.location.hash.substring(1);
         inputs.forEach(input => {
@@ -69,10 +78,12 @@ const form = (formSelector) => {
         });
         if(a > 0) {
             let divForm = document.createElement('div');
-            divForm.classList.add('contact__notfilled');
-            divForm.textContent = message['error-for-btn'][hash];
-            submit.appendChild(divForm);
-            console.log('here');
+            divForm.classList.add('contact__notfilled-main');
+            divForm.innerHTML = message['error-for-btn'][hash];
+            document.documentElement.appendChild(divForm);
+            setTimeout(() => {
+                document.documentElement.removeChild(divForm);
+            }, 3000);
             return;
         }
         let formData = new FormData(form);
@@ -81,11 +92,15 @@ const form = (formSelector) => {
             object[key] = value;
         });
         let jsonData = JSON.stringify(object);
+        console.log(object);
         sendReq("mailer/smart.php", jsonData)
             .then((res) => {
+                console.log(res);
+                submit.removeChild(spinner);
                 showModal('success', window.location.hash.substring(1), modal);
             })
             .catch(() => {
+                submit.removeChild(spinner);
                 showModal('error', window.location.hash.substring(1), modal);
             })
             .finally(() => {
@@ -99,7 +114,7 @@ const form = (formSelector) => {
                     }
                     
                 }); 
-                setTimeout(() => removeModal(modal), 15000);
+                setTimeout(() => removeModal(modal), 7000);
             })
         
         function showModal(condition, hash, modalElem) {
@@ -113,7 +128,7 @@ const form = (formSelector) => {
             switch(condition) {
                 case 'success': modal.innerHTML = 
                     `
-                        <div class="modal__img">
+                        <div class="modal__img modal__img_suc">
                             <img src="${message['success']['img']}">
                         </div>
                         <div class="modal__msg">${message['success'][hash]}</div>
@@ -121,7 +136,7 @@ const form = (formSelector) => {
                     `; break;
                 case 'error': modal.innerHTML = 
                     `   
-                        <div class="modal__img">
+                        <div class="modal__img modal__img_wrong">
                             <img src="${message['error']['img']}">
                         </div>
                         <div class="modal__msg">${message['error'][hash]}</div>

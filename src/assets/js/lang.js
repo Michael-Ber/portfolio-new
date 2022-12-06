@@ -131,6 +131,10 @@ const lang = {
         'en' : 'privacy policy',
         'ru': 'политикой конфиденциальности'
     },
+    'lng-preview': {
+        'en': 'view',
+        'ru': 'смотреть'
+    }
 };
 
 function setLanguage(langObject, langSelector) {
