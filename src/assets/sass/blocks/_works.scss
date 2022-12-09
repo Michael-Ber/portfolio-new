@@ -70,7 +70,7 @@
         width: 100px;
         height: 100px;
         border-radius: 100%;
-        background-color: $fourth-color;
+        background-color: rgba($fourth-color, .9);
         transition: .6s all;
         z-index: 1000;
         span {

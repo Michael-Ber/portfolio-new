@@ -131,6 +131,10 @@ const lang = {
         'en' : 'privacy policy',
         'ru': 'политикой конфиденциальности'
     },
+    'lng-privacyHref': {
+        'en': 'privacy-en.html',
+        'ru': 'privacy-ru.html'
+    },
     'lng-preview': {
         'en': 'view',
         'ru': 'смотреть'
@@ -219,6 +223,7 @@ function setLanguage(langObject, langSelector) {
                 item.innerHTML = langObject[clsNameStr][hash];
             }
         });
+        document.querySelector('.privacy__link').setAttribute('href', `${lang['lng-privacyHref'][hash]}`);
     }
 
     //Animate literals

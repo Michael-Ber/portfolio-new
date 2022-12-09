@@ -2,10 +2,7 @@
     position: relative;
     min-height: 100vh;
     overflow: hidden;
-    // background-color: $preload-color;
-    // background-color: $sec-color;
     background: url('./assets/img/bg-3-modif.jpg') center center/cover no-repeat;
-    // padding: 100px 50px 200px 250px;
     
     &__parallax {
         position: absolute; //fixed
@@ -13,17 +10,6 @@
         height: 100%;
         top: 0;
         left: 0;
-        // padding: 100px 50px 200px 250px;
-        // padding: 0px 50px 0px 250px;
-        @media(max-width: $container-media-1239) {
-            // padding: 100px 50px 200px 50px;
-            // padding: 0 50px 0 50px;
-        }
-        @media(max-width: $container-media-575) {
-            // padding: 100px 30px 100px 10px;
-            // padding: 0 30px 0 10px;
-        }
-        // overflow: hidden;
     }
     &__wrapper {
         position: relative;
@@ -32,30 +18,14 @@
         align-items: flex-start;
         flex-direction: column;
         top: 50%;
-        // top: 40%;//
         left: 10%;
         transform: translateY(-50%);
         z-index: 10;
         
-        // padding-top: 200px;
         @media(max-width: $container-media-575) {
             left: 5%;
         }
     }
-    // &__bg {
-    //     position: absolute;
-    //     top: 50%;
-    //     left: 50%;
-    //     transform: translate(-50%, -50%);
-    //     width: 110%;
-    //     height: 110%;
-    //     z-index: 1;
-    //     img {
-    //         width: 100%;
-    //         height: 100%;
-    //         object-fit: cover;
-    //     }
-    // }
     &__title {
         position: relative;
         z-index: 10;
@@ -63,7 +33,6 @@
         align-items: flex-start;
         flex-direction: column;
         min-height: 300px;
-        // margin: 300px 0 0 90px;//
         @media(max-width: $container-media-991) {
             min-height: 240px;
         }
@@ -78,43 +47,39 @@
     &__contact {
         margin-top: 100px;
         background-color: #000;
-        // margin: 50px 0 0 250px;
-        // @media(max-width: $container-media-575) {
-        //     width: 160px !important;
-        // }
     }
-    &__email {
-        position: absolute;
-        top: 100%;
-        right: 20%;
-        transform: rotate(90deg) translateX(34%);
-        transform-origin: bottom right;
-        @media(max-width: $container-media-575) {
-            right: 12%;
-            transform: rotate(90deg) translateX(50%);
-        }
-    }
-    &__link {
-        display: flex;
-        align-items: center;
-        color: $white;
-        text-decoration: none;
-        transition: .3s all;
-        @media(max-width: $container-media-575) {
-            font-size: 14px;
-        }
-        &:hover {
-            color: $third-color;
-        }
-        &::after {
-            content: '';
-            display: inline-block;
-            width: 100px;
-            height: 1px;
-            background-color: $white;
-            margin-left: 50px;
-        }
-    }
+    // &__email {
+    //     position: fixed;
+    //     top: 100%;
+    //     right: 20%;
+    //     transform: rotate(90deg) translateX(34%);
+    //     transform-origin: bottom right;
+    //     @media(max-width: $container-media-575) {
+    //         right: 12%;
+    //         transform: rotate(90deg) translateX(50%);
+    //     }
+    // }
+    // &__link {
+    //     display: flex;
+    //     align-items: center;
+    //     color: $white;
+    //     text-decoration: none;
+    //     transition: .3s all;
+    //     @media(max-width: $container-media-575) {
+    //         font-size: 14px;
+    //     }
+    //     &:hover {
+    //         color: $third-color;
+    //     }
+    //     &::after {
+    //         content: '';
+    //         display: inline-block;
+    //         width: 100px;
+    //         height: 1px;
+    //         background-color: $white;
+    //         margin-left: 50px;
+    //     }
+    // }
 }
 
 .title-intro {
@@ -123,9 +88,7 @@
         display: inline-block;
         color: $white;
         font-size: 80px;
-        // font-size: 65px;//
         line-height: 100px;
-        // line-height: 95px;//
         font-weight: 700;
         @media(max-width: $container-media-1239) {
             font-size: 60px;
@@ -144,7 +107,6 @@
         display: inline-block;
         color: $white;
         font-size: 80px;
-        // font-size: 65px;//
         line-height: 100px;
         font-weight: 700;
         @media(max-width: $container-media-1239) {

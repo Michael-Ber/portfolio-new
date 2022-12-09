@@ -9,11 +9,11 @@ $black: #000000;
 $circle: #07455c;
 $white: #ffffff;
 $container-1240: 1240px;
-$container-992: 992px;
-$container-768: 768px;
-$container-576: 576px;
+$container-992: 960px;
+$container-768: 720px;
+$container-576: 100%;
 
-$container-media-1239: $container-1240 - 1;
-$container-media-991: $container-992 - 1;
-$container-media-767: $container-768 - 1;
-$container-media-575: $container-576 - 1;
+$container-media-1239: 1239px;
+$container-media-991: 991px;
+$container-media-767: 767px;
+$container-media-575: 575px;
