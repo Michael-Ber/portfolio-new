@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="portfolio">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;800&family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
@@ -16,8 +17,6 @@
         <div class="overlay"></div>
         <div class="modal"></div>
         <div class="app__bg">
-            <!-- <img src="./assets/img/bg.jpg" alt="background image"> -->
-            <!-- <img src="./assets/img/bg-3-modif.jpg" alt="background image"> -->
         </div>
         <div class="app__container">
             <div class="preload">
@@ -35,18 +34,18 @@
             <header class="header">
                 <div class="header__wrapper">
                     <div class="header__logo logo">
-                        <a href="#" class="logo__link">
+                        <a href="#" class="logo__link" aria-label="link to main-page">
                             <img src="./assets/icons/logo-full.svg" alt="logo">
                         </a>
                     </div>
                     <nav class="header__links links-header">
                         <ul class="links-header__list">
-                            <li class="links-header__item"><a href="#about" class="links-header__link link lng lng-about">About</a></li>
-                            <li class="links-header__item"><a href="#skills" class="links-header__link link lng lng-skills">Skills</a></li>
-                            <li class="links-header__item"><a href="#works" class="links-header__link link lng lng-works">Works</a></li>
-                            <li class="links-header__item"><a href="#contact" class="links-header__link link lng lng-contact">Contact</a></li>
+                            <li class="links-header__item"><a href="#about" class="links-header__link link lng lng-about" aria-label="link to about section">About</a></li>
+                            <li class="links-header__item"><a href="#skills" class="links-header__link link lng lng-skills" aria-label="link to skills section">Skills</a></li>
+                            <li class="links-header__item"><a href="#works" class="links-header__link link lng lng-works" aria-label="link to works section">Works</a></li>
+                            <li class="links-header__item"><a href="#contact" class="links-header__link link lng lng-contact" aria-label="link to contact section">Contact</a></li>
                             <li class="links-header__item">
-                                <a href="#" class="links-header__link github-icon">
+                                <a href="https://github.com/Michael-Ber?tab=repositories" class="links-header__link github-icon" aria-label="link to github">
                                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="30" height="30" viewBox="0 0 256 256" xml:space="preserve">
                                         <defs>
                                         </defs>
@@ -68,12 +67,12 @@
                             
                             <nav class="menu__links">
                                 <ul class="menu__list">
-                                    <li class="menu__item"><a href="#about" class="menu__link link lng lng-about">About</a></li>
-                                    <li class="menu__item"><a href="#skills" class="menu__link link lng lng-skills">Skills</a></li>
-                                    <li class="menu__item"><a href="#works" class="menu__link link lng lng-works">Works</a></li>
-                                    <li class="menu__item"><a href="#contact" class="menu__link link lng lng-contact">Contact</a></li>
+                                    <li class="menu__item"><a href="#about" class="menu__link link lng lng-about" aria-label="link to about section">About</a></li>
+                                    <li class="menu__item"><a href="#skills" class="menu__link link lng lng-skills" aria-label="link to skills section">Skills</a></li>
+                                    <li class="menu__item"><a href="#works" class="menu__link link lng lng-works" aria-label="link to works section">Works</a></li>
+                                    <li class="menu__item"><a href="#contact" class="menu__link link lng lng-contact" aria-label="link to contact section">Contact</a></li>
                                     <li class="menu__item">
-                                        <a href="#" class="menu__link github-icon github-icon_burger">
+                                        <a href="https://github.com/Michael-Ber?tab=repositories" class="menu__link github-icon github-icon_burger" aria-label="link to github">
                                             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="30" height="30" viewBox="0 0 256 256" xml:space="preserve">
                                                 <defs>
                                                 </defs>
@@ -97,7 +96,7 @@
                 </div>
             </header>
             <div class="arrow-up">
-                <a href="#intro"><img src="./assets/icons/arrow-up.svg" alt="arrow up"></a>
+                <a href="#intro" aria-label="link to intro section"><img src="./assets/icons/arrow-up.svg" alt="arrow up"></a>
             </div>
             <div class="content">
                 
@@ -109,10 +108,7 @@
                                 <span class="title-intro__str str-title-intro-2"></span>
                                 <span class="title-intro__str str-title-intro-3"></span>
                             </h1>
-                            <a href="#contact" class="intro__contact btn lng lng-btnContact">Contact me!</a>
-                            <!-- <aside class="intro__email">
-                                <a href="mailto:mikeber000@gmail.com" class="intro__link">mikeber000@gmail.com</a>
-                            </aside> -->
+                            <a href="#contact" class="intro__contact btn lng lng-btnContact" aria-label="link to contact section">Contact me!</a>
                         </div>
                     </div>
                 </section>
@@ -129,7 +125,7 @@
                             <h3 class="about__subtitle lng lng-prof"></h3>
                             <div class="about__descr lng lng-descr">Hello, my name is Michael. I'm junior front-end developer.I've been learning front-end for two years, finished five
                             web developing courses on Udemy and have been practicing 
-                            all that time. My <a href="#works" class="about__link lng lng-works">works</a> you can see below.
+                            all that time. My <a href="#works" class="about__link lng lng-works" aria-label="link to works section">works</a> you can see below.
                             </div>
                         </div>
                     </div>
@@ -322,7 +318,7 @@
                             <h3 class="works__subtitle section-subtitle lng lng-worksSubtitle">Some of my works</h3>
                             <ul class="works__list">
                                 <li class="works__item norm">
-                                    <a href="#" class="works__link">
+                                    <a href="/projects/glopt" class="works__link" aria-label="link to glopt project">
                                         <div class="works__view">
                                             <span class="lng lng-preview">view</span> 
                                         </div>
@@ -330,7 +326,7 @@
                                     </a>
                                 </li>
                                 <li class="works__item norm">
-                                    <a href="#" class="works__link">
+                                    <a href="/projects/prengi" class="works__link" aria-label="link to prengi project">
                                         <div class="works__view">
                                             <span class="lng lng-preview">view</span> 
                                         </div>
@@ -338,7 +334,7 @@
                                     </a>
                                 </li>
                                 <li class="works__item norm">
-                                    <a href="#" class="works__link">
+                                    <a href="/projects/primeone" class="works__link" aria-label="link to primeone project">
                                         <div class="works__view">
                                             <span class="lng lng-preview">view</span> 
                                         </div>
@@ -346,7 +342,7 @@
                                     </a>
                                 </li>
                                 <li class="works__item norm">
-                                    <a href="#" class="works__link">
+                                    <a href="/projects/shopno" class="works__link" aria-label="link to shopno project">
                                         <div class="works__view">
                                             <span class="lng lng-preview">view</span> 
                                         </div>
@@ -354,7 +350,7 @@
                                     </a>
                                 </li>
                                 <li class="works__item long">
-                                    <a href="#" class="works__link">
+                                    <a href="/projects/zlatmax" class="works__link" aria-label="link to zlatmax project">
                                         <div class="works__view">
                                             <span class="lng lng-preview">view</span> 
                                         </div>
@@ -362,7 +358,7 @@
                                     </a>
                                 </li>
                                 <li class="works__item wide">
-                                    <a href="#" class="works__link">
+                                    <a href="/projects/logo" class="works__link" aria-label="link to logo project">
                                         <div class="works__view">
                                             <span class="lng lng-preview">view</span> 
                                         </div>
@@ -386,7 +382,7 @@
                             <svg width="20" height="20" viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd" clip-rule="evenodd" d="M1.5 16C1.5 13.5147 3.51472 11.5 6 11.5H90C92.4853 11.5 94.5 13.5147 94.5 16V80C94.5 82.4853 92.4853 84.5 90 84.5H6C3.51472 84.5 1.5 82.4853 1.5 80V16ZM89.6102 14.5H6.3898C4.98094 14.5 4.34926 16.2666 5.43868 17.1599L45.1466 49.7204C46.8057 51.0808 49.1943 51.0808 50.8534 49.7204L90.5613 17.1599C91.6507 16.2666 91.0191 14.5 89.6102 14.5ZM4.5 20.2698V75.7302L38.3173 48L4.5 20.2698ZM40.6829 49.9398L5.43868 78.8401C4.34925 79.7334 4.98094 81.5 6.3898 81.5H89.6102C91.0191 81.5 91.6507 79.7334 90.5613 78.8401L55.3171 49.9398L52.7556 52.0402C49.9906 54.3076 46.0094 54.3076 43.2444 52.0402L40.6829 49.9398ZM57.6827 48L91.5 20.2698V75.7302L57.6827 48Z" fill="white"/>
                             </svg>
-                            <a href="mailto:mikeber000@gmail.com" class="contact__link">mikeber000@gmail.com</a>
+                            <a href="mailto:mikeber000@gmail.com" class="contact__link" aria-label="link to email">mikeber000@gmail.com</a>
                         </div>
                         <form action="#" class="contact__form">
                             <div class="contact__wrapper">
@@ -420,7 +416,7 @@
                                             </g>
                                         </svg>
                                     </div>
-                                    <label for="privacy"><span class="lng lng-privacy">I agree with the</span> <a href="/privacy-en.html" class="privacy__link lng lng-privacyLink">privacy policy</a></label>
+                                    <label for="privacy"><span class="lng lng-privacy">I agree with the</span> <a href="/privacy-en.html" class="privacy__link lng lng-privacyLink" aria-label="link to privacy policy">privacy policy</a></label>
                                 </div>
                             </div>
                         </form>
