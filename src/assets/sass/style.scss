@@ -14,44 +14,69 @@
     font-family: 'Montserrat', sans-serif;
     font-weight: 400;
 }
-body {
-    background-color: #000;
-}
 
 .app {
     position: relative;
     &__container {
         position: relative;
-        max-width: $container-1240;
+        max-width: 100%;
         margin: 0 auto;
-        @media(max-width: $container-media-1239) {
-            max-width: $container-992;
-        }
-        @media(max-width: $container-media-991) {
-            max-width: $container-768;
-        }
-        @media(max-width: $container-media-767) {
-            max-width: $container-576;
-        }
-        @media(max-width: $container-media-575) {
-            max-width: 100%;
-        }
-    }
-    &__bg {
-        position: fixed;
-        top: 0;
-        left: -0;
-        z-index: -1;
-        width: 100%;
-        height: 100%;
-        // background: url('./assets/img/bg-3.jpg') center center/cover no-repeat;
-        background-color: rgb(177, 181, 194);
-        // img {
-        //     width: 110%;
-        //     height: 110%;
-        //     object-fit: contain;
+        // @media(max-width: $container-media-1239) {
+        //     max-width: $container-992;
+        // }
+        // @media(max-width: $container-media-991) {
+        //     max-width: $container-768;
+        // }
+        // @media(max-width: $container-media-767) {
+        //     max-width: $container-576;
+        // }
+        // @media(max-width: $container-media-575) {
+        //     max-width: 100%;
         // }
     }
+    // &__bg {
+    //     position: fixed;
+    //     top: 0;
+    //     left: -0;
+    //     z-index: -1;
+    //     width: 100%;
+    //     height: 100%;
+    //     background-color: rgb(145, 167, 238);
+    // }
+}
+
+.aside-links {
+    transition: .3s all ease;
+    &__left {
+        display: flex;
+        justify-content: space-between;
+        position: fixed;
+        top: 50%;
+        left: -80px;
+        z-index: 10000;
+        font-size: 16px;
+        transform: rotate(-90deg);
+        opacity: 0;
+    }
+    &__right {
+        display: flex;
+        justify-content: space-between;
+        position: fixed;
+        top: 50%;
+        right: -80px;
+        z-index: 10000;
+        font-size: 16px;
+        transform: rotate(-90deg);
+        opacity: 0;
+    }
+    @media(max-width: 1340px) {
+        display: none;
+    }
+}
+.aside__link {
+    color: $white;
+    text-decoration: none;
+    letter-spacing: 3px;
 }
 .content {
     position: relative;

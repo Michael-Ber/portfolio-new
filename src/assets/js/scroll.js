@@ -15,6 +15,15 @@ const scroll = ({
         }else {
             arrow.classList.remove(arrowActiveClass);
         }
+        if(fromTop > 1200) {
+            document.querySelectorAll('.aside-links').forEach(link => {
+                link.style.opacity = '1';
+            });
+        }else {
+            document.querySelectorAll('.aside-links').forEach(link => {
+                link.style.opacity = '0';
+            });
+        }
     });
 
     links.forEach(link => {

@@ -35,7 +35,7 @@ const lang = {
         'en' : "Hello, my name is Michael. I'm junior front-end developer.I've been learning front-end for two years, finished five web developing courses on Udemy and have been practicing all that time. My <a href='#works' class='about__link' aria-label='link to works section'>works</a> you can see below.",
         'ru': 'Привет, меня зовут Михаил. Я джуниор фронт-енд разработчик. Я изучаю фронт-енд два года, закончил пять курсов веб-разработки на Udemy, все это время практикуюсь.<a href="#works" class="about__link" aria-label="link to works section"> Мои работы</a> вы можете посмотреть ниже '
     },
-    'lng-worksSubtitle' : {
+    'lng-skillsSubtitle' : {
         'en' : 'What i use in my work',
         'ru': 'Что я использую в работе'
     },
