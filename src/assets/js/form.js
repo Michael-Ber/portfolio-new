@@ -74,6 +74,7 @@ const form = (formSelector) => {
                 input.parentNode.appendChild(span);
                 input.classList.add('wrong');
                 a=1;
+                submit.removeChild(spinner);
             }
         });
         if(a > 0) {

@@ -22,7 +22,6 @@
     &__list {
         display: grid;
         grid-template-columns: repeat(auto-fill, 270px);
-        grid-template-rows: repeat(2, 270px);
         gap: 20px;
         list-style-type: none;
         justify-content: center;

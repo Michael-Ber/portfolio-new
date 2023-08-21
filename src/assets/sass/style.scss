@@ -62,79 +62,79 @@ body {
     max-width: $container-1240;
     margin: 0 auto;
 }
-.preload {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    width: 100%;
-    height: 100vh;
-    // background: radial-gradient(darken($fourth-color, 20%), $preload-color );
-    background: #000;
-    z-index: 1000;
-    transition: .8s all;
-    &_loaded {
-        transform: translateY(-100%);
-        visibility: hidden;
-    }
-    &__loading {
-        position: absolute;
-        top: 50%;
-        left: 49.95%;
-        span {
-            display: inline-block;
-            width: 30px;
-            height: 3px;
-            background: transparent;
-            transition: .5s all;
-            position: absolute;
+// .preload {
+//     position: fixed;
+//     top: 0;
+//     left: 0;
+//     right: 0;
+//     bottom: 0;
+//     width: 100%;
+//     height: 100vh;
+//     // background: radial-gradient(darken($fourth-color, 20%), $preload-color );
+//     background: #000;
+//     z-index: 1000;
+//     transition: .8s all;
+//     &_loaded {
+//         transform: translateY(-100%);
+//         visibility: hidden;
+//     }
+//     &__loading {
+//         position: absolute;
+//         top: 50%;
+//         left: 49.95%;
+//         span {
+//             display: inline-block;
+//             width: 30px;
+//             height: 3px;
+//             background: transparent;
+//             transition: .5s all;
+//             position: absolute;
             
-            &:nth-child(1) {
-                transform: rotate(45deg);
-                top: -10px;
-                left: 30px;
-            }
-            &:nth-child(2) {
-                transform: rotate(90deg);
-                top: 15px;
-                left: 40px;
-            }
-            &:nth-child(3) {
-                transform: rotate(135deg);
-                top: 40px;
-                left: 30px;
-            }
-            &:nth-child(4) {
-                transform: rotate(180deg);
-                top: 50px;
-                left: 5px;
-            }
-            &:nth-child(5) {
-                transform: rotate(-135deg);
-                top: 40px;
-                left: -20px;
-            }
-            &:nth-child(6) {
-                transform: rotate(-90deg);
-                top: 15px;
-                left: -30px;
-            }
-            &:nth-child(7) {
-                transform: rotate(-45deg);
-                top: -10px;
-                left: -20px;
-            }
-        }
-    }
-    img {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        opacity: 1;
-        // animation: logoAnimation 2s ease infinite;
-    }
-}
+//             &:nth-child(1) {
+//                 transform: rotate(45deg);
+//                 top: -10px;
+//                 left: 30px;
+//             }
+//             &:nth-child(2) {
+//                 transform: rotate(90deg);
+//                 top: 15px;
+//                 left: 40px;
+//             }
+//             &:nth-child(3) {
+//                 transform: rotate(135deg);
+//                 top: 40px;
+//                 left: 30px;
+//             }
+//             &:nth-child(4) {
+//                 transform: rotate(180deg);
+//                 top: 50px;
+//                 left: 5px;
+//             }
+//             &:nth-child(5) {
+//                 transform: rotate(-135deg);
+//                 top: 40px;
+//                 left: -20px;
+//             }
+//             &:nth-child(6) {
+//                 transform: rotate(-90deg);
+//                 top: 15px;
+//                 left: -30px;
+//             }
+//             &:nth-child(7) {
+//                 transform: rotate(-45deg);
+//                 top: -10px;
+//                 left: -20px;
+//             }
+//         }
+//     }
+//     img {
+//         position: absolute;
+//         top: 50%;
+//         left: 50%;
+//         opacity: 1;
+//         // animation: logoAnimation 2s ease infinite;
+//     }
+// }
 .overlay {
     display: none;
     position: fixed;

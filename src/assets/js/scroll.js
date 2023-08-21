@@ -17,13 +17,11 @@ const scroll = ({
         }
     });
 
-    
     links.forEach(link => {
         if(link.hash) {
             link.addEventListener('click', function(e) {
                 e.preventDefault();
                 let toSection = document.querySelector(link.hash).getBoundingClientRect().top - 100;
-                let hash = this.hash;
                 let fromTop = document.documentElement.scrollTop;
                 let start = null;
                 requestAnimationFrame(step);

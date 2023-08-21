@@ -1,5 +1,5 @@
 'use strict';
-
+import {scroll} from './scroll';
 import Typed from 'typed.js';
 
 const lang = {
@@ -23,14 +23,6 @@ const lang = {
         'en' : [`Hi,`, `I'm Michael,`, `web developer`],
         'ru': ['Привет,', 'меня зовут Михаил,', 'я веб-разработчик']
     },
-    // 'lng-intro-2' : {
-    //     'en' : `I'm Michael,`,
-    //     'ru': 'меня зовут Михаил,'
-    // },
-    // 'lng-intro-3' : {
-    //     'en' : `web developer`,
-    //     'ru': 'я веб-разработчик'
-    // },
     'lng-btnContact' : {
         'en' : 'Contact me!',
         'ru': 'Свяжитесь со мной'
@@ -40,8 +32,8 @@ const lang = {
         'ru': ['Фрилансер', 'Фронт-енд разработчик']
     },
     'lng-descr' : {
-        'en' : "Hello, my name is Michael. I'm junior front-end developer.I've been learning front-end for two years, finished five web developing courses on Udemy and have been practicing all that time. My you can see below.",
-        'ru': 'Привет, меня зовут Михаил. Я джуниор фронт-енд разработчик. Я изучаю фронт-енд два года, закончил пять курсов веб-разработки на Udemy, все это время практикуюсь. вы можете посмотреть ниже '
+        'en' : "Hello, my name is Michael. I'm junior front-end developer.I've been learning front-end for two years, finished five web developing courses on Udemy and have been practicing all that time. My <a href='#works' class='about__link' aria-label='link to works section'>works</a> you can see below.",
+        'ru': 'Привет, меня зовут Михаил. Я джуниор фронт-енд разработчик. Я изучаю фронт-енд два года, закончил пять курсов веб-разработки на Udemy, все это время практикуюсь.<a href="#works" class="about__link" aria-label="link to works section"> Мои работы</a> вы можете посмотреть ниже '
     },
     'lng-worksSubtitle' : {
         'en' : 'What i use in my work',
@@ -66,6 +58,14 @@ const lang = {
     'lng-jquery' : {
         'en' : 'The Jquery library will speed up development. Without the need to integrate it into the project, we will not, but the skill of working with it is present.',
         'ru': 'Библиотека Jquery позволит ускорить разработку. Без необходимости интегрировать в проект мы её не будем, но навык работы с ней присутствует.'
+    },
+    'lng-mongodb' : {
+        'en' : 'A document-oriented database management system that does not require a description of the table schema. Considered one of the classic examples of NoSQL systems, uses JSON-like documents and database schema.',
+        'ru': 'Документоориентированная система управления базами данных, не требующая описания схемы таблиц. Считается одним из классических примеров NoSQL-систем, использует JSON-подобные документы и схему базы данных.'
+    },
+    'lng-nodejs' : {
+        'en' : 'This platform allows you to create a backend for your product - "brains" that will perform actions that the user does not see.',
+        'ru': 'Эта платформа позволяет создавать бэкенд для вашего продукта - “мозги”, которые будут выполнять действия, которые пользователь не видит.'
     },
     'lng-sites' : {
         'en' : 'Web sites creating',
@@ -198,15 +198,14 @@ function setLanguage(langObject, langSelector) {
         let language = select.value;
         window.location.hash  = `#${language}`;
         let hash = window.location.hash.substring(1);
-        
         if(hashOld !== hash) {
             changeLanguage(hash);
         }
-        
+        scroll({arrow: '.arrow-up', arrowActive: 'arrow-up_active'});
         
     })
 
-    window.addEventListener('popstate', () => {
+    window.addEventListener('popstate', () => {   //without that language changes only 1 time
         let hash = window.location.hash.substring(1);
         select.value = window.location.hash.substring(1);
         changeLanguage(hash);
@@ -219,12 +218,14 @@ function setLanguage(langObject, langSelector) {
         typed2.reset();
         tagsForLangChange.forEach(item => {
             const clsNameStr = item.classList.value.match(/lng-[a-z]*/ig).join('');
+
             if(item.classList.contains(clsNameStr)) {
                 item.innerHTML = langObject[clsNameStr][hash];
             }
         });
         document.querySelector('.privacy__link').setAttribute('href', `${lang['lng-privacyHref'][hash]}`);
     }
+
 
     //Animate literals
     function animateText(parentNode, letterClass) {
