@@ -1,8 +1,8 @@
 .skills {
     position: relative;
     padding: 100px 0 10px 0;
-    // background-color: $sec-color;
     background-color: $preload-color;
+    // background: radial-gradient(#6c3fd0, #132d9c);
     z-index: 10;
     @media(max-width: $container-media-575) {
         padding: 30px 0 10px 0;
