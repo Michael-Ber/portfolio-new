@@ -5,30 +5,26 @@
     align-items: center;
     width: 100%;
     height: 100px;
-    background-color: rgba($black, 1);
+    background-color: $white;
     top: 0;
     left: 50%;
     right: 0;
     transform: translateX(-50%);
     z-index: 100;
     padding: 10px 60px 10px 50px;
-    // box-shadow: 0 0 5px 0 #fff;
-    // border-bottom: 1px solid #fff;
+    box-shadow: 0 0 5px 0 $black;
     @media(max-width: $container-media-1239) {
-        // width: $container-992;
         padding: 10px 10px 10px 10px;
     }
     @media(max-width: $container-media-991) {
-        // width: $container-768;
         padding: 10px 10px 10px 10px;
     }
     @media(max-width: $container-media-767) {
-        // width: $container-576;
         padding: 10px 10px 10px 10px;
     }
     @media(max-width: $container-media-575) {
-        // width: 100%;
         padding: 10px 10px 10px 10px;
+        height: 60px;
     }
     &__wrapper {
         display: flex;
@@ -41,7 +37,7 @@
     &__logo {
         width: 193px;
         @media(max-width: $container-media-575) {
-            width: 130px;
+            display: none;
         }
     }
 
@@ -52,7 +48,10 @@
         }
     }
 
-    &__lang {
+    &__triggers {
+        display: flex;
+        align-items: center;
+        gap: 20px;
         position: relative;
         z-index: 1;
     }
@@ -70,7 +69,7 @@
         text-decoration: none;
         span {
             display: block;
-            color: $white;
+            color: $black;
             font-size: 22px;
             font-weight: 700;
             line-height: 35px;
@@ -133,11 +132,15 @@
        font-size: 16px;
     }
 }
+.link-github {
+    max-width: 30px;
+    max-height: 30px;
+}
 .lang-selector {
     font-size: 20px;
     text-transform: uppercase;
     background-color: transparent;
-    color: $white;
+    color: $black;
     padding: 5px;
     cursor: pointer;
     @media(max-width: $container-media-575) {
@@ -145,7 +148,7 @@
     }
 }
 .lang-option {
-    color: $black;
+    color: $white;
     
 }
 .github-icon {
@@ -160,13 +163,6 @@
     }
     &:hover {
         transform: scale(1.2);
-        // svg {
-        //     g {
-        //         path {
-        //             fill: rgba(255, 255, 255, 0.6);
-        //         }
-        //     }
-        // }
     }
     &_burger {
         svg {
@@ -182,6 +178,48 @@
         }
     }
 }   
+
+.theme-btn {
+    position: relative;
+    width: 80px;
+    height: 40px;
+    border-radius: 20px;
+    border: 1px solid $white;
+    background-color: $circle;
+    transition: .3s all ease;
+    cursor: pointer;
+    &_dark {
+        background-color: $black;
+    }
+    &::before {
+        content: url('./assets/icons/Sun.svg');
+        width: 35px;
+        height: 35px;
+        position: absolute;
+        top: 2px;
+        left: 2px
+    }
+    &::after {
+        content: url('./assets/icons/moon.svg');
+        position: absolute;
+        top: 5px;
+        right: 5px;
+    }
+    &__trigger {
+        width: 32px;
+        height: 32px;
+        border-radius: 100%;
+        background-color: $white;
+        position: absolute;
+        top: 3px;
+        right: 3px;
+        transition: .3s all ease;
+        transform: translateX(0px);
+        &_dark {
+            transform: translateX(-40px);
+        }
+    }
+}
 
 .burger {
 
@@ -205,7 +243,7 @@
         display: block;
         width: 30px;
         height: 3px;
-        background-color: $white;
+        background-color: $black;
         &:not(:last-child) {
             margin-bottom: 5px;
         }
@@ -220,8 +258,8 @@
         top: 0;
         left: 0;
         padding: 20px;
-        background-color: $black;
-        box-shadow: 0 0 10px 0 $black;
+        background: linear-gradient(#6c3fd0, #132d9c);
+        box-shadow: 0 0 10px 0 $white;
         transition: .3s all;
         transform: translateX(calc(-100% - 50px));
         &_active {
@@ -237,6 +275,11 @@
 .menu {
 
     &__list {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        padding-top: 50px;
         list-style-type: none;
     }
 
@@ -245,6 +288,10 @@
             margin-bottom: 50px;
         }
 
+    }
+
+    &__link {
+        color: $black;
     }
 
     &__close {

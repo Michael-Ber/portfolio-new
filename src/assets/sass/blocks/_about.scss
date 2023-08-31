@@ -1,7 +1,8 @@
 .about {
     position: relative;
     z-index: 10;
-    background: radial-gradient(#6c3fd0, #132d9c);
+    background-color: $white;
+    // background: radial-gradient(#6c3fd0, #132d9c);
     &__wrapper {
         display: flex;
         justify-content: space-between;
@@ -58,7 +59,7 @@
         display: inline-block;
         font-size: 20px;
         font-weight: 600;
-        color: $white;
+        color: $black;
         margin-bottom: 30px;
         min-height: 20px; //removing twitching 
         @media(max-width: $container-media-767) {
@@ -70,7 +71,7 @@
         font-size: 18px;
         line-height: 42px;
         font-weight: 500;
-        color: $white;
+        color: $black;
         @media(max-width: $container-media-991) {
             font-size: 16px;
         }
@@ -83,6 +84,7 @@
         color: $main-color;
         text-decoration: none;
         transition: .3s all;
+        font-weight: 600;
         &:hover {
             color: darken($main-color, 10%);
             text-decoration: underline;

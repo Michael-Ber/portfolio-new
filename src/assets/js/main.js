@@ -6,6 +6,7 @@ import {setLanguage, lang} from './lang';
 import {parallax} from './parallax';
 import {percentCreation} from './percents';
 import {form} from './form';
+import { theme } from './theme';
 
 
 window.addEventListener('DOMContentLoaded', () => {
@@ -33,5 +34,5 @@ window.addEventListener('DOMContentLoaded', () => {
     // parallax('.app', '.app__bg');
     percentCreation('.skills__diagrams-item', '.diagrams-item__percent', '.bottom-diagrams-item__bg-front');
     form('.contact__form');
-    
+    theme();
 });

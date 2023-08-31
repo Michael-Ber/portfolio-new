@@ -1,7 +1,7 @@
 .works {
     position: relative;
     // background-color: $sec-color;
-    background-color: $black;
+    background-color: $white;
     padding: 100px 0 0 0;
     z-index: 10;
     @media(max-width: $container-media-575) {
@@ -32,9 +32,14 @@
 
     &__item {
         position: relative;
-        opacity: .3;
         transition: .5s all;
         cursor: pointer;
+        &::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-color: rgba(#000000, .6);
+        }
         &:hover {
             opacity: 1;
             .works__view {
@@ -42,6 +47,9 @@
             }
             img {
                 transform: scale(1.1);
+            }
+            &::after {
+                background-color: unset;
             }
         }
     }
@@ -79,7 +87,7 @@
         transition: .6s all;
         z-index: 1000;
         span {
-            color: $black;
+            color: $white;
             font-size: 16px;
             font-weight: 600;
             line-height: 24px;
