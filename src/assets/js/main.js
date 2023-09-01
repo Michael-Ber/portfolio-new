@@ -10,16 +10,6 @@ import { theme } from './theme';
 
 
 window.addEventListener('DOMContentLoaded', () => {
-    // preload('.preload', '.preload__loading').then(
-    //     res => {
-    //         if(res === true) {
-    //             setTimeout(() => {
-    //                 setLanguage(lang, '.lang-selector');//delay for make text typed visible
-    //             }, 1500);
-                
-    //         }
-    //     }
-    // );
     scroll({arrow: '.arrow-up', arrowActive: 'arrow-up_active'});
     setLanguage(lang, '.lang-selector');
     burger({

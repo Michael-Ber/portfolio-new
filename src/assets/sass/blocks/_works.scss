@@ -1,6 +1,5 @@
 .works {
     position: relative;
-    // background-color: $sec-color;
     background-color: $white;
     padding: 100px 0 0 0;
     z-index: 10;
@@ -50,6 +49,7 @@
             }
             &::after {
                 background-color: unset;
+                z-index: -1;
             }
         }
     }
