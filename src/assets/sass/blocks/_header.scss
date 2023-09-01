@@ -126,11 +126,16 @@
     font-size: 20px;
     transition: .3s all;
     &:hover {
-        color: $main-color;
+        color: $main-color !important;
+        svg g path {
+            transition: .3s all;
+            fill: $main-color !important;
+        }
     }
     @media(max-width: $container-media-575) {
        font-size: 16px;
     }
+    
 }
 .link-github {
     max-width: 30px;
@@ -142,6 +147,7 @@
     background-color: transparent;
     color: $black;
     padding: 5px;
+    border: 1px solid $black;
     cursor: pointer;
     @media(max-width: $container-media-575) {
         font-size: 14px;

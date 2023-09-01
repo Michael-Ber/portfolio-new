@@ -15,11 +15,31 @@
     font-weight: 400;
 }
 
-.theme-light {
-    color: $white;
+.theme-github {
+    g path {
+        fill: #fff !important;
+    }
 }
-.theme-dark {
-    color: $black;
+.theme-logo {
+    .change {
+        fill: #fff !important;
+    }
+}
+
+.theme-mail {
+    path {
+        fill: #fff !important;
+    }
+}
+
+.theme-checkbox {
+    &::before {
+        border: 1px solid #fff;
+    }
+}
+
+.theme-skills-card {
+    box-shadow: 0 0 10px 0 rgba($white, .6);
 }
 
 .app {
@@ -164,7 +184,7 @@
             border-right: 0 solid transparent;
             left: 0;
         }
-        color: $preload-color;
+        color: $black !important;
     }
     &_dark {
         color: $white;

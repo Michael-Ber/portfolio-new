@@ -10,7 +10,7 @@
         left: 0;
         right: 0;
         bottom: 0;
-        background-color: rgba(#000, .5);
+        background-color: rgba(#000, .3);
     }
     
     &__parallax {
@@ -55,7 +55,14 @@
 
     &__contact {
         margin-top: 100px;
-        background-color: $white;
+        border: 2px solid $white !important;
+        color: $white !important;
+    }
+}
+
+.theme-intro {
+    &::after {
+        background-color: rgba(#000, .7);
     }
 }
 

@@ -129,7 +129,11 @@
   transition: 0.3s all;
 }
 .link:hover {
-  color: #ffa501;
+  color: #ffa501 !important;
+}
+.link:hover svg g path {
+  transition: 0.3s all;
+  fill: #ffa501 !important;
 }
 @media (max-width: 575px) {
   .link {
@@ -148,6 +152,7 @@
   background-color: transparent;
   color: #000000;
   padding: 5px;
+  border: 1px solid #000000;
   cursor: pointer;
 }
 @media (max-width: 575px) {
@@ -309,7 +314,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.3);
 }
 .intro__parallax {
   position: absolute;
@@ -359,7 +364,12 @@
 }
 .intro__contact {
   margin-top: 100px;
-  background-color: #ffffff;
+  border: 2px solid #ffffff !important;
+  color: #ffffff !important;
+}
+
+.theme-intro::after {
+  background-color: rgba(0, 0, 0, 0.7);
 }
 
 .title-intro__str {
@@ -1188,12 +1198,24 @@
   font-weight: 400;
 }
 
-.theme-light {
-  color: #ffffff;
+.theme-github g path {
+  fill: #fff !important;
 }
 
-.theme-dark {
-  color: #000000;
+.theme-logo .change {
+  fill: #fff !important;
+}
+
+.theme-mail path {
+  fill: #fff !important;
+}
+
+.theme-checkbox::before {
+  border: 1px solid #fff;
+}
+
+.theme-skills-card {
+  box-shadow: 0 0 10px 0 rgba(255, 255, 255, 0.6);
 }
 
 .app {
@@ -1341,7 +1363,7 @@
   border-right: 35px solid transparent;
 }
 .btn:hover {
-  color: #000000;
+  color: #000000 !important;
 }
 .btn:hover:before {
   width: 100%;
