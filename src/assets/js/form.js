@@ -33,6 +33,8 @@ const form = (formSelector) => {
         }
     };
 
+    
+
     inputs.forEach(input => {
         if(input.type !== 'checkbox') {
             input.addEventListener('input', () => {
@@ -84,7 +86,7 @@ const form = (formSelector) => {
             document.documentElement.appendChild(divForm);
             setTimeout(() => {
                 document.documentElement.removeChild(divForm);
-            }, 3000);
+            }, 13000);
             return;
         }
         let formData = new FormData(form);
@@ -100,8 +102,9 @@ const form = (formSelector) => {
                 submit.removeChild(spinner);
                 showModal('success', window.location.hash.substring(1), modal);
             })
-            .catch(() => {
+            .catch((err) => {
                 submit.removeChild(spinner);
+                console.log(err)
                 showModal('error', window.location.hash.substring(1), modal);
             })
             .finally(() => {
@@ -152,5 +155,4 @@ const form = (formSelector) => {
         }   
     });
 };
-
 export {form};

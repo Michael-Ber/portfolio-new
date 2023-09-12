@@ -12,10 +12,10 @@ const sendReq = async (url, data) => {
         if(!res.ok) {
             throw new Error(`Could not fetch ${url}, status ${res.status}`);
         }
+        return await res;
     }catch(e) {
         throw e;
     }
-    return await res;
 };
 
 export {sendReq};
