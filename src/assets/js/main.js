@@ -1,9 +1,7 @@
 'use strict';
-import {preload} from './preload';
 import {burger} from './burger';
 import {scroll} from './scroll';
 import {setLanguage, lang} from './lang';
-import {parallax} from './parallax';
 import {percentCreation} from './percents';
 import {form} from './form';
 import { theme } from './theme';
@@ -21,7 +19,6 @@ window.addEventListener('DOMContentLoaded', () => {
         overlayActive: 'overlay_active',
         close: '.menu__close'
     });
-    // parallax('.app', '.app__bg');
     percentCreation('.skills__diagrams-item', '.diagrams-item__percent', '.bottom-diagrams-item__bg-front');
     form('.contact__form');
     theme();
