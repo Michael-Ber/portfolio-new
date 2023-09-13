@@ -96,7 +96,7 @@ const form = (formSelector) => {
         });
         let jsonData = JSON.stringify(object);
         console.log(object);
-        sendReq("http://localhost:3005/send_mail", jsonData)
+        sendReq("https://portfolio-mailer-8yue.onrender.com/send_mail", jsonData)
             .then((res) => {
                 console.log(res);
                 submit.removeChild(spinner);
