@@ -92,7 +92,7 @@ const form = (formSelector) => {
         });
         let jsonData = JSON.stringify(object);
 
-        sendReq("'https://portfolio-mailer-8yue.onrender.com/send_mail'", jsonData)
+        sendReq("https://portfolio-mailer-8yue.onrender.com/send_mail", jsonData)
             .then((res) => {
                 submit.removeChild(spinner);
                 showModal(res, window.location.hash.substring(1), modal);
@@ -123,6 +123,7 @@ const form = (formSelector) => {
                     removeModal(modal);
                 }
             });
+            console.log(condition)
             if(condition.hasOwnProperty('success')) {
                 modal.innerHTML = 
                     `
