@@ -2,17 +2,17 @@
 
 const sendReq = async (url, data) => {
     try {
-        let res = await fetch(url, {
+        let result = await fetch(url, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
             body: data
         });
-        if(!res.ok) {
-            throw new Error(`Could not fetch ${url}, status ${res.status}`);
+        if(!result.ok) {
+            throw new Error(`Could not fetch ${url}, status ${result.status}`);
         }
-        return await res;
+        return await result.json();
     }catch(e) {
         throw e;
     }

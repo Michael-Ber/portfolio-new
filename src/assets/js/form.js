@@ -14,8 +14,6 @@ const form = (formSelector) => {
     const message = {
         'loading': './assets/icons/spinner.svg',
         'error': {
-            'en': 'something goes wrong :(',
-            'ru': 'что-то пошло не так :(',
             'img': './assets/icons/wrong.svg'
         },
         'error-input': {
@@ -27,8 +25,6 @@ const form = (formSelector) => {
             'ru': 'Некоторые поля формы не заполнены'
         },
         'success': {
-            'en': 'Thank you. I will contact you soon',
-            'ru': 'Спасибо, скоро я с вами свяжусь',
             'img': './assets/icons/success.svg'
         }
     };
@@ -86,7 +82,7 @@ const form = (formSelector) => {
             document.documentElement.appendChild(divForm);
             setTimeout(() => {
                 document.documentElement.removeChild(divForm);
-            }, 13000);
+            }, 3000);
             return;
         }
         let formData = new FormData(form);
@@ -95,16 +91,14 @@ const form = (formSelector) => {
             object[key] = value;
         });
         let jsonData = JSON.stringify(object);
-        console.log(object);
-        sendReq("https://portfolio-mailer-8yue.onrender.com/send_mail", jsonData)
+
+        sendReq("'https://portfolio-mailer-8yue.onrender.com/send_mail'", jsonData)
             .then((res) => {
-                console.log(res);
                 submit.removeChild(spinner);
-                showModal('success', window.location.hash.substring(1), modal);
+                showModal(res, window.location.hash.substring(1), modal);
             })
             .catch((err) => {
                 submit.removeChild(spinner);
-                console.log(err)
                 showModal('error', window.location.hash.substring(1), modal);
             })
             .finally(() => {
@@ -129,23 +123,24 @@ const form = (formSelector) => {
                     removeModal(modal);
                 }
             });
-            switch(condition) {
-                case 'success': modal.innerHTML = 
+            if(condition.hasOwnProperty('success')) {
+                modal.innerHTML = 
                     `
                         <div class="modal__img modal__img_suc">
                             <img src="${message['success']['img']}">
                         </div>
-                        <div class="modal__msg">${message['success'][hash]}</div>
+                        <div class="modal__msg">${condition.message[hash]}</div>
                         <div class="modal__close" data-close>&#10005;</div>
-                    `; break;
-                case 'error': modal.innerHTML = 
+                    `
+            }else if(condition.hasOwnProperty('error')) {
+                modal.innerHTML = 
                     `   
                         <div class="modal__img modal__img_wrong">
                             <img src="${message['error']['img']}">
                         </div>
-                        <div class="modal__msg">${message['error'][hash]}</div>
+                        <div class="modal__msg">${condition.message[hash]}</div>
                         <div class="modal__close" data-close>&#10005;</div>
-                    `;break;
+                    `
             }
         }
         function removeModal(modalElem) {
@@ -156,3 +151,4 @@ const form = (formSelector) => {
     });
 };
 export {form};
+
