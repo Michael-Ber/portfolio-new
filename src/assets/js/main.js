@@ -5,6 +5,7 @@ import {setLanguage, lang} from './lang';
 import {percentCreation} from './percents';
 import {form} from './form';
 import { theme } from './theme';
+import { preload } from './preload';
 
 
 window.addEventListener('DOMContentLoaded', () => {
@@ -22,4 +23,6 @@ window.addEventListener('DOMContentLoaded', () => {
     percentCreation('.skills__diagrams-item', '.diagrams-item__percent', '.bottom-diagrams-item__bg-front');
     form('.contact__form');
     theme();
+    preload();
+    
 });

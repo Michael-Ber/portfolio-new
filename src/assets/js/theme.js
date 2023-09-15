@@ -4,6 +4,7 @@ const theme = () => {
     const elementToChangeBackgroundColor = document.querySelectorAll('.theme-bg');
     const elementToChangeTextColor = document.querySelectorAll('.theme-color');
     const btnsToChangeBorderColor = document.querySelectorAll('.btn.theme');
+    const burgerLinesChangeColor = document.querySelectorAll('.theme-burger');
     const svgToChangeColor = document.querySelectorAll('svg.theme');
     const logoSvg = svgToChangeColor[0];
     const githubSvg = svgToChangeColor[1];
@@ -51,6 +52,9 @@ const theme = () => {
             }
             item.style.backgroundColor = '#fff';
         })
+        burgerLinesChangeColor.forEach(line => {
+            line.style.backgroundColor = '#333';
+        })
         elementToChangeTextColor.forEach(item => {
             item.style.color = '#000'
         })
@@ -74,6 +78,9 @@ const theme = () => {
                 case 'SELECT': item.style.border = '1px solid #fff';break;
             }
             item.style.backgroundColor = '#000';
+        })
+        burgerLinesChangeColor.forEach(line => {
+            line.style.backgroundColor = '#fff';
         })
         elementToChangeTextColor.forEach(item => {
             item.style.color = '#fff';

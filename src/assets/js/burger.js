@@ -19,13 +19,13 @@ const burger = ({
         if(!this.classList.contains(btnActiveClass)) {
             this.classList.add(btnActiveClass);
             burgerMenu.classList.add(menuActiveClass);
-            overlay.classList.add(overlayActiveClass);
+            // overlay.classList.add(overlayActiveClass);
             body.style.overflow = 'hidden';
             body.style.marginRight = `${getScrollWidth()}px`;
         }else {
             this.classList.remove(btnActiveClass);
             burgerMenu.classList.remove(menuActiveClass);
-            overlay.classList.remove(overlayActiveClass);
+            // overlay.classList.remove(overlayActiveClass);
             body.style.overflow = 'unset';
             body.style.marginRight = `0px`;
         }
@@ -33,7 +33,7 @@ const burger = ({
     close.addEventListener('click', () => {
         burgerBtn.classList.remove(btnActiveClass);
         burgerMenu.classList.remove(menuActiveClass);
-        overlay.classList.remove(overlayActiveClass);
+        // overlay.classList.remove(overlayActiveClass);
         body.style.overflow = 'unset';
         body.style.marginRight = `0px`;
     });

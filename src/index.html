@@ -14,7 +14,11 @@
 </head>
 <body>
     <div class="app">
-        <div class="overlay"></div>
+        <div class="overlay overlay_active">
+            <div class="overlay__logo logo-overlay">
+                <img src="./assets/icons/loading.gif" alt="loading.gif">
+            </div>
+        </div>
         <div class="modal"></div>
         <div class="app__bg">
         </div>
@@ -100,9 +104,9 @@
                     </nav>
                     <div class="header__burger burger">
                         <div class="burger__btn">
-                            <span class="burger__line theme theme-bg"></span>
-                            <span class="burger__line theme theme-bg"></span>
-                            <span class="burger__line theme theme-bg"></span>
+                            <span class="burger__line theme theme-burger"></span>
+                            <span class="burger__line theme theme-burger"></span>
+                            <span class="burger__line theme theme-burger"></span>
                         </div>
                         <div class="burger__menu menu">
                             
@@ -145,6 +149,9 @@
             <div class="content">
                 
                 <section class="intro theme-intro" id="intro">
+                    <div class="intro-img">
+                        <img src="./assets/img/bg-6-modify.jpg" alt="intro background" id="intro-img">
+                    </div>
                     <div class="intro__parallax">
                         <div class="intro__wrapper">
                             <h1 class="intro__title title-intro">
