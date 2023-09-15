@@ -94,7 +94,7 @@ const theme = () => {
         githubSvg.classList.toggle('theme-github');
         logoSvg.classList.toggle('theme-logo');
         mailSvg.classList.toggle('theme-mail');
-        introImgChangeTheme.classList.toggle('theme-intro');
+        introImgChangeTheme.classList.add('theme-intro');
         checkboxChangeTheme.classList.toggle('theme-checkbox');
     }
 
