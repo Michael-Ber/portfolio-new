@@ -5,11 +5,11 @@ const form = (formSelector) => {
     const form = document.querySelector(formSelector);
     const inputs = form.querySelectorAll('[name]');
     const modal = document.querySelector('.modal');
-    const overlay = document.querySelector('.overlay');
+    const overlay = document.querySelector('.overlay-form-submit');
     const submit = form.querySelector('.contact__submit');
 
 
-    
+
 
     const message = {
         'loading': './assets/icons/spinner.svg',
@@ -20,7 +20,7 @@ const form = (formSelector) => {
             'en': 'This field is required',
             'ru': 'Это поле обязательно для заполнения'
         },
-        'error-for-btn' : {
+        'error-for-btn': {
             'en': 'Some fields were not filled out',
             'ru': 'Некоторые поля формы не заполнены'
         },
@@ -29,53 +29,53 @@ const form = (formSelector) => {
         }
     };
 
-    
+
 
     inputs.forEach(input => {
-        if(input.type !== 'checkbox') {
+        if (input.type !== 'checkbox') {
             input.addEventListener('input', () => {
-                if(input.classList.contains('wrong')) {
+                if (input.classList.contains('wrong')) {
                     input.classList.remove('wrong');
-                    input.parentNode.removeChild(Array.from(input.parentNode.children)[Array.from(input.parentNode.children).length-1]);
+                    input.parentNode.removeChild(Array.from(input.parentNode.children)[Array.from(input.parentNode.children).length - 1]);
                 }
-                if(input.value !== '') {
+                if (input.value !== '') {
                     input.nextElementSibling.style.display = 'none';
-                }else {
+                } else {
                     input.nextElementSibling.style.display = 'block';
                 }
             });
-        }else {
+        } else {
             input.addEventListener('change', () => {
-                if(input.classList.contains('wrong')) {
+                if (input.classList.contains('wrong')) {
                     input.classList.remove('wrong');
-                    input.parentNode.removeChild(Array.from(input.parentNode.children)[Array.from(input.parentNode.children).length-1]);
+                    input.parentNode.removeChild(Array.from(input.parentNode.children)[Array.from(input.parentNode.children).length - 1]);
                 }
             })
         }
     });
 
-    form.addEventListener('submit', function(e) {
+    form.addEventListener('submit', function (e) {
         e.preventDefault();
         let spinner = document.createElement('img');
         spinner.setAttribute('src', message['loading']);
         spinner.style.cssText = `width: 40px; height: 40px; margin-left: 20px`;
         submit.appendChild(spinner);
-        
+
 
         let a = 0;
         let hash = window.location.hash.substring(1);
         inputs.forEach(input => {
-            if(!input.value || (input.type === 'checkbox' && !input.checked)) {
+            if (!input.value || (input.type === 'checkbox' && !input.checked)) {
                 let span = document.createElement('span');
                 span.textContent = message['error-input'][hash];
                 span.classList.add('contact__notfilled');
                 input.parentNode.appendChild(span);
                 input.classList.add('wrong');
-                a=1;
+                a = 1;
                 submit.removeChild(spinner);
             }
         });
-        if(a > 0) {
+        if (a > 0) {
             let divForm = document.createElement('div');
             divForm.classList.add('contact__notfilled-main');
             divForm.innerHTML = message['error-for-btn'][hash];
@@ -104,28 +104,27 @@ const form = (formSelector) => {
             .finally(() => {
                 this.reset();
                 inputs.forEach(input => {
-                    if(input.type === 'checkbox') {
+                    if (input.type === 'checkbox') {
                         input.checked = false;
-                    }else {
+                    } else {
                         input.value = '';
                         input.nextElementSibling.style.display = 'block';
                     }
-                    
-                }); 
+
+                });
                 setTimeout(() => removeModal(modal), 7000);
             })
-        
+
         function showModal(condition, hash, modalElem) {
             modalElem.classList.add('modal_active');
-            overlay.classList.add('overlay_active');
+            overlay.classList.add('overlay-form-submit_active');
             document.documentElement.addEventListener('click', (e) => {
-                if(e.target.hasAttribute('data-close') || e.target.classList.contains('overlay')) {
+                if (e.target.hasAttribute('data-close') || e.target.classList.contains('overlay')) {
                     removeModal(modal);
                 }
             });
-            console.log(condition)
-            if(condition.hasOwnProperty('success')) {
-                modal.innerHTML = 
+            if (condition.hasOwnProperty('success')) {
+                modal.innerHTML =
                     `
                         <div class="modal__img modal__img_suc">
                             <img src="${message['success']['img']}">
@@ -133,8 +132,8 @@ const form = (formSelector) => {
                         <div class="modal__msg">${condition.message[hash]}</div>
                         <div class="modal__close" data-close>&#10005;</div>
                     `
-            }else if(condition.hasOwnProperty('error')) {
-                modal.innerHTML = 
+            } else if (condition.hasOwnProperty('error')) {
+                modal.innerHTML =
                     `   
                         <div class="modal__img modal__img_wrong">
                             <img src="${message['error']['img']}">
@@ -146,10 +145,10 @@ const form = (formSelector) => {
         }
         function removeModal(modalElem) {
             modalElem.classList.remove('modal_active');
-            overlay.classList.remove('overlay_active');
+            overlay.classList.remove('overlay-form-submit_active');
             modalElem.innerHTML = '';
-        }   
+        }
     });
 };
-export {form};
+export { form };
 
