@@ -1,14 +1,18 @@
 .skills {
     position: relative;
     padding: 100px 0 10px 0;
-    background-color: $white;
+    background-color: transparent;
     z-index: 10;
+
     @media(max-width: $container-media-575) {
         padding: 30px 0 10px 0;
     }
+
+
+
     &__title {
         text-align: center;
-        
+
         &::after {
             margin: 20px auto 40px auto;
         }
@@ -41,14 +45,22 @@
         gap: 50px 40px;
         justify-content: center;
         list-style-type: none;
+
         @media(max-width: $container-media-575) {
             grid-template-columns: repeat(auto-fill, 300px);
         }
     }
+
     &__diagrams-item {
         color: $black;
     }
+
+    &__text {
+        position: relative;
+        z-index: 10;
+    }
 }
+
 .card-skills {
 
     &__icon {
@@ -85,6 +97,7 @@
         position: relative;
         font-size: 16px;
         font-weight: 600;
+
         &::before {
             content: '';
             position: absolute;
@@ -116,6 +129,7 @@
         box-shadow: 0 0 10px 0 rgba($black, .3);
     }
 }
+
 .bottom-diagrams-item {
 
     &__bg-back {

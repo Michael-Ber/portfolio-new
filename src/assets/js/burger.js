@@ -1,7 +1,7 @@
 'use strict';
 
 const burger = ({
-    btn : btnSelector,
+    btn: btnSelector,
     menu: menuSelector,
     overlay: overlaySelector,
     btnActive: btnActiveClass,
@@ -10,19 +10,19 @@ const burger = ({
     close: closeSelector
 }) => {
     const burgerBtn = document.querySelector(btnSelector),
-          burgerMenu = document.querySelector(menuSelector),
-          overlay = document.querySelector(overlaySelector),
-          close = document.querySelector(closeSelector),
-          body = document.querySelector('body');
-          
-    burgerBtn.addEventListener('click', function() {
-        if(!this.classList.contains(btnActiveClass)) {
+        burgerMenu = document.querySelector(menuSelector),
+        overlay = document.querySelector(overlaySelector),
+        close = document.querySelector(closeSelector),
+        body = document.querySelector('body');
+
+    burgerBtn.addEventListener('click', function () {
+        if (!this.classList.contains(btnActiveClass)) {
             this.classList.add(btnActiveClass);
             burgerMenu.classList.add(menuActiveClass);
             // overlay.classList.add(overlayActiveClass);
             body.style.overflow = 'hidden';
             body.style.marginRight = `${getScrollWidth()}px`;
-        }else {
+        } else {
             this.classList.remove(btnActiveClass);
             burgerMenu.classList.remove(menuActiveClass);
             // overlay.classList.remove(overlayActiveClass);
@@ -30,14 +30,17 @@ const burger = ({
             body.style.marginRight = `0px`;
         }
     });
-    close.addEventListener('click', () => {
-        burgerBtn.classList.remove(btnActiveClass);
-        burgerMenu.classList.remove(menuActiveClass);
-        // overlay.classList.remove(overlayActiveClass);
-        body.style.overflow = 'unset';
-        body.style.marginRight = `0px`;
-    });
+    close.addEventListener('click', () => closeBurgerMenu(burgerBtn, burgerMenu, btnActiveClass, menuActiveClass, body));
+
+
 }
+function closeBurgerMenu(btnElement, menuElement, btnActiveClass, menuActiveClass, body) {
+    btnElement.classList.remove(btnActiveClass);
+    menuElement.classList.remove(menuActiveClass);
+    body.style.overflow = 'unset';
+    body.style.marginRight = `0px`;
+}
+
 function getScrollWidth() {
     let div = document.createElement('div');
     div.style.width = '50px';
@@ -51,4 +54,4 @@ function getScrollWidth() {
 }
 
 
-export {burger};
+export { burger, closeBurgerMenu };

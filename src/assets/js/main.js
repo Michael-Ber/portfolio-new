@@ -1,15 +1,15 @@
 'use strict';
-import {burger} from './burger';
-import {scroll} from './scroll';
-import {setLanguage, lang} from './lang';
-import {percentCreation} from './percents';
-import {form} from './form';
+import { burger } from './burger';
+import { scroll } from './scroll';
+import { setLanguage, lang } from './lang';
+import { percentCreation } from './percents';
+import { form } from './form';
 import { theme } from './theme';
 import { preload } from './preload';
 
 
 window.addEventListener('DOMContentLoaded', () => {
-    scroll({arrow: '.arrow-up', arrowActive: 'arrow-up_active'});
+    scroll({ arrow: '.arrow-up', arrowActive: 'arrow-up_active' });
     setLanguage(lang, '.lang-selector');
     burger({
         btn: '.burger__btn',
@@ -24,5 +24,5 @@ window.addEventListener('DOMContentLoaded', () => {
     form('.contact__form');
     theme();
     preload();
-    
+
 });

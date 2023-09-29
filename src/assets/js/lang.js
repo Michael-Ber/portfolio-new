@@ -1,134 +1,134 @@
 'use strict';
-import {scroll} from './scroll';
+import { scroll } from './scroll';
 import Typed from 'typed.js';
 
 const lang = {
-    'lng-about' : {
-        'en' : 'About',
+    'lng-about': {
+        'en': 'About',
         'ru': 'Обо мне'
     },
-    'lng-skills' : {
-        'en' : 'Skills',
+    'lng-skills': {
+        'en': 'Skills',
         'ru': 'Навыки'
     },
-    'lng-works' : {
-        'en' : 'Works',
+    'lng-works': {
+        'en': 'Works',
         'ru': 'Мои работы'
     },
-    'lng-contact' : {
-        'en' : 'Contact',
+    'lng-contact': {
+        'en': 'Contact',
         'ru': 'Контакты'
     },
-    'lng-intro' : {
-        'en' : [`Hi,`, `I'm Michael,`, `web developer`],
+    'lng-intro': {
+        'en': [`Hi,`, `I'm Michael,`, `web developer`],
         'ru': ['Привет,', 'меня зовут Михаил,', 'я веб-разработчик']
     },
-    'lng-btnContact' : {
-        'en' : 'Contact me!',
+    'lng-btnContact': {
+        'en': 'Contact me!',
         'ru': 'Свяжитесь со мной'
     },
-    'lng-prof' : {
-        'en' : ['Freelancer', 'Front-end developer'],
+    'lng-prof': {
+        'en': ['Freelancer', 'Front-end developer'],
         'ru': ['Фрилансер', 'Фронт-енд разработчик']
     },
-    'lng-descr' : {
-        'en' : "Hello, my name is Michael. I'm junior front-end developer.I've been learning front-end for two years, finished five web developing courses on Udemy and have been practicing all that time. My <a href='#works' class='about__link' aria-label='link to works section'>works</a> you can see below.",
+    'lng-descr': {
+        'en': "Hello, my name is Michael. I'm junior front-end developer.I've been learning front-end for two years, finished five web developing courses on Udemy and have been practicing all that time. My <a href='#works' class='about__link' aria-label='link to works section'>works</a> you can see below.",
         'ru': 'Привет, меня зовут Михаил. Я джуниор фронт-енд разработчик. Я изучаю фронт-енд два года, закончил пять курсов веб-разработки на Udemy, все это время практикуюсь.<a href="#works" class="about__link" aria-label="link to works section"> Мои работы</a> вы можете посмотреть ниже '
     },
-    'lng-skillsSubtitle' : {
-        'en' : 'What i use in my work',
+    'lng-skillsSubtitle': {
+        'en': 'What i use in my work',
         'ru': 'Что я использую в работе'
     },
-    'lng-html' : {
-        'en' : 'HTML can be described as the language that ultimately gives web pages (and websites) the appearance and structure that is seen by end users.',
+    'lng-html': {
+        'en': 'HTML can be described as the language that ultimately gives web pages (and websites) the appearance and structure that is seen by end users.',
         'ru': 'HTML - стандартизированный язык гипертекстовой разметки документов для просмотра веб-страниц в браузере'
     },
-    'lng-css' : {
-        'en' : 'CSS is the abbreviation for the term “cascading style sheets” and describes how HTML elements should be displayed.',
+    'lng-css': {
+        'en': 'CSS is the abbreviation for the term “cascading style sheets” and describes how HTML elements should be displayed.',
         'ru': 'CSS расшифровывается как каскадные таблицы стилей и описывает как HTML элементы должны отображаться'
     },
-    'lng-js' : {
-        'en' : 'This programming language allows you to bring anything to life: sliders, windows, tooltips, tabs, receiving data from the server, and much more.',
+    'lng-js': {
+        'en': 'This programming language allows you to bring anything to life: sliders, windows, tooltips, tabs, receiving data from the server, and much more.',
         'ru': 'Этот язык программирования позволяет оживить все что угодно: слайдеры, окна, подсказки, вкладки, получение данных от сервера и многое другое'
     },
-    'lng-react' : {
-        'en' : 'This library allows you to create web applications. I can create the most interactive product for your purposes.',
+    'lng-react': {
+        'en': 'This library allows you to create web applications. I can create the most interactive product for your purposes.',
         'ru': 'Эта библиотека позволяет создавать web-приложения. Я могу создать максимально интерактивный продукт именно под ваши цели'
     },
-    'lng-jquery' : {
-        'en' : 'The Jquery library will speed up development. Without the need to integrate it into the project, we will not, but the skill of working with it is present.',
+    'lng-jquery': {
+        'en': 'The Jquery library will speed up development. Without the need to integrate it into the project, we will not, but the skill of working with it is present.',
         'ru': 'Библиотека Jquery позволит ускорить разработку. Без необходимости интегрировать в проект мы её не будем, но навык работы с ней присутствует.'
     },
-    'lng-mongodb' : {
-        'en' : 'A document-oriented database management system that does not require a description of the table schema. Considered one of the classic examples of NoSQL systems, uses JSON-like documents and database schema.',
+    'lng-mongodb': {
+        'en': 'A document-oriented database management system that does not require a description of the table schema. Considered one of the classic examples of NoSQL systems, uses JSON-like documents and database schema.',
         'ru': 'Документоориентированная система управления базами данных, не требующая описания схемы таблиц. Считается одним из классических примеров NoSQL-систем, использует JSON-подобные документы и схему базы данных.'
     },
-    'lng-nodejs' : {
-        'en' : 'This platform allows you to create a backend for your product - "brains" that will perform actions that the user does not see.',
+    'lng-nodejs': {
+        'en': 'This platform allows you to create a backend for your product - "brains" that will perform actions that the user does not see.',
         'ru': 'Эта платформа позволяет создавать бэкенд для вашего продукта - “мозги”, которые будут выполнять действия, которые пользователь не видит.'
     },
-    'lng-sites' : {
-        'en' : 'Web sites creating',
+    'lng-sites': {
+        'en': 'Web sites creating',
         'ru': 'Создание веб-сайтов'
     },
-    'lng-apps' : {
-        'en' : 'Web applications creating',
+    'lng-apps': {
+        'en': 'Web applications creating',
         'ru': 'Создание веб-приложений'
     },
-    'lng-data' : {
-        'en' : 'Work with data',
+    'lng-data': {
+        'en': 'Work with data',
         'ru': 'Работа с данными'
     },
-    'lng-creativity' : {
-        'en' : 'Creativity',
+    'lng-creativity': {
+        'en': 'Creativity',
         'ru': 'Креативность'
     },
-    'lng-design' : {
-        'en' : 'Design creating',
+    'lng-design': {
+        'en': 'Design creating',
         'ru': 'Создание дизайна'
     },
-    'lng-softSkills' : {
-        'en' : 'Soft skills',
+    'lng-softSkills': {
+        'en': 'Soft skills',
         'ru': 'Soft skills'
     },
-    'lng-portfolio' : {
-        'en' : 'Portfolio',
+    'lng-portfolio': {
+        'en': 'Portfolio',
         'ru': 'Портфолио'
     },
-    'lng-worksSubtitle' : {
-        'en' : 'Some of my works',
+    'lng-worksSubtitle': {
+        'en': 'Some of my works',
         'ru': 'Мои работы'
     },
-    'lng-contactSubtitle' : {
-        'en' : 'Form for contact',
+    'lng-contactSubtitle': {
+        'en': 'Form for contact',
         'ru': 'Форма для связи'
     },
-    'lng-contactDescr' : {
-        'en' : "I'm interested in freelance opportunities. However, if you have other request or question, you can use a form.",
+    'lng-contactDescr': {
+        'en': "I'm interested in freelance opportunities. However, if you have other request or question, you can use a form.",
         'ru': 'Мне интересны фриланс-возможности. Если у вас остались вопросы, можете использовать форму для связи'
     },
-    'lng-name' : {
-        'en' : 'Name',
+    'lng-name': {
+        'en': 'Name',
         'ru': 'Имя'
     },
-    'lng-email' : {
-        'en' : 'Email',
+    'lng-email': {
+        'en': 'Email',
         'ru': 'Почта'
     },
-    'lng-msg' : {
-        'en' : 'Message',
+    'lng-msg': {
+        'en': 'Message',
         'ru': 'Сообщение'
     },
-    'lng-btnSend' : {
-        'en' : 'Send message!',
+    'lng-btnSend': {
+        'en': 'Send message!',
         'ru': 'Отправить!'
     },
-    'lng-privacy' : {
-        'en' : 'I agree with the',
+    'lng-privacy': {
+        'en': 'I agree with the',
         'ru': 'Я согласен(а) с'
     },
-    'lng-privacyLink' : {
-        'en' : 'privacy policy',
+    'lng-privacyLink': {
+        'en': 'privacy policy',
         'ru': 'политикой конфиденциальности'
     },
     'lng-privacyHref': {
@@ -140,20 +140,20 @@ const lang = {
         'ru': 'смотреть'
     }
 };
-
+let typed1 = [];
 function setLanguage(langObject, langSelector) {
     const select = document.querySelector(langSelector);
-    const tagsForLangChange =  document.querySelectorAll('.lng');
+    const tagsForLangChange = document.querySelectorAll('.lng');
     const introTitle = Array.from(document.querySelector('.intro__title').children);
     const aboutTitle = document.querySelector('.about__subtitle');
 
     window.location.hash = '#en';
-    
+
     let hashOld = window.location.hash.substring(1);
-    let typed1 = [];
+
     // Typed.js for intro__title, no loop
-    
-    for(let i = 0; i < introTitle.length; i++) {
+
+    for (let i = 0; i < introTitle.length; i++) {
         const typed = new Typed(introTitle[i], {
             strings: [lang['lng-intro'][window.location.hash.substring(1)][i]],
             typeSpeed: 40,
@@ -193,16 +193,16 @@ function setLanguage(langObject, langSelector) {
     });
 
     //change hash
-    
+
     select.addEventListener('input', () => {
         let language = select.value;
-        window.location.hash  = `#${language}`;
+        window.location.hash = `#${language}`;
         let hash = window.location.hash.substring(1);
-        if(hashOld !== hash) {
+        if (hashOld !== hash) {
             changeLanguage(hash);
         }
-        scroll({arrow: '.arrow-up', arrowActive: 'arrow-up_active'});
-        
+        scroll({ arrow: '.arrow-up', arrowActive: 'arrow-up_active' });
+
     })
 
     window.addEventListener('popstate', () => {   //without that language changes only 1 time
@@ -219,7 +219,7 @@ function setLanguage(langObject, langSelector) {
         tagsForLangChange.forEach(item => {
             const clsNameStr = item.classList.value.match(/lng-[a-z]*/ig).join('');
 
-            if(item.classList.contains(clsNameStr)) {
+            if (item.classList.contains(clsNameStr)) {
                 item.innerHTML = langObject[clsNameStr][hash];
             }
         });
@@ -231,16 +231,23 @@ function setLanguage(langObject, langSelector) {
     function animateText(parentNode, letterClass) {
         let parent = parentNode;
         let content = parent.innerHTML;
+        let themeClass = '';
         parent.innerHTML = '';
 
-        for(let i = 0; i < content.length; i++) {
+        if (window.localStorage.getItem('theme') === 'dark') {
+            themeClass += 'title-intro__letter_light'
+        } else {
+            themeClass += 'title-intro__letter_dark'
+        }
+
+        for (let i = 0; i < content.length; i++) {
             let letter = document.createElement('span');
-            if(content[i] == ' ') {
+            if (content[i] == ' ') {
                 letter.classList.add('space-item');
                 letter.innerHTML = content[i];
                 parent.appendChild(letter);
-            }else {
-                letter.classList.add(letterClass);
+            } else {
+                letter.classList.add(letterClass, themeClass);
                 letter.innerHTML = content[i];
                 parent.appendChild(letter);
             }
@@ -249,4 +256,4 @@ function setLanguage(langObject, langSelector) {
 
 }
 
-export {setLanguage, lang};
+export { setLanguage, lang, typed1 };
