@@ -57,29 +57,19 @@
 
 .aside-links {
     transition: .3s all ease;
-
-    &__left {
-        display: flex;
-        justify-content: space-between;
-        position: fixed;
-        top: 50%;
-        left: -80px;
-        z-index: 10000;
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+    top: 50%;
+    z-index: 10000;
         font-size: 16px;
         transform: rotate(-90deg);
-        opacity: 0;
+    &__left {
+        left: -80px;
     }
 
     &__right {
-        display: flex;
-        justify-content: space-between;
-        position: fixed;
-        top: 50%;
         right: -80px;
-        z-index: 10000;
-        font-size: 16px;
-        transform: rotate(-90deg);
-        opacity: 0;
     }
 
     @media(max-width: 1340px) {

@@ -1763,16 +1763,17 @@ const scroll = _ref => {
     } else {
       arrow.classList.remove(arrowActiveClass);
     }
-    if (fromTop > 1200) {
-      document.querySelectorAll('.aside-links').forEach(link => {
-        link.style.opacity = '1';
-      });
-    } else {
-      document.querySelectorAll('.aside-links').forEach(link => {
-        link.style.opacity = '0';
-      });
-    }
+    // if (fromTop > 1200) {
+    //     document.querySelectorAll('.aside-links').forEach(link => {
+    //         link.style.opacity = '1';
+    //     });
+    // } else {
+    //     document.querySelectorAll('.aside-links').forEach(link => {
+    //         link.style.opacity = '0';
+    //     });
+    // }
   });
+
   links.forEach(link => {
     if (link.hash) {
       link.addEventListener('click', function (e) {
@@ -1862,7 +1863,6 @@ const theme = () => {
   const introImgChangeTheme = document.querySelector('.intro');
   const checkboxChangeTheme = document.querySelector('input.theme');
   const skillsCardsChangeTheme = document.querySelectorAll('article.theme');
-  // const aboutRightChangeTheme = document.querySelector('.right-about__bg');
   const aboutImagesDark = document.querySelectorAll('.section-bg .theme-dark');
   const aboutImagesLight = document.querySelectorAll('.section-bg .theme-light');
   const introStrokes = document.querySelectorAll('.title-intro__str');

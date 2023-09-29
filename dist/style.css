@@ -1259,28 +1259,19 @@ input:-webkit-autofill:focus {
 
 .aside-links {
   transition: 0.3s all ease;
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  top: 50%;
+  z-index: 10000;
+  font-size: 16px;
+  transform: rotate(-90deg);
 }
 .aside-links__left {
-  display: flex;
-  justify-content: space-between;
-  position: fixed;
-  top: 50%;
   left: -80px;
-  z-index: 10000;
-  font-size: 16px;
-  transform: rotate(-90deg);
-  opacity: 0;
 }
 .aside-links__right {
-  display: flex;
-  justify-content: space-between;
-  position: fixed;
-  top: 50%;
   right: -80px;
-  z-index: 10000;
-  font-size: 16px;
-  transform: rotate(-90deg);
-  opacity: 0;
 }
 @media (max-width: 1340px) {
   .aside-links {

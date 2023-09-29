@@ -1,4 +1,4 @@
-import { setLanguage, lang, typed1 } from "./lang";
+import { typed1 } from "./lang";
 
 
 
@@ -16,7 +16,6 @@ const theme = () => {
     const introImgChangeTheme = document.querySelector('.intro');
     const checkboxChangeTheme = document.querySelector('input.theme');
     const skillsCardsChangeTheme = document.querySelectorAll('article.theme');
-    // const aboutRightChangeTheme = document.querySelector('.right-about__bg');
     const aboutImagesDark = document.querySelectorAll('.section-bg .theme-dark');
     const aboutImagesLight = document.querySelectorAll('.section-bg .theme-light');
     const introStrokes = document.querySelectorAll('.title-intro__str');
