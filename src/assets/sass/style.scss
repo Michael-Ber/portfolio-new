@@ -98,6 +98,22 @@
     height: 100%;
     z-index: 1;
 
+    &__bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+
+        &_light {
+            background-color: rgba(#ffffff, .7)
+        }
+
+        &_dark {
+            background-color: rgba(#ffffff, .1)
+        }
+    }
+
     img {
         width: 100%;
         height: 100%;
@@ -118,7 +134,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    opacity: 0.4;
+    opacity: 0.1;
     z-index: 1;
 
     img {
@@ -394,5 +410,14 @@
         &:hover {
             color: red;
         }
+    }
+}
+
+section {
+    display: none;
+    min-height: 100vh;
+
+    &.section-active {
+        display: block;
     }
 }

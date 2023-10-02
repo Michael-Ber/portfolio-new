@@ -32,8 +32,8 @@ const lang = {
         'ru': ['Фрилансер', 'Фронт-енд разработчик']
     },
     'lng-descr': {
-        'en': "Hello, my name is Michael. I'm junior front-end developer.I've been learning front-end for two years, finished five web developing courses on Udemy and have been practicing all that time. My <a href='#works' class='about__link' aria-label='link to works section'>works</a> you can see below.",
-        'ru': 'Привет, меня зовут Михаил. Я джуниор фронт-енд разработчик. Я изучаю фронт-енд два года, закончил пять курсов веб-разработки на Udemy, все это время практикуюсь.<a href="#works" class="about__link" aria-label="link to works section"> Мои работы</a> вы можете посмотреть ниже '
+        'en': "Hello, my name is Michael. I'm junior front-end developer.I've been learning front-end for two years, finished five web developing courses on Udemy and have been practicing all that time. My <a href='#works' class='about__link' aria-label='link to works section'>works</a> you can see on works section.",
+        'ru': 'Привет, меня зовут Михаил. Я джуниор фронт-енд разработчик. Я изучаю фронт-енд два года, закончил пять курсов веб-разработки на Udemy, все это время практикуюсь.<a href="#works" class="about__link" aria-label="link to works section"> Мои работы</a> вы можете посмотреть в секции работ. '
     },
     'lng-skillsSubtitle': {
         'en': 'What i use in my work',
@@ -141,118 +141,152 @@ const lang = {
     }
 };
 let typed1 = [];
+
 function setLanguage(langObject, langSelector) {
     const select = document.querySelector(langSelector);
     const tagsForLangChange = document.querySelectorAll('.lng');
     const introTitle = Array.from(document.querySelector('.intro__title').children);
     const aboutTitle = document.querySelector('.about__subtitle');
+    const introSection = document.querySelector('section.intro');
+    const aboutSection = document.querySelector('section.about');
 
     window.location.hash = '#en';
 
     let hashOld = window.location.hash.substring(1);
 
-    // Typed.js for intro__title, no loop
+    try {
+        // Typed.js for intro__title, no loop
 
-    for (let i = 0; i < introTitle.length; i++) {
-        const typed = new Typed(introTitle[i], {
-            strings: [lang['lng-intro'][window.location.hash.substring(1)][i]],
-            typeSpeed: 40,
-            startDelay: 900 * i,
+        for (let i = 0; i < introTitle.length; i++) {
+            try {
+                const typed = new Typed(introTitle[i], {
+                    strings: [lang['lng-intro'][window.location.hash.substring(1)][i]],
+                    typeSpeed: 40,
+                    startDelay: 900 * i,
+                    showCursor: false,
+                    onReset: self => {
+                        try {
+                            self.strings = [lang['lng-intro'][window.location.hash.substring(1)][i]]
+                        } catch (error) {
+                            console.log(error)
+                        }
+                    },
+                    onComplete: self => {
+                        try {
+                            animateText(introTitle[i], 'title-intro__letter');
+                        } catch (error) {
+                            console.log(error)
+                        }
+                    }
+                });
+                typed1.push(typed);
+            } catch (error) {
+                console.log(error)
+            }
+
+        }
+
+        // Typed.js for about__subtitle with loop=true
+        const typed2 = new Typed(aboutTitle, {
+            strings: lang['lng-prof'][window.location.hash.substring(1)],
+            typeSpeed: 60,
+            loop: true,
             showCursor: false,
-            onReset: self => {
-                self.strings = [lang['lng-intro'][window.location.hash.substring(1)][i]]
+            smartBackspace: false,
+            startDelay: 500,
+            backDelay: 1000,
+            backSpeed: 30,
+            onReset: (self) => {
+                try {
+                    aboutTitle.style.opacity = 0;
+                } catch (error) {
+                    onslotchange.log(error)
+                }
             },
-            onComplete: self => {
-                animateText(introTitle[i], 'title-intro__letter');
+            onBegin: (self) => {
+                try {
+                    setTimeout(() => {
+                        aboutTitle.style.opacity = 1;
+                    }, 600);
+                    self.strings = lang['lng-prof'][window.location.hash.substring(1)];
+                    self.strings.options = lang['lng-prof'][window.location.hash.substring(1)];
+                } catch (error) {
+                    console.log(error)
+                }
+
             }
         });
-        typed1.push(typed);
-    }
-    //
 
-    // Typed.js for about__subtitle with loop=true
-    let typed2 = new Typed(aboutTitle, {
-        strings: lang['lng-prof'][window.location.hash.substring(1)],
-        typeSpeed: 60,
-        loop: true,
-        showCursor: false,
-        smartBackspace: false,
-        startDelay: 500,
-        backDelay: 1000,
-        backSpeed: 30,
-        onReset: (self) => {
-            aboutTitle.style.opacity = 0;
-        },
-        onBegin: (self) => {
-            setTimeout(() => {
-                aboutTitle.style.opacity = 1;
-            }, 600);
-            self.strings = lang['lng-prof'][window.location.hash.substring(1)];
-            self.strings.options = lang['lng-prof'][window.location.hash.substring(1)];
-        }
-    });
+        //change hash
 
-    //change hash
+        select.addEventListener('input', () => {
+            let language = select.value;
+            window.location.hash = `#${language}`;
+            let hash = window.location.hash.substring(1);
+            if (hashOld !== hash) {
+                changeLanguage(hash);
+            }
 
-    select.addEventListener('input', () => {
-        let language = select.value;
-        window.location.hash = `#${language}`;
-        let hash = window.location.hash.substring(1);
-        if (hashOld !== hash) {
+        })
+
+        window.addEventListener('popstate', () => {   //without that language changes only 1 time
+            let hash = window.location.hash.substring(1);
+            select.value = window.location.hash.substring(1);
             changeLanguage(hash);
-        }
-        scroll({ arrow: '.arrow-up', arrowActive: 'arrow-up_active' });
-
-    })
-
-    window.addEventListener('popstate', () => {   //without that language changes only 1 time
-        let hash = window.location.hash.substring(1);
-        select.value = window.location.hash.substring(1);
-        changeLanguage(hash);
-    });
-
-    function changeLanguage(hash) {
-        typed1.forEach((obj, j) => {
-            obj.reset();
         });
-        typed2.reset();
-        tagsForLangChange.forEach(item => {
-            const clsNameStr = item.classList.value.match(/lng-[a-z]*/ig).join('');
 
-            if (item.classList.contains(clsNameStr)) {
-                item.innerHTML = langObject[clsNameStr][hash];
+        function changeLanguage(hash) {
+            try {
+                typed1.forEach((obj, j) => {
+                    obj.reset();
+                });
+                typed2.reset();
+                tagsForLangChange.forEach(item => {
+                    const clsNameStr = item.classList.value.match(/lng-[a-z]*/ig).join('');
+
+                    if (item.classList.contains(clsNameStr)) {
+                        item.innerHTML = langObject[clsNameStr][hash];
+                    }
+                });
+                document.querySelector('.privacy__link').setAttribute('href', `${lang['lng-privacyHref'][hash]}`);
+            } catch (error) {
+                console.log(error)
             }
-        });
-        document.querySelector('.privacy__link').setAttribute('href', `${lang['lng-privacyHref'][hash]}`);
-    }
 
-
-    //Animate literals
-    function animateText(parentNode, letterClass) {
-        let parent = parentNode;
-        let content = parent.innerHTML;
-        let themeClass = '';
-        parent.innerHTML = '';
-
-        if (window.localStorage.getItem('theme') === 'dark') {
-            themeClass += 'title-intro__letter_light'
-        } else {
-            themeClass += 'title-intro__letter_dark'
         }
 
-        for (let i = 0; i < content.length; i++) {
-            let letter = document.createElement('span');
-            if (content[i] == ' ') {
-                letter.classList.add('space-item');
-                letter.innerHTML = content[i];
-                parent.appendChild(letter);
+
+        //Animate literals
+        function animateText(parentNode, letterClass) {
+            let parent = parentNode;
+            let content = parent.innerHTML;
+            let themeClass = '';
+            parent.innerHTML = '';
+
+            if (window.localStorage.getItem('theme') === 'dark') {
+                themeClass += 'title-intro__letter_light'
             } else {
-                letter.classList.add(letterClass, themeClass);
-                letter.innerHTML = content[i];
-                parent.appendChild(letter);
+                themeClass += 'title-intro__letter_dark'
+            }
+
+            for (let i = 0; i < content.length; i++) {
+                let letter = document.createElement('span');
+                if (content[i] == ' ') {
+                    letter.classList.add('space-item');
+                    letter.innerHTML = content[i];
+                    parent.appendChild(letter);
+                } else {
+                    letter.classList.add(letterClass, themeClass);
+                    letter.innerHTML = content[i];
+                    parent.appendChild(letter);
+                }
             }
         }
+    } catch (error) {
+        console.log(error)
     }
+
+
 
 }
 

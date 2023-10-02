@@ -10,16 +10,15 @@ const theme = () => {
     const btnsToChangeBorderColor = document.querySelectorAll('.btn.theme');
     const burgerLinesChangeColor = document.querySelectorAll('.theme-burger');
     const svgToChangeColor = document.querySelectorAll('svg.theme');
-    const logoSvg = svgToChangeColor[0];
-    const githubSvg = svgToChangeColor[1];
-    const mailSvg = svgToChangeColor[2];
+    const githubSvg = svgToChangeColor[0];
+    const mailSvg = svgToChangeColor[1];
     const introImgChangeTheme = document.querySelector('.intro');
     const checkboxChangeTheme = document.querySelector('input.theme');
     const skillsCardsChangeTheme = document.querySelectorAll('article.theme');
     const aboutImagesDark = document.querySelectorAll('.section-bg .theme-dark');
     const aboutImagesLight = document.querySelectorAll('.section-bg .theme-light');
     const introStrokes = document.querySelectorAll('.title-intro__str');
-
+    const sectionBg = document.querySelectorAll('.section-bg__bg.theme')
 
     if (!localStorage.getItem('theme')) {
         localStorage.setItem('theme', 'light');
@@ -56,6 +55,7 @@ const theme = () => {
             switch (item.tagName) {
                 case 'HEADER': item.style.boxShadow = '0 0 5px 0 #000'; item.style.background = '#fff'; break;
                 case 'SELECT': item.style.border = '1px solid #000'; item.style.background = '#fff'; break;
+                case 'I': item.style.background = '#000'; break;
                 default: item.style.background = '#fff';
             }
 
@@ -76,14 +76,9 @@ const theme = () => {
             stroke.style.color = '#000';
         })
         githubSvg.classList.remove('theme-github');
-        logoSvg.classList.remove('theme-logo');
         mailSvg.classList.remove('theme-mail');
         introImgChangeTheme.classList.remove('theme-intro');
         checkboxChangeTheme.classList.remove('theme-checkbox');
-        // aboutRightChangeTheme.style.backgroundColor = '#fff';
-        // aboutRightChangeTheme.style.opacity = '0.3';
-        // aboutImages[0].style.display = 'none';
-        // aboutImages[1].style.display = 'block';
         aboutImagesDark.forEach(img => {
             img.style.display = 'none';
         })
@@ -93,15 +88,20 @@ const theme = () => {
         typed1.forEach(typed => {
             typed.reset(true)
         })
-
+        sectionBg.forEach(bg => {
+            bg.classList.remove('section-bg__bg_dark');
+            bg.classList.add('section-bg__bg_light');
+        })
     }
 
     function darkTheme() {
         elementToChangeBackgroundColor.forEach(item => {
             switch (item.tagName) {
-                case 'HEADER': item.style.boxShadow = '0 0 5px 0 #fff'; item.style.background = '#000'; break;
-                case 'SELECT': item.style.border = '1px solid #fff'; item.style.background = '#000'; break;
-                default: item.style.background = 'radial-gradient(#000 10%, #0d1221 50%)';
+                case 'HEADER': item.style.boxShadow = '0 0 5px 0 #fff'; item.style.background = '#0d1221'; break;
+                case 'SELECT': item.style.border = '1px solid #fff'; item.style.background = '#0d1221'; break;
+                case 'I': item.style.background = '#fff'; break;
+                case 'OPTION': item.style.background = '#000'; break;
+                default: item.style.background = ' #0d1221';
             }
         })
         burgerLinesChangeColor.forEach(line => {
@@ -120,14 +120,9 @@ const theme = () => {
             stroke.style.color = '#fff';
         })
         githubSvg.classList.toggle('theme-github');
-        logoSvg.classList.toggle('theme-logo');
         mailSvg.classList.toggle('theme-mail');
         introImgChangeTheme.classList.add('theme-intro');
         checkboxChangeTheme.classList.toggle('theme-checkbox');
-        // aboutRightChangeTheme.style.backgroundColor = '#000';
-        // aboutRightChangeTheme.style.opacity = '0.2';
-        // aboutImages[0].style.display = 'block';
-        // aboutImages[1].style.display = 'none';
         aboutImagesDark.forEach(img => {
             img.style.display = 'block';
         })
@@ -136,6 +131,10 @@ const theme = () => {
         })
         typed1.forEach(typed => {
             typed.reset(true)
+        })
+        sectionBg.forEach(bg => {
+            bg.classList.remove('section-bg__bg_light');
+            bg.classList.add('section-bg__bg_dark');
         })
     }
 

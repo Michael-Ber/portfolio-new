@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;800&family=Roboto+Condensed:wght@400;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;800&family=Bebas+Neue&family=Great+Vibes&family=Roboto+Condensed:wght@400;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 
@@ -43,8 +43,15 @@
             <header class="header theme theme-bg">
                 <div class="header__wrapper">
                     <div class="header__logo logo">
-                        <a href="/index.html" class="logo__link" aria-label="link to main-page">
-                            <svg width="193" height="85" viewBox="0 0 193 85" fill="black"
+                        <a href="/" class="logo__link" aria-label="link to main-page">
+
+                            <span class="logo__name theme theme-color">Mike Bersh</span>
+                            <div class="logo__prof">
+                                <span class="theme theme-color theme-bg">Web Developer</span>
+                                <i class="logo__line theme theme-bg"></i>
+                            </div>
+
+                            <!-- <svg width="193" height="85" viewBox="0 0 193 85" fill="black"
                                 xmlns="http://www.w3.org/2000/svg" class="theme">
                                 <g filter="url(#filter0_d_118_246)">
                                     <path class="change"
@@ -111,7 +118,7 @@
                                             result="shape" />
                                     </filter>
                                 </defs>
-                            </svg>
+                            </svg> -->
                         </a>
                     </div>
                     <nav class="header__links links-header">
@@ -195,8 +202,8 @@
                         </div>
                         <select name="lang-selector" id="lang-selector"
                             class="lang-selector theme theme-color theme-bg">
-                            <option value="en" selected class="lang-option theme theme-color">eng</option>
-                            <option value="ru" class="lang-option theme theme-color">ru</option>
+                            <option value="en" selected class="lang-option theme theme-color theme-bg">eng</option>
+                            <option value="ru" class="lang-option theme theme-color theme-bg">ru</option>
                         </select>
                     </div>
                 </div>
@@ -213,12 +220,13 @@
                     <div class="container">
 
 
-                        <section class="intro theme-intro" id="intro">
+                        <section class="intro theme-intro section-active" id="intro">
                             <div class="section-bg">
-                                <img src="./assets/img/about-dark.png" width="100%" height="100%" alt="about background"
-                                    id="section-bg-img-dark" class="theme-dark" loading="lazy">
-                                <img src="./assets/img/about-light.jpg" alt="about background" width="100%"
+                                <img src="./assets/img/for_about_dark5.jpg" width="100%" height="100%"
+                                    alt="about background" id="section-bg-img-dark" class="theme-dark" loading="lazy">
+                                <img src="./assets/img/for_about_light1.jpg" alt="about background" width="100%"
                                     id="section-bg-img-light" height="100%" class="theme-light" loading="lazy">
+                                <div class="section-bg__bg theme"></div>
                             </div>
                             <div class="intro__parallax">
                                 <div class="intro__wrapper">
@@ -234,19 +242,19 @@
                         </section>
 
                         <section class="about theme theme-bg" id="about">
+                            <div class="section-bg">
+                                <img src="./assets/img/for_about_dark5.jpg" width="100%" height="100%"
+                                    alt="about background" class="theme-dark" loading="lazy">
+                                <img src="./assets/img/for_about_light1.jpg" alt="about background" width="100%"
+                                    height="100%" class="theme-light" loading="lazy">
+                                <div class="section-bg__bg theme"></div>
+                            </div>
                             <div class="about__wrapper">
                                 <div class="about__left">
                                     <img src="./assets/img/bg-3-modif.jpg" width="100%" height="100%" alt="photo"
                                         loading="lazy">
                                 </div>
                                 <div class="about__right right-about">
-                                    <div class="section-bg">
-                                        <img src="./assets/img/about-dark.png" width="100%" height="100%"
-                                            alt="about background" class="theme-dark" loading="lazy">
-                                        <img src="./assets/img/about-light.jpg" alt="about background" width="100%"
-                                            height="100%" class="theme-light" loading="lazy">
-                                    </div>
-                                    <!-- <div class="right-about__bg"></div> -->
                                     <div class="right-about__text">
                                         <h2 class="about__title section-title">
                                             <span class="lng lng-about theme theme-color">about</span>
@@ -270,10 +278,11 @@
 
                         <section class="skills theme theme-bg" id="skills">
                             <div class="section-bg">
-                                <img src="./assets/img/about-dark.png" width="100%" height="100%" alt="about background"
-                                    class="theme-dark" loading="lazy">
-                                <img src="./assets/img/about-light.jpg" alt="about background" width="100%"
+                                <img src="./assets/img/for_about_dark5.jpg" width="100%" height="100%"
+                                    alt="about background" class="theme-dark" loading="lazy">
+                                <img src="./assets/img/for_about_light1.jpg" alt="about background" width="100%"
                                     height="100%" class="theme-light" loading="lazy">
+                                <div class="section-bg__bg theme"></div>
                             </div>
                             <!-- <div class="container"> -->
                             <div class="skills__text">
@@ -622,10 +631,11 @@
 
                         <section class="works theme theme-bg" id="works">
                             <div class="section-bg">
-                                <img src="./assets/img/about-dark.png" width="100%" height="100%" alt="about background"
-                                    class="theme-dark" loading="lazy">
-                                <img src="./assets/img/about-light.jpg" alt="about background" width="100%"
+                                <img src="./assets/img/for_about_dark5.jpg" width="100%" height="100%"
+                                    alt="about background" class="theme-dark" loading="lazy">
+                                <img src="./assets/img/for_about_light1.jpg" alt="about background" width="100%"
                                     height="100%" class="theme-light" loading="lazy">
+                                <div class="section-bg__bg theme"></div>
                             </div>
                             <!-- <div class="container"> -->
                             <div class="works__wrapper">
@@ -728,10 +738,11 @@
 
                         <section class="contact theme theme-bg" id="contact">
                             <div class="section-bg">
-                                <img src="./assets/img/about-dark.png" width="100%" height="100%" alt="about background"
-                                    class="theme-dark" loading="lazy">
-                                <img src="./assets/img/about-light.jpg" alt="about background" width="100%"
+                                <img src="./assets/img/for_about_dark5.jpg" width="100%" height="100%"
+                                    alt="about background" class="theme-dark" loading="lazy">
+                                <img src="./assets/img/for_about_light1.jpg" alt="about background" width="100%"
                                     height="100%" class="theme-light" loading="lazy">
+                                <div class="section-bg__bg theme"></div>
                             </div>
                             <!-- <div class="container"> -->
                             <div class="contact__text">

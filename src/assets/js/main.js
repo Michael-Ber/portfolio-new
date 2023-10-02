@@ -6,10 +6,11 @@ import { percentCreation } from './percents';
 import { form } from './form';
 import { theme } from './theme';
 import { preload } from './preload';
+import { sectionCommutator } from './section-commutator';
 
 
 window.addEventListener('DOMContentLoaded', () => {
-    scroll({ arrow: '.arrow-up', arrowActive: 'arrow-up_active' });
+    // scroll({ arrow: '.arrow-up', arrowActive: 'arrow-up_active' });
     setLanguage(lang, '.lang-selector');
     burger({
         btn: '.burger__btn',
@@ -23,6 +24,6 @@ window.addEventListener('DOMContentLoaded', () => {
     percentCreation('.skills__diagrams-item', '.diagrams-item__percent', '.bottom-diagrams-item__bg-front');
     form('.contact__form');
     theme();
-    // preload();
-
+    preload();
+    sectionCommutator();
 });
