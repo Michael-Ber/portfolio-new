@@ -135,7 +135,7 @@
     right: 0;
     bottom: 0;
     opacity: 0.1;
-    z-index: 1;
+    z-index: 0;
 
     img {
         width: 100%;
@@ -413,11 +413,24 @@
     }
 }
 
-section {
-    display: none;
-    min-height: 100vh;
+.slider {
+    width: 100%;
+    overflow: hidden;
+}
 
-    &.section-active {
-        display: block;
-    }
+.slider-wrapper {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    transition: .3s all ease;
+}
+
+section {
+    min-width: 1240px;
+    min-height: 100vh;
+    max-height: max-content;
+    // display: none;
+    // &.section-active {
+    //     display: block;
+    // }
 }
