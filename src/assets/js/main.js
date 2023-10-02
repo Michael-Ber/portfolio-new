@@ -23,6 +23,6 @@ window.addEventListener('DOMContentLoaded', () => {
     percentCreation('.skills__diagrams-item', '.diagrams-item__percent', '.bottom-diagrams-item__bg-front');
     form('.contact__form');
     theme();
-    preload();
+    // preload();
 
 });
