@@ -1,0 +1,16 @@
+.footer {
+    height: 100px;
+    background-color: $white;
+
+    &__list {
+        display: flex;
+        justify-content: space-between;
+        list-style: none;
+    }
+
+    &__link {
+        text-decoration: none;
+        font-size: 14px;
+        line-height: 18px;
+    }
+}

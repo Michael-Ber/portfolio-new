@@ -356,7 +356,7 @@
         &_active {
             visibility: visible;
             transform: translateX(0);
-            z-index: 2;
+            z-index: 100;
         }
 
         @media(max-width: $container-media-575) {

@@ -6,6 +6,7 @@
 @import './blocks/skills';
 @import './blocks/works';
 @import './blocks/contact';
+@import './blocks/footer';
 
 * {
     margin: 0;
@@ -56,7 +57,7 @@
 }
 
 .aside-links {
-    transition: .3s all ease;
+    // transition: .3s all ease;
     display: flex;
     justify-content: space-between;
     position: fixed;
@@ -422,15 +423,43 @@
     display: flex;
     align-items: flex-start;
     justify-content: flex-start;
-    transition: .3s all ease;
+    transition: .6s all cubic-bezier(0.075, 0.82, 0.165, 1);
+    // transition: .6s all cubic-bezier(0.77, 0, 0.175, 1);
 }
 
 section {
     min-width: 1240px;
     min-height: 100vh;
     max-height: max-content;
-    // display: none;
-    // &.section-active {
-    //     display: block;
-    // }
+    transition: 1s all ease;
+
+
+
+    &.section-active-toright {
+        animation: sliderToRight .6s;
+    }
+
+    &.section-active-toleft {
+        animation: sliderToLeft .6s;
+    }
+}
+
+@keyframes sliderToRight {
+    0% {
+        transform: rotate3d(0, 0, 1, 45deg)
+    }
+
+    100% {
+        transform: rotate3d(0, 0, 1, 0deg)
+    }
+}
+
+@keyframes sliderToLeft {
+    0% {
+        transform: rotate3d(0, 0, 1, -45deg)
+    }
+
+    100% {
+        transform: rotate3d(0, 0, 1, 0deg)
+    }
 }
