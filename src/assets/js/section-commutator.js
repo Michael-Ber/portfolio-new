@@ -9,35 +9,51 @@ export const sectionCommutator = () => {
     const sections = document.querySelectorAll('section');
     const linksWrapper = document.querySelector('.links-header__list');
     const burgerLinksWrapper = document.querySelector('.menu__list');
+    const links = document.querySelectorAll('.navlink');
     const slideWidth = slider.getBoundingClientRect().width;
     const slideHeight = slider.getBoundingClientRect().height;
-    const toFirstSlide = document.querySelector('.header__logo');
+    const toFirstSlideHeader = document.querySelector('.header__logo');
+    const toFirstSlideFooter = document.querySelector('.footer__logo');
     sliderWrapper.style.width = slideWidth * sections.length + 'px';
-    sections.forEach(section => section.style.width);
-    slider.style.height = '100vh';
+    // sections.forEach(section => section.style.width);
+    // slider.style.height = 'calc(100vh - 100px)';
 
     let prevSlideNum = null;
 
     window.addEventListener('resize', sectionMedia);
     sectionMedia();
+    if(Number(window.getComputedStyle(container).width.replace(/px/ig, '')) < 576) {
+        slider.style.height = '100vh';
+    }else {
+        slider.style.height = 'calc(100vh - 100px)';
+    }
 
 
-    linksWrapper.addEventListener('click', triggerSlider);
+    
+    // linksWrapper.addEventListener('click', triggerSlider);
+    links.forEach(link => {
+        link.addEventListener('click', triggerSlider);
+    })
 
-    burgerLinksWrapper.addEventListener('click', triggerSlider);
 
-    toFirstSlide.addEventListener('click', (e) => {
+    // burgerLinksWrapper.addEventListener('click', triggerSlider);
+
+    toFirstSlideHeader.addEventListener('click', goToIntro);
+    toFirstSlideFooter.addEventListener('click', goToIntro);
+
+    function goToIntro(e) {
         e.preventDefault();
         const hash = recursyForTagname(e.target); //intro
         const sectionNum = Array.from(sections).findIndex(section => section.id === hash);
         cleanSections(sections);
+        slider.style.height = Array.from(sections)[sectionNum].offsetHeight + 'px';
         if (prevSlideNum > sectionNum) {
             sections[sectionNum].classList.add('section-active-toleft');
         } else {
             sections[sectionNum].classList.add('section-active-toright');
         }
         sliderWrapper.style.transform = `translateX(${0}px)`;
-    });
+    }
 
     // need to return from <a href="#intro"> -> intro
     function recursyForTagname(target) {
@@ -85,8 +101,9 @@ export const sectionCommutator = () => {
         if (e.target.hash) {
             const sectionNum = Array.from(sections).findIndex(section => section.id === e.target.hash.substring(1));
             sliderWrapper.style.transform = `translateX(-${sectionNum * slideWidth}px)`;
-            slider.style.height = Array.from(sections)[sectionNum].getBoundingClientRect().height + 'px';
+            slider.style.height = Array.from(sections)[sectionNum].offsetHeight + 'px';
             cleanSections(sections);
+            console.log(Array.from(sections)[sectionNum])
             //Remove Twitching from when scroll appear
             if (window.innerHeight < sections[sectionNum].clientHeight) {
                 document.body.style.marginRight = `-${removeTwitching()}px`;

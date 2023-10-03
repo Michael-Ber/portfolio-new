@@ -1,6 +1,23 @@
 .footer {
+    display: none;
+    position: relative;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0 10px;
     height: 100px;
     background-color: $white;
+    flex-direction: column;
+    z-index: 10;
+
+    @media(max-width: $container-media-575) {
+        display: flex;
+    }
+
+    &__links {
+        width: 100%;
+        order: 2;
+    }
 
     &__list {
         display: flex;
@@ -12,5 +29,17 @@
         text-decoration: none;
         font-size: 14px;
         line-height: 18px;
+        font-weight: 900;
+        color: $preload-color;
+        &:hover {
+            color: $main-color;
+        }
+    }
+
+    &__logo {
+        order: 1;
+        @media(max-width: $container-media-575) {
+            display: block;
+        }
     }
 }

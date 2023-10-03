@@ -127,6 +127,10 @@
         line-height: 50px;
         font-weight: 900;
         color: $black;
+        @media(max-width: $container-media-575) {
+            font-size: 24px;
+            line-height: 30px;
+        }
     }
 
     &__prof {
@@ -144,6 +148,9 @@
             color: $black;
             padding: 0 10px;
             z-index: 100;
+            @media(max-width: $container-media-575) {
+                font-size: 12px;
+            }
         }
 
 
