@@ -9,34 +9,40 @@ export const sectionCommutator = () => {
     const sections = document.querySelectorAll('section');
     const linksWrapper = document.querySelector('.links-header__list');
     const burgerLinksWrapper = document.querySelector('.menu__list');
+    const footerLinksWrapper = document.querySelector('.footer__list')
     const links = document.querySelectorAll('.navlink');
-    const slideWidth = slider.getBoundingClientRect().width;
+    // const slideWidth = slider.getBoundingClientRect().width;
+    let slideWidth = slider.getBoundingClientRect().width;
     const slideHeight = slider.getBoundingClientRect().height;
     const toFirstSlideHeader = document.querySelector('.header__logo');
     const toFirstSlideFooter = document.querySelector('.footer__logo');
-    sliderWrapper.style.width = slideWidth * sections.length + 'px';
+    // sliderWrapper.style.width = slideWidth * sections.length + 'px';
     // sections.forEach(section => section.style.width);
     // slider.style.height = 'calc(100vh - 100px)';
 
+
     let prevSlideNum = null;
+    let actualSlide = 0;
 
     window.addEventListener('resize', sectionMedia);
     sectionMedia();
-    if(Number(window.getComputedStyle(container).width.replace(/px/ig, '')) < 576) {
-        slider.style.height = '100vh';
-    }else {
+    if (Number(window.getComputedStyle(container).width.replace(/px/ig, '')) < 576) {
         slider.style.height = 'calc(100vh - 100px)';
+    } else {
+        slider.style.height = '100vh';
     }
 
 
-    
+
     // linksWrapper.addEventListener('click', triggerSlider);
+    // burgerLinksWrapper.addEventListener('click', triggerSlider);
+    // footerLinksWrapper.addEventListener('click', triggerSlider);
     links.forEach(link => {
+        console.log(link)
         link.addEventListener('click', triggerSlider);
     })
 
 
-    // burgerLinksWrapper.addEventListener('click', triggerSlider);
 
     toFirstSlideHeader.addEventListener('click', goToIntro);
     toFirstSlideFooter.addEventListener('click', goToIntro);
@@ -87,6 +93,7 @@ export const sectionCommutator = () => {
     }
 
     function sectionMedia() {
+        console.log(window.getComputedStyle(Array.from(sections)[actualSlide]).height)
         switch (window.getComputedStyle(container).width) {
             case '1240px': setSectionWidth(sections, window.getComputedStyle(container).width); break;
             case '960px': setSectionWidth(sections, window.getComputedStyle(container).width); break;
@@ -94,6 +101,13 @@ export const sectionCommutator = () => {
             case '520px': setSectionWidth(sections, window.getComputedStyle(container).width); break;
             default: setSectionWidth(sections, window.getComputedStyle(container).width); break;
         }
+        slideWidth = slider.getBoundingClientRect().width;
+        sliderWrapper.style.width = slideWidth * sections.length + 'px';
+        sliderWrapper.style.transform = `translateX(-${actualSlide * slideWidth}px)`;
+        setTimeout(() => {
+            slider.style.height = Array.from(sections)[actualSlide].clientHeight + 'px';
+        }, 1000)
+
     }
 
     function triggerSlider(e) {
@@ -103,19 +117,22 @@ export const sectionCommutator = () => {
             sliderWrapper.style.transform = `translateX(-${sectionNum * slideWidth}px)`;
             slider.style.height = Array.from(sections)[sectionNum].offsetHeight + 'px';
             cleanSections(sections);
-            console.log(Array.from(sections)[sectionNum])
+            actualSlide = sectionNum;
+
+            links.forEach(link => link.classList.remove('link_active'));
+            Array.from(links)
+                .filter(link => link.hash.substring(1) === e.target.hash.substring(1))
+                .forEach(filteredLink => filteredLink.classList.add('link_active'))
             //Remove Twitching from when scroll appear
             if (window.innerHeight < sections[sectionNum].clientHeight) {
                 document.body.style.marginRight = `-${removeTwitching()}px`;
                 document.body.style.overflowX = `hidden`;
-                document.querySelector('header').style.padding = `10px ${60 - removeTwitching()}px 10px 50px`;
                 document.querySelector('.content-img').style.marginRight = `-${removeTwitching()}px`;
                 document.querySelector('.aside-links__right').style.right = `${-80 - removeTwitching()}px`;
 
             } else {
                 document.body.style.marginRight = `0px`;
                 document.body.style.overflowX = `unset`;
-                document.querySelector('header').style.padding = `10px 60px 10px 50px`;
                 document.querySelector('.content-img').style.marginRight = `0px`;
                 document.querySelector('.aside-links__right').style.right = `-80px`;
             }

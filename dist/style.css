@@ -111,7 +111,7 @@
   font-weight: 900;
   color: #000000;
 }
-@media (max-width: 575px) {
+@media (max-width: 991px) {
   .logo__name {
     font-size: 24px;
     line-height: 30px;
@@ -132,7 +132,7 @@
   padding: 0 10px;
   z-index: 100;
 }
-@media (max-width: 575px) {
+@media (max-width: 991px) {
   .logo__prof span {
     font-size: 12px;
   }
@@ -170,12 +170,18 @@
   font-size: 20px;
   transition: 0.3s all;
 }
+.link_active {
+  color: #ffa501 !important;
+}
 .link:hover {
   color: #ffa501 !important;
 }
 .link:hover svg g path {
   transition: 0.3s all;
   fill: #ffa501 !important;
+}
+.link:focus {
+  color: #ffa501 !important;
 }
 @media (max-width: 575px) {
   .link {
@@ -369,6 +375,12 @@
   left: 10%;
   transform: translateY(-50%);
   z-index: 10;
+}
+@media (max-width: 991px) {
+  .intro__wrapper {
+    left: unset;
+    padding: 0 20px;
+  }
 }
 @media (max-width: 575px) {
   .intro__wrapper {
@@ -644,7 +656,7 @@
 }
 @media (max-width: 575px) {
   .skills {
-    padding: 30px 0 10px 0;
+    padding: 150px 0 30px 0;
   }
 }
 .skills__title {
@@ -775,7 +787,7 @@
 }
 @media (max-width: 575px) {
   .works {
-    padding: 50px 0 0 0;
+    padding: 150px 0 0 0;
   }
 }
 .works__wrapper {
@@ -980,11 +992,6 @@
 }
 .contact__subtitle {
   margin-bottom: 20px;
-}
-@media (max-width: 575px) {
-  .contact__subtitle {
-    margin-bottom: 50px;
-  }
 }
 .contact__descr {
   text-align: center;
@@ -1281,7 +1288,7 @@ input:-webkit-autofill:focus {
   flex-direction: column;
   z-index: 10;
 }
-@media (max-width: 575px) {
+@media (max-width: 991px) {
   .footer {
     display: flex;
   }
@@ -1292,8 +1299,14 @@ input:-webkit-autofill:focus {
 }
 .footer__list {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 50px;
   list-style: none;
+}
+@media (max-width: 575px) {
+  .footer__list {
+    gap: 20px;
+  }
 }
 .footer__link {
   text-decoration: none;
@@ -1313,7 +1326,6 @@ input:-webkit-autofill:focus {
     display: block;
   }
 }
-
 * {
   margin: 0;
   padding: 0;
@@ -1381,6 +1393,13 @@ input:-webkit-autofill:focus {
 }
 .aside__link:hover {
   color: #c17011;
+}
+
+.section-bg_dark {
+  background: url("./assets/img/for_about_dark7.jpg") top/contain repeat !important;
+}
+.section-bg_light {
+  background: url("./assets/img/for_about_light4.jpg") top/contain repeat !important;
 }
 
 .section-bg {

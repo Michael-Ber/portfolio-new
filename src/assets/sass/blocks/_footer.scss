@@ -10,7 +10,7 @@
     flex-direction: column;
     z-index: 10;
 
-    @media(max-width: $container-media-575) {
+    @media(max-width: $container-media-991) {
         display: flex;
     }
 
@@ -21,8 +21,13 @@
 
     &__list {
         display: flex;
-        justify-content: space-between;
+        justify-content: center;
+        gap: 50px;
         list-style: none;
+
+        @media(max-width: $container-media-575) {
+            gap: 20px;
+        }
     }
 
     &__link {
@@ -31,6 +36,7 @@
         line-height: 18px;
         font-weight: 900;
         color: $preload-color;
+
         &:hover {
             color: $main-color;
         }
@@ -38,8 +44,11 @@
 
     &__logo {
         order: 1;
+
         @media(max-width: $container-media-575) {
             display: block;
         }
+
+        a span {}
     }
 }

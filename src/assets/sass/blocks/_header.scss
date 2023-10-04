@@ -81,15 +81,6 @@
         text-decoration: none;
         padding: 0 20px;
 
-
-        // span {
-        //     display: block;
-        //     color: $black;
-        //     font-size: 22px;
-        //     font-weight: 700;
-        //     line-height: 35px;
-        // }
-
         img {
             width: 100%;
             height: 100%;
@@ -127,7 +118,8 @@
         line-height: 50px;
         font-weight: 900;
         color: $black;
-        @media(max-width: $container-media-575) {
+
+        @media(max-width: $container-media-991) {
             font-size: 24px;
             line-height: 30px;
         }
@@ -148,7 +140,8 @@
             color: $black;
             padding: 0 10px;
             z-index: 100;
-            @media(max-width: $container-media-575) {
+
+            @media(max-width: $container-media-991) {
                 font-size: 12px;
             }
         }
@@ -195,6 +188,10 @@
     font-size: 20px;
     transition: .3s all;
 
+    &_active {
+        color: $main-color !important;
+    }
+
     &:hover {
         color: $main-color !important;
 
@@ -202,6 +199,10 @@
             transition: .3s all;
             fill: $main-color !important;
         }
+    }
+
+    &:focus {
+        color: $main-color !important;
     }
 
     @media(max-width: $container-media-575) {

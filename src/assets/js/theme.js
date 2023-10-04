@@ -18,7 +18,7 @@ const theme = () => {
     const aboutImagesDark = document.querySelectorAll('.section-bg .theme-dark');
     const aboutImagesLight = document.querySelectorAll('.section-bg .theme-light');
     const introStrokes = document.querySelectorAll('.title-intro__str');
-    const sectionBg = document.querySelectorAll('.section-bg__bg.theme')
+    const sectionBg = document.querySelectorAll('section.theme')
 
     if (!localStorage.getItem('theme')) {
         localStorage.setItem('theme', 'light');
@@ -89,8 +89,8 @@ const theme = () => {
             typed.reset(true)
         })
         sectionBg.forEach(bg => {
-            bg.classList.remove('section-bg__bg_dark');
-            bg.classList.add('section-bg__bg_light');
+            bg.classList.remove('section-bg_dark');
+            bg.classList.add('section-bg_light');
         })
     }
 
@@ -133,8 +133,8 @@ const theme = () => {
             typed.reset(true)
         })
         sectionBg.forEach(bg => {
-            bg.classList.remove('section-bg__bg_light');
-            bg.classList.add('section-bg__bg_dark');
+            bg.classList.add('section-bg_dark');
+            bg.classList.remove('section-bg_light');
         })
     }
 

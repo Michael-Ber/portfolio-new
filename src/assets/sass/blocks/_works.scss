@@ -4,8 +4,10 @@
     padding: 150px 0 50px 0;
     z-index: 10;
 
+
+
     @media(max-width: $container-media-575) {
-        padding: 50px 0 0 0;
+        padding: 150px 0 0 0;
     }
 
     &__wrapper {
