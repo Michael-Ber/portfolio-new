@@ -18,7 +18,8 @@ const theme = () => {
     const aboutImagesDark = document.querySelectorAll('.section-bg .theme-dark');
     const aboutImagesLight = document.querySelectorAll('.section-bg .theme-light');
     const introStrokes = document.querySelectorAll('.title-intro__str');
-    const sectionBg = document.querySelectorAll('section.theme')
+    const sectionBg = document.querySelectorAll('section.theme');
+    const bgImageTheme = document.querySelector('.content-img.theme');
 
     if (!localStorage.getItem('theme')) {
         localStorage.setItem('theme', 'light');
@@ -54,12 +55,16 @@ const theme = () => {
         elementToChangeBackgroundColor.forEach(item => {
             switch (item.tagName) {
                 case 'HEADER': item.style.boxShadow = '0 0 5px 0 #000'; item.style.background = '#fff'; break;
+                case 'FOOTER': item.style.boxShadow = '0 0 5px 0 #000'; item.style.background = '#fff'; break;
                 case 'SELECT': item.style.border = '1px solid #000'; item.style.background = '#fff'; break;
                 case 'I': item.style.background = '#000'; break;
                 default: item.style.background = '#fff';
             }
 
         })
+        bgImageTheme.style.background = 'url("./assets/img/note.png") 0% 0%/100% no-repeat';
+        // bgImageTheme.style.background = 'linear-gradient(to left, rgba(255, 255, 255, .9), rgba(255, 255, 255, 0)), url("./assets/img/bg-13-modif.jpg") 50% 50%/100% no-repeat';
+        // bgImageTheme.style.opacity = '1';
         burgerLinesChangeColor.forEach(line => {
             line.style.backgroundColor = '#333';
         })
@@ -98,12 +103,16 @@ const theme = () => {
         elementToChangeBackgroundColor.forEach(item => {
             switch (item.tagName) {
                 case 'HEADER': item.style.boxShadow = '0 0 5px 0 #fff'; item.style.background = '#0d1221'; break;
+                case 'FOOTER': item.style.boxShadow = '0 0 5px 0 #fff'; item.style.background = '#0d1221'; break;
                 case 'SELECT': item.style.border = '1px solid #fff'; item.style.background = '#0d1221'; break;
                 case 'I': item.style.background = '#fff'; break;
                 case 'OPTION': item.style.background = '#000'; break;
                 default: item.style.background = ' #0d1221';
             }
         })
+        bgImageTheme.style.background = 'url("./assets/img/note.png") center center/contain no-repeat';
+        // bgImageTheme.style.background = 'linear-gradient(rgba(0, 0, 0, .9), rgba(0, 0, 0, .9)), url("./assets/img/bg-12.jpg") center center/cover no-repeat';
+        // bgImageTheme.style.opacity = '0.1';
         burgerLinesChangeColor.forEach(line => {
             line.style.backgroundColor = '#fff';
         })

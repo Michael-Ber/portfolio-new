@@ -1849,19 +1849,9 @@ const sectionCommutator = () => {
   const sliderWrapper = document.querySelector('.slider-wrapper');
   const container = document.querySelector('.container');
   const sections = document.querySelectorAll('section');
-  const linksWrapper = document.querySelector('.links-header__list');
-  const burgerLinksWrapper = document.querySelector('.menu__list');
-  const footerLinksWrapper = document.querySelector('.footer__list');
   const links = document.querySelectorAll('.navlink');
-  // const slideWidth = slider.getBoundingClientRect().width;
   let slideWidth = slider.getBoundingClientRect().width;
-  const slideHeight = slider.getBoundingClientRect().height;
-  const toFirstSlideHeader = document.querySelector('.header__logo');
-  const toFirstSlideFooter = document.querySelector('.footer__logo');
-  // sliderWrapper.style.width = slideWidth * sections.length + 'px';
-  // sections.forEach(section => section.style.width);
-  // slider.style.height = 'calc(100vh - 100px)';
-
+  const logo = document.querySelectorAll('.logo');
   let prevSlideNum = null;
   let actualSlide = 0;
   window.addEventListener('resize', sectionMedia);
@@ -1871,22 +1861,19 @@ const sectionCommutator = () => {
   } else {
     slider.style.height = '100vh';
   }
-
-  // linksWrapper.addEventListener('click', triggerSlider);
-  // burgerLinksWrapper.addEventListener('click', triggerSlider);
-  // footerLinksWrapper.addEventListener('click', triggerSlider);
   links.forEach(link => {
-    console.log(link);
     link.addEventListener('click', triggerSlider);
   });
-  toFirstSlideHeader.addEventListener('click', goToIntro);
-  toFirstSlideFooter.addEventListener('click', goToIntro);
+  logo.forEach(item => {
+    item.addEventListener('click', goToIntro);
+  });
   function goToIntro(e) {
     e.preventDefault();
     const hash = recursyForTagname(e.target); //intro
     const sectionNum = Array.from(sections).findIndex(section => section.id === hash);
     cleanSections(sections);
     slider.style.height = Array.from(sections)[sectionNum].offsetHeight + 'px';
+    links.forEach(link => link.classList.remove('link_active'));
     if (prevSlideNum > sectionNum) {
       sections[sectionNum].classList.add('section-active-toleft');
     } else {
@@ -1923,7 +1910,6 @@ const sectionCommutator = () => {
     sections.forEach(section => section.style.minWidth = width);
   }
   function sectionMedia() {
-    console.log(window.getComputedStyle(Array.from(sections)[actualSlide]).height);
     switch (window.getComputedStyle(container).width) {
       case '1240px':
         setSectionWidth(sections, window.getComputedStyle(container).width);
@@ -1974,8 +1960,10 @@ const sectionCommutator = () => {
       //change animation for section when slider goes to right or to left
       if (prevSlideNum > sectionNum) {
         sections[sectionNum].classList.add('section-active-toleft');
+        sections[sectionNum + 1].classList.add('section-active-toleft-prev');
       } else {
         sections[sectionNum].classList.add('section-active-toright');
+        sections[sectionNum - 1].classList.add('section-active-toright-prev');
       }
       prevSlideNum = sectionNum;
       //
@@ -2051,6 +2039,7 @@ const theme = () => {
   const aboutImagesLight = document.querySelectorAll('.section-bg .theme-light');
   const introStrokes = document.querySelectorAll('.title-intro__str');
   const sectionBg = document.querySelectorAll('section.theme');
+  const bgImageTheme = document.querySelector('.content-img.theme');
   if (!localStorage.getItem('theme')) {
     localStorage.setItem('theme', 'light');
     lightTheme();
@@ -2089,6 +2078,10 @@ const theme = () => {
           item.style.boxShadow = '0 0 5px 0 #000';
           item.style.background = '#fff';
           break;
+        case 'FOOTER':
+          item.style.boxShadow = '0 0 5px 0 #000';
+          item.style.background = '#fff';
+          break;
         case 'SELECT':
           item.style.border = '1px solid #000';
           item.style.background = '#fff';
@@ -2100,6 +2093,9 @@ const theme = () => {
           item.style.background = '#fff';
       }
     });
+    bgImageTheme.style.background = 'url("./assets/img/note.png") 0% 0%/100% no-repeat';
+    // bgImageTheme.style.background = 'linear-gradient(to left, rgba(255, 255, 255, .9), rgba(255, 255, 255, 0)), url("./assets/img/bg-13-modif.jpg") 50% 50%/100% no-repeat';
+    // bgImageTheme.style.opacity = '1';
     burgerLinesChangeColor.forEach(line => {
       line.style.backgroundColor = '#333';
     });
@@ -2140,6 +2136,10 @@ const theme = () => {
           item.style.boxShadow = '0 0 5px 0 #fff';
           item.style.background = '#0d1221';
           break;
+        case 'FOOTER':
+          item.style.boxShadow = '0 0 5px 0 #fff';
+          item.style.background = '#0d1221';
+          break;
         case 'SELECT':
           item.style.border = '1px solid #fff';
           item.style.background = '#0d1221';
@@ -2154,6 +2154,9 @@ const theme = () => {
           item.style.background = ' #0d1221';
       }
     });
+    bgImageTheme.style.background = 'url("./assets/img/note.png") center center/contain no-repeat';
+    // bgImageTheme.style.background = 'linear-gradient(rgba(0, 0, 0, .9), rgba(0, 0, 0, .9)), url("./assets/img/bg-12.jpg") center center/cover no-repeat';
+    // bgImageTheme.style.opacity = '0.1';
     burgerLinesChangeColor.forEach(line => {
       line.style.backgroundColor = '#fff';
     });

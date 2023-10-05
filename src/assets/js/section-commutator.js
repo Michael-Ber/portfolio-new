@@ -7,18 +7,9 @@ export const sectionCommutator = () => {
     const sliderWrapper = document.querySelector('.slider-wrapper');
     const container = document.querySelector('.container');
     const sections = document.querySelectorAll('section');
-    const linksWrapper = document.querySelector('.links-header__list');
-    const burgerLinksWrapper = document.querySelector('.menu__list');
-    const footerLinksWrapper = document.querySelector('.footer__list')
     const links = document.querySelectorAll('.navlink');
-    // const slideWidth = slider.getBoundingClientRect().width;
     let slideWidth = slider.getBoundingClientRect().width;
-    const slideHeight = slider.getBoundingClientRect().height;
-    const toFirstSlideHeader = document.querySelector('.header__logo');
-    const toFirstSlideFooter = document.querySelector('.footer__logo');
-    // sliderWrapper.style.width = slideWidth * sections.length + 'px';
-    // sections.forEach(section => section.style.width);
-    // slider.style.height = 'calc(100vh - 100px)';
+    const logo = document.querySelectorAll('.logo');
 
 
     let prevSlideNum = null;
@@ -32,20 +23,14 @@ export const sectionCommutator = () => {
         slider.style.height = '100vh';
     }
 
-
-
-    // linksWrapper.addEventListener('click', triggerSlider);
-    // burgerLinksWrapper.addEventListener('click', triggerSlider);
-    // footerLinksWrapper.addEventListener('click', triggerSlider);
     links.forEach(link => {
-        console.log(link)
         link.addEventListener('click', triggerSlider);
     })
 
 
-
-    toFirstSlideHeader.addEventListener('click', goToIntro);
-    toFirstSlideFooter.addEventListener('click', goToIntro);
+    logo.forEach(item => {
+        item.addEventListener('click', goToIntro);
+    })
 
     function goToIntro(e) {
         e.preventDefault();
@@ -53,6 +38,7 @@ export const sectionCommutator = () => {
         const sectionNum = Array.from(sections).findIndex(section => section.id === hash);
         cleanSections(sections);
         slider.style.height = Array.from(sections)[sectionNum].offsetHeight + 'px';
+        links.forEach(link => link.classList.remove('link_active'));
         if (prevSlideNum > sectionNum) {
             sections[sectionNum].classList.add('section-active-toleft');
         } else {
@@ -93,7 +79,6 @@ export const sectionCommutator = () => {
     }
 
     function sectionMedia() {
-        console.log(window.getComputedStyle(Array.from(sections)[actualSlide]).height)
         switch (window.getComputedStyle(container).width) {
             case '1240px': setSectionWidth(sections, window.getComputedStyle(container).width); break;
             case '960px': setSectionWidth(sections, window.getComputedStyle(container).width); break;
@@ -140,8 +125,10 @@ export const sectionCommutator = () => {
             //change animation for section when slider goes to right or to left
             if (prevSlideNum > sectionNum) {
                 sections[sectionNum].classList.add('section-active-toleft');
+                sections[sectionNum + 1].classList.add('section-active-toleft-prev');
             } else {
                 sections[sectionNum].classList.add('section-active-toright');
+                sections[sectionNum - 1].classList.add('section-active-toright-prev');
             }
             prevSlideNum = sectionNum;
             //

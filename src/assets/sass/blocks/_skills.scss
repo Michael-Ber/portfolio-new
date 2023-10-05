@@ -1,7 +1,7 @@
 .skills {
     position: relative;
     padding: 150px 0 100px 0;
-    background-color: transparent;
+    // background-color: transparent;
     z-index: 10;
 
     @media(max-width: $container-media-575) {
@@ -37,6 +37,7 @@
         padding: 25px 20px;
         box-shadow: 0 0 10px 0 rgba($black, .6);
         color: $white;
+        background-color: #0d1221;
     }
 
     &__diagrams-list {

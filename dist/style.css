@@ -524,7 +524,6 @@
   align-items: center;
   padding: 100px 0 0 0;
   z-index: 10;
-  background: url("./assets/img/for_about_dark5.jpg") center center/cover no-repeat !important;
 }
 .about__wrapper {
   display: flex;
@@ -651,7 +650,6 @@
 .skills {
   position: relative;
   padding: 150px 0 100px 0;
-  background-color: transparent;
   z-index: 10;
 }
 @media (max-width: 575px) {
@@ -682,6 +680,7 @@
   padding: 25px 20px;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.6);
   color: #ffffff;
+  background-color: #0d1221;
 }
 .skills__diagrams-list {
   display: grid;
@@ -781,13 +780,12 @@
 
 .works {
   position: relative;
-  background-color: #ffffff;
   padding: 150px 0 50px 0;
   z-index: 10;
 }
 @media (max-width: 575px) {
   .works {
-    padding: 150px 0 0 0;
+    padding: 150px 0 20px 0;
   }
 }
 .works__wrapper {
@@ -813,13 +811,15 @@
   grid-template-columns: repeat(auto-fill, 280px);
   grid-template-rows: repeat(3, 280px);
   grid-auto-rows: 280px;
-  gap: 5px;
+  gap: 15px;
   justify-content: center;
   list-style-type: none;
 }
 .works__item {
   position: relative;
   transition: 0.5s all;
+  border-radius: 5px;
+  box-shadow: 0 0 5px 0 #ffffff;
   cursor: pointer;
 }
 .works__item::after {
@@ -827,6 +827,7 @@
   position: absolute;
   inset: 0;
   background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 5px;
 }
 .works__item:hover {
   opacity: 1;
@@ -838,7 +839,7 @@
   transform: scale(1.1);
 }
 .works__item:hover::after {
-  background-color: unset;
+  background-color: #fff;
   z-index: -1;
 }
 .works__link {
@@ -850,6 +851,7 @@
   align-items: center;
   width: 100%;
   height: 100%;
+  border-radius: 5px;
   overflow: hidden;
 }
 .works__img img {
@@ -947,10 +949,10 @@
 }
 @media (max-width: 1239px) {
   .item-7 {
-    grid-column: 2/3;
+    grid-column: unset;
   }
 }
-@media (max-width: 680px) {
+@media (max-width: 767px) {
   .item-7 {
     grid-row: unset;
     grid-column: unset;
@@ -962,25 +964,12 @@
 }
 @media (max-width: 1239px) {
   .item-8 {
-    grid-column: 3/4;
-  }
-}
-@media (max-width: 991px) {
-  .item-8 {
-    grid-column: 1/2;
-    grid-row: 4/5;
-  }
-}
-@media (max-width: 680px) {
-  .item-8 {
-    grid-row: unset;
     grid-column: unset;
   }
 }
 
 .contact {
   position: relative;
-  background-color: #ffffff;
   padding: 150px 10px 50px 10px;
   z-index: 10;
 }
@@ -1287,6 +1276,7 @@ input:-webkit-autofill:focus {
   background-color: #ffffff;
   flex-direction: column;
   z-index: 10;
+  box-shadow: 0 0 5px 0 #000000;
 }
 @media (max-width: 991px) {
   .footer {
@@ -1395,40 +1385,6 @@ input:-webkit-autofill:focus {
   color: #c17011;
 }
 
-.section-bg_dark {
-  background: url("./assets/img/for_about_dark7.jpg") top/contain repeat !important;
-}
-.section-bg_light {
-  background: url("./assets/img/for_about_light4.jpg") top/contain repeat !important;
-}
-
-.section-bg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-}
-.section-bg__bg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-.section-bg__bg_light {
-  background-color: rgba(255, 255, 255, 0.7);
-}
-.section-bg__bg_dark {
-  background-color: rgba(255, 255, 255, 0.1);
-}
-.section-bg img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
 .content {
   position: relative;
   transition: 0.8s all;
@@ -1441,13 +1397,8 @@ input:-webkit-autofill:focus {
   left: 0;
   right: 0;
   bottom: 0;
-  opacity: 0.1;
   z-index: 0;
-}
-.content-img img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  background-position: left !important;
 }
 
 .container {
@@ -1460,16 +1411,6 @@ input:-webkit-autofill:focus {
   }
 }
 @media (max-width: 991px) {
-  .container {
-    width: 720px;
-  }
-}
-@media (max-width: 767px) {
-  .container {
-    width: 520px;
-  }
-}
-@media (max-width: 575px) {
   .container {
     width: 100%;
   }
@@ -1717,27 +1658,4 @@ section {
   min-width: 1240px;
   min-height: 100vh;
   transition: 1s all ease;
-}
-section.section-active-toright {
-  animation: sliderToRight 0.6s;
-}
-section.section-active-toleft {
-  animation: sliderToLeft 0.6s;
-}
-
-@keyframes sliderToRight {
-  0% {
-    transform: rotate3d(0, 0, 1, 45deg);
-  }
-  100% {
-    transform: rotate3d(0, 0, 1, 0deg);
-  }
-}
-@keyframes sliderToLeft {
-  0% {
-    transform: rotate3d(0, 0, 1, -45deg);
-  }
-  100% {
-    transform: rotate3d(0, 0, 1, 0deg);
-  }
 }

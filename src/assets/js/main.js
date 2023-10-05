@@ -26,4 +26,6 @@ window.addEventListener('DOMContentLoaded', () => {
     theme();
     preload();
     sectionCommutator();
+
+
 });
