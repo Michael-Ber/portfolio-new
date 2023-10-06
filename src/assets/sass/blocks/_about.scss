@@ -5,8 +5,6 @@
     align-items: center;
     padding: 100px 0 0 0;
     z-index: 10;
-    // background-color: $white;
-    // background: url('./assets/img/for_about_dark5.jpg') center center/cover no-repeat !important;
 
     &__wrapper {
         display: flex;
@@ -23,7 +21,6 @@
     &__left {
         position: relative;
         flex: 0 0 30%;
-        // padding: 50px 0;
         z-index: 1;
 
         @media(max-width: $container-media-767) {
@@ -43,11 +40,11 @@
         position: relative;
 
         @media(max-width: $container-media-1239) {
-            padding: 100px 70px 200px 30px;
+            padding: 0px 70px 0px 30px;
         }
 
         @media(max-width: $container-media-991) {
-            padding: 100px 30px 200px 30px;
+            padding: 0px 30px 0px 30px;
         }
 
         @media(max-width: $container-media-767) {
