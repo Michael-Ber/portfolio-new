@@ -9,8 +9,10 @@ import { preload } from './preload';
 import { sectionCommutator } from './section-commutator';
 
 
+
 window.addEventListener('DOMContentLoaded', () => {
     // scroll({ arrow: '.arrow-up', arrowActive: 'arrow-up_active' });
+
     setLanguage(lang, '.lang-selector');
     burger({
         btn: '.burger__btn',
@@ -26,5 +28,5 @@ window.addEventListener('DOMContentLoaded', () => {
     theme();
     preload();
     sectionCommutator();
-
 });
+

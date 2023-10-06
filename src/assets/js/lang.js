@@ -1,5 +1,4 @@
 'use strict';
-import { scroll } from './scroll';
 import Typed from 'typed.js';
 
 const lang = {
@@ -31,9 +30,17 @@ const lang = {
         'en': ['Freelancer', 'Front-end developer'],
         'ru': ['Фрилансер', 'Фронт-енд разработчик']
     },
-    'lng-descr': {
-        'en': "Hello, my name is Michael. I'm junior front-end developer.I've been learning front-end for two years, finished five web developing courses on Udemy and have been practicing all that time. My <a href='#works' class='about__link' aria-label='link to works section'>works</a> you can see on works section.",
-        'ru': 'Привет, меня зовут Михаил. Я джуниор фронт-енд разработчик. Я изучаю фронт-енд два года, закончил пять курсов веб-разработки на Udemy, все это время практикуюсь.<a href="#works" class="about__link" aria-label="link to works section"> Мои работы</a> вы можете посмотреть в секции работ. '
+    'lng-descrBeforeLink': {
+        'en': "Hello, my name is Michael. I'm junior front-end developer.I like front-end I've been learning front-end for two years, finished five web developing courses on Udemy and have been practicing all that time. My ",
+        'ru': 'Привет, меня зовут Михаил. Я джуниор фронт-енд разработчик. Я изучаю фронт-енд два года, закончил пять курсов веб-разработки на Udemy, все это время практикуюсь. '
+    },
+    'lng-descrAfterLink': {
+        'en': "you can see on works section.",
+        'ru': 'вы можете посмотреть в секции работ. '
+    },
+    'lng-worksLink': {
+        'en': "works",
+        'ru': "Мои работы"
     },
     'lng-skillsSubtitle': {
         'en': 'What i use in my work',
@@ -147,8 +154,7 @@ function setLanguage(langObject, langSelector) {
     const tagsForLangChange = document.querySelectorAll('.lng');
     const introTitle = Array.from(document.querySelector('.intro__title').children);
     const aboutTitle = document.querySelector('.about__subtitle');
-    const introSection = document.querySelector('section.intro');
-    const aboutSection = document.querySelector('section.about');
+
 
     window.location.hash = '#en';
 
@@ -226,7 +232,6 @@ function setLanguage(langObject, langSelector) {
             if (hashOld !== hash) {
                 changeLanguage(hash);
             }
-
         })
 
         window.addEventListener('popstate', () => {   //without that language changes only 1 time
@@ -285,9 +290,6 @@ function setLanguage(langObject, langSelector) {
     } catch (error) {
         console.log(error)
     }
-
-
-
 }
 
 export { setLanguage, lang, typed1 };

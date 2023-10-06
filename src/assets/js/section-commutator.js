@@ -97,6 +97,7 @@ export const sectionCommutator = () => {
 
     function triggerSlider(e) {
         e.preventDefault();
+
         if (e.target.hash) {
             const sectionNum = Array.from(sections).findIndex(section => section.id === e.target.hash.substring(1));
             sliderWrapper.style.transform = `translateX(-${sectionNum * slideWidth}px)`;

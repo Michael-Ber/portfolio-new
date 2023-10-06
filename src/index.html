@@ -18,7 +18,7 @@
 
 <body>
     <div class="app">
-        <div class="overlay">
+        <div class="overlay overlay_active">
             <div class="overlay__logo logo-overlay">
                 <img src="./assets/icons/loading.gif" alt="loading.gif">
             </div>
@@ -147,7 +147,9 @@
             <main>
                 <div class="content">
                     <div class="content-img theme">
-                        <!-- <img src="./assets/img/bg-13-modif.jpg" alt="intro background" id="content-img"> -->
+                        <img src="./assets/img/bg-13-modif.jpg" alt="intro background" id="content-img-light">
+                        <img src="./assets/img/bg-12.jpg" alt="intro background" id="content-img-dark">
+                        <div class="bg"></div>
                     </div>
                     <div class="container">
                         <div class="slider">
@@ -180,18 +182,19 @@
                                                     <span class="lng lng-about theme theme-color">about</span>
                                                 </h2>
                                                 <h3 class="about__subtitle lng lng-prof theme theme-color"></h3>
-                                                <div class="about__descr lng lng-descr theme theme-color">Hello, my name
-                                                    is
-                                                    Michael.
-                                                    I'm
-                                                    junior front-end developer.I've been learning front-end for two
-                                                    years,
-                                                    finished
-                                                    five
-                                                    web developing courses on Udemy and have been practicing
-                                                    all that time. My <a href="#works" class="about__link"
-                                                        aria-label="link to works section">works</a> you can see below.
-                                                </div>
+                                                <p></p>
+                                                <span
+                                                    class="about__descr lng  lng-descrBeforeLink theme theme-color">Hello,
+                                                    my
+                                                    name is Michael. I'm junior front-end developer.I've been learning
+                                                    front-end for two years, finished five web developing courses on
+                                                    Udemy and have been practicing all that time. My
+                                                </span>
+                                                <a href="#works" class="about__link lng lng-worksLink navlink"
+                                                    aria-label="link to works section">works</a>
+                                                <span class="about__descr lng  lng-descrAfterLink theme theme-color">you
+                                                    can see
+                                                    below.</span>
                                             </div>
 
                                         </div>
@@ -561,20 +564,11 @@
                                 </section>
 
                                 <section class="works" id="works">
-                                    <!-- <div class="section-bg">
-                                        <img src="./assets/img/for_about_dark5.jpg" width="100%" height="100%"
-                                            alt="about background" class="theme-dark" loading="lazy">
-                                        <img src="./assets/img/for_about_light1.jpg" alt="about background" width="100%"
-                                            height="100%" class="theme-light" loading="lazy">
-                                        <div class="section-bg__bg theme"></div>
-                                    </div> -->
-                                    <!-- <div class="container"> -->
                                     <div class="works__wrapper">
                                         <h2 class="works__title section-title">
                                             <span class="lng lng-portfolio theme theme-color">Portfolio</span>
                                         </h2>
-                                        <h3
-                                            class="works__subtitle section-subtitle lng lng-worksSubtitle theme theme-color">
+                                        <h3 class="works__subtitle section-subtitle lng lng-works theme theme-color">
                                             Some of
                                             my works</h3>
                                         <ul class="works__list">
@@ -721,7 +715,7 @@
                                             <div class="contact__send">
                                                 <div class="contact__submit">
                                                     <button type="submit"
-                                                        class="contact__submit-input lng lng-btnSend btn theme theme-color theme-bg">
+                                                        class="lng lng-btnSend btn contact__btn theme theme-color theme-bg">
                                                         Send Message!
                                                     </button>
                                                 </div>
@@ -767,13 +761,13 @@
                 <nav class="footer__links">
                     <ul class="footer__list">
                         <li class="footer__item"><a href="#about"
-                                class="footer__link link navlink theme theme-color">About</a></li>
+                                class="footer__link link navlink theme theme-color lng lng-about">About</a></li>
                         <li class="footer__item"><a href="#skills"
-                                class="footer__link link navlink theme theme-color">Skills</a></li>
+                                class="footer__link link navlink theme theme-color lng lng-skills">Skills</a></li>
                         <li class="footer__item"><a href="#works"
-                                class="footer__link link navlink theme theme-color">Works</a></li>
+                                class="footer__link link navlink theme theme-color lng lng-works">Works</a></li>
                         <li class="footer__item"><a href="#contact"
-                                class="footer__link link navlink theme theme-color">Contact</a></li>
+                                class="footer__link link navlink theme theme-color lng lng-contact">Contact</a></li>
                     </ul>
                 </nav>
                 <div class="footer__logo logo">

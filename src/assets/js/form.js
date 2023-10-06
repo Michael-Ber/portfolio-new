@@ -7,7 +7,7 @@ const form = (formSelector) => {
     const modal = document.querySelector('.modal');
     const overlay = document.querySelector('.overlay-form-submit');
     const submit = form.querySelector('.contact__submit');
-
+    const body = document.querySelector('body');
 
 
 
@@ -23,6 +23,10 @@ const form = (formSelector) => {
         'error-for-btn': {
             'en': 'Some fields were not filled out',
             'ru': 'Некоторые поля формы не заполнены'
+        },
+        'waiting-to-long': {
+            'en': 'This may take some time...',
+            'ru': 'Это может занять какое-то время...'
         },
         'success': {
             'img': './assets/icons/success.svg'
@@ -58,9 +62,10 @@ const form = (formSelector) => {
         e.preventDefault();
         let spinner = document.createElement('img');
         spinner.setAttribute('src', message['loading']);
-        spinner.style.cssText = `width: 40px; height: 40px; margin-left: 20px`;
+        spinner.style.cssText = `width: 40px; height: 40px; margin: 0 0 0 10px`;
         submit.appendChild(spinner);
 
+        let timerWaiting = setTimeout(() => createSideMsg('wait'), 1000)
 
         let a = 0;
         let hash = window.location.hash.substring(1);
@@ -72,17 +77,11 @@ const form = (formSelector) => {
                 input.parentNode.appendChild(span);
                 input.classList.add('wrong');
                 a = 1;
-                submit.removeChild(spinner);
+                spinner.remove();
             }
         });
         if (a > 0) {
-            let divForm = document.createElement('div');
-            divForm.classList.add('contact__notfilled-main');
-            divForm.innerHTML = message['error-for-btn'][hash];
-            document.documentElement.appendChild(divForm);
-            setTimeout(() => {
-                document.documentElement.removeChild(divForm);
-            }, 3000);
+            createSideMsg('btn', 3000);
             return;
         }
         let formData = new FormData(form);
@@ -95,6 +94,9 @@ const form = (formSelector) => {
         sendReq("https://portfolio-mailer-8yue.onrender.com/send_mail", jsonData)
             .then((res) => {
                 submit.removeChild(spinner);
+                clearTimeout(timerWaiting);
+                removeSideMsg(document.querySelector('.contact__notfilled-main'));
+                body.style.overflow = 'hidden';
                 showModal(res, window.location.hash.substring(1), modal);
             })
             .catch((err) => {
@@ -143,9 +145,26 @@ const form = (formSelector) => {
                     `
             }
         }
+
+        function createSideMsg(trigger) {
+            let divForm = document.createElement('div');
+            divForm.classList.add('contact__notfilled-main');
+            switch (trigger) {
+                case 'btn': divForm.innerHTML = message['error-for-btn'][hash]; break;
+                case 'wait': divForm.innerHTML = message['waiting-to-long'][hash]; break;
+            }
+            document.documentElement.appendChild(divForm);
+        }
+
+        function removeSideMsg(element) {
+            document.documentElement.removeChild(element);
+
+        }
+
         function removeModal(modalElem) {
             modalElem.classList.remove('modal_active');
             overlay.classList.remove('overlay-form-submit_active');
+            body.style.overflow = 'scroll';
             modalElem.innerHTML = '';
         }
     });

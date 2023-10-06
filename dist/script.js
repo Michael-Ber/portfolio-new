@@ -1229,6 +1229,7 @@ const form = formSelector => {
   const modal = document.querySelector('.modal');
   const overlay = document.querySelector('.overlay-form-submit');
   const submit = form.querySelector('.contact__submit');
+  const body = document.querySelector('body');
   const message = {
     'loading': './assets/icons/spinner.svg',
     'error': {
@@ -1241,6 +1242,10 @@ const form = formSelector => {
     'error-for-btn': {
       'en': 'Some fields were not filled out',
       'ru': 'Некоторые поля формы не заполнены'
+    },
+    'waiting-to-long': {
+      'en': 'This may take some time...',
+      'ru': 'Это может занять какое-то время...'
     },
     'success': {
       'img': './assets/icons/success.svg'
@@ -1272,8 +1277,9 @@ const form = formSelector => {
     e.preventDefault();
     let spinner = document.createElement('img');
     spinner.setAttribute('src', message['loading']);
-    spinner.style.cssText = `width: 40px; height: 40px; margin-left: 20px`;
+    spinner.style.cssText = `width: 40px; height: 40px; margin: 0 0 0 10px`;
     submit.appendChild(spinner);
+    let timerWaiting = setTimeout(() => createSideMsg('wait'), 1000);
     let a = 0;
     let hash = window.location.hash.substring(1);
     inputs.forEach(input => {
@@ -1284,17 +1290,11 @@ const form = formSelector => {
         input.parentNode.appendChild(span);
         input.classList.add('wrong');
         a = 1;
-        submit.removeChild(spinner);
+        spinner.remove();
       }
     });
     if (a > 0) {
-      let divForm = document.createElement('div');
-      divForm.classList.add('contact__notfilled-main');
-      divForm.innerHTML = message['error-for-btn'][hash];
-      document.documentElement.appendChild(divForm);
-      setTimeout(() => {
-        document.documentElement.removeChild(divForm);
-      }, 3000);
+      createSideMsg('btn', 3000);
       return;
     }
     let formData = new FormData(form);
@@ -1305,6 +1305,9 @@ const form = formSelector => {
     let jsonData = JSON.stringify(object);
     Object(_services_sendRequest__WEBPACK_IMPORTED_MODULE_0__["sendReq"])("https://portfolio-mailer-8yue.onrender.com/send_mail", jsonData).then(res => {
       submit.removeChild(spinner);
+      clearTimeout(timerWaiting);
+      removeSideMsg(document.querySelector('.contact__notfilled-main'));
+      body.style.overflow = 'hidden';
       showModal(res, window.location.hash.substring(1), modal);
     }).catch(err => {
       submit.removeChild(spinner);
@@ -1347,9 +1350,26 @@ const form = formSelector => {
                     `;
       }
     }
+    function createSideMsg(trigger) {
+      let divForm = document.createElement('div');
+      divForm.classList.add('contact__notfilled-main');
+      switch (trigger) {
+        case 'btn':
+          divForm.innerHTML = message['error-for-btn'][hash];
+          break;
+        case 'wait':
+          divForm.innerHTML = message['waiting-to-long'][hash];
+          break;
+      }
+      document.documentElement.appendChild(divForm);
+    }
+    function removeSideMsg(element) {
+      document.documentElement.removeChild(element);
+    }
     function removeModal(modalElem) {
       modalElem.classList.remove('modal_active');
       overlay.classList.remove('overlay-form-submit_active');
+      body.style.overflow = 'scroll';
       modalElem.innerHTML = '';
     }
   });
@@ -1370,10 +1390,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setLanguage", function() { return setLanguage; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "lang", function() { return lang; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "typed1", function() { return typed1; });
-/* harmony import */ var _scroll__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./scroll */ "./src/assets/js/scroll.js");
-/* harmony import */ var typed_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! typed.js */ "./node_modules/typed.js/lib/typed.js");
-/* harmony import */ var typed_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(typed_js__WEBPACK_IMPORTED_MODULE_1__);
-
+/* harmony import */ var typed_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! typed.js */ "./node_modules/typed.js/lib/typed.js");
+/* harmony import */ var typed_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(typed_js__WEBPACK_IMPORTED_MODULE_0__);
 
 
 
@@ -1406,9 +1424,17 @@ const lang = {
     'en': ['Freelancer', 'Front-end developer'],
     'ru': ['Фрилансер', 'Фронт-енд разработчик']
   },
-  'lng-descr': {
-    'en': "Hello, my name is Michael. I'm junior front-end developer.I've been learning front-end for two years, finished five web developing courses on Udemy and have been practicing all that time. My <a href='#works' class='about__link' aria-label='link to works section'>works</a> you can see on works section.",
-    'ru': 'Привет, меня зовут Михаил. Я джуниор фронт-енд разработчик. Я изучаю фронт-енд два года, закончил пять курсов веб-разработки на Udemy, все это время практикуюсь.<a href="#works" class="about__link" aria-label="link to works section"> Мои работы</a> вы можете посмотреть в секции работ. '
+  'lng-descrBeforeLink': {
+    'en': "Hello, my name is Michael. I'm junior front-end developer.I like front-end I've been learning front-end for two years, finished five web developing courses on Udemy and have been practicing all that time. My ",
+    'ru': 'Привет, меня зовут Михаил. Я джуниор фронт-енд разработчик. Я изучаю фронт-енд два года, закончил пять курсов веб-разработки на Udemy, все это время практикуюсь. '
+  },
+  'lng-descrAfterLink': {
+    'en': "you can see on works section.",
+    'ru': 'вы можете посмотреть в секции работ. '
+  },
+  'lng-worksLink': {
+    'en': "works",
+    'ru': "Мои работы"
   },
   'lng-skillsSubtitle': {
     'en': 'What i use in my work',
@@ -1521,8 +1547,6 @@ function setLanguage(langObject, langSelector) {
   const tagsForLangChange = document.querySelectorAll('.lng');
   const introTitle = Array.from(document.querySelector('.intro__title').children);
   const aboutTitle = document.querySelector('.about__subtitle');
-  const introSection = document.querySelector('section.intro');
-  const aboutSection = document.querySelector('section.about');
   window.location.hash = '#en';
   let hashOld = window.location.hash.substring(1);
   try {
@@ -1530,7 +1554,7 @@ function setLanguage(langObject, langSelector) {
 
     for (let i = 0; i < introTitle.length; i++) {
       try {
-        const typed = new typed_js__WEBPACK_IMPORTED_MODULE_1___default.a(introTitle[i], {
+        const typed = new typed_js__WEBPACK_IMPORTED_MODULE_0___default.a(introTitle[i], {
           strings: [lang['lng-intro'][window.location.hash.substring(1)][i]],
           typeSpeed: 40,
           startDelay: 900 * i,
@@ -1557,7 +1581,7 @@ function setLanguage(langObject, langSelector) {
     }
 
     // Typed.js for about__subtitle with loop=true
-    const typed2 = new typed_js__WEBPACK_IMPORTED_MODULE_1___default.a(aboutTitle, {
+    const typed2 = new typed_js__WEBPACK_IMPORTED_MODULE_0___default.a(aboutTitle, {
       strings: lang['lng-prof'][window.location.hash.substring(1)],
       typeSpeed: 60,
       loop: true,
@@ -1681,6 +1705,7 @@ __webpack_require__.r(__webpack_exports__);
 
 window.addEventListener('DOMContentLoaded', () => {
   // scroll({ arrow: '.arrow-up', arrowActive: 'arrow-up_active' });
+
   Object(_lang__WEBPACK_IMPORTED_MODULE_2__["setLanguage"])(_lang__WEBPACK_IMPORTED_MODULE_2__["lang"], '.lang-selector');
   Object(_burger__WEBPACK_IMPORTED_MODULE_0__["burger"])({
     btn: '.burger__btn',
@@ -1737,9 +1762,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const preload = async () => {
-  const img1 = document.querySelector('#content-img');
-  const img2 = document.querySelector('#section-bg-img-dark');
-  const img3 = document.querySelector('#section-bg-img-light');
+  const img1 = document.querySelector('#content-img-light');
+  const img2 = document.querySelector('#content-img-dark');
   const overlay = document.querySelector('.overlay');
   try {
     img1.onload = function () {
@@ -1748,10 +1772,7 @@ const preload = async () => {
     img2.onload = function () {
       return true;
     };
-    img3.onload = function () {
-      return true;
-    };
-    if (img1.onload() && img2.onload() && img3.onload()) {
+    if (img1.onload() && img2.onload()) {
       overlay.classList.remove('overlay_active');
     }
   } catch (error) {
@@ -2039,10 +2060,10 @@ const theme = () => {
   const aboutImagesLight = document.querySelectorAll('.section-bg .theme-light');
   const introStrokes = document.querySelectorAll('.title-intro__str');
   const sectionBg = document.querySelectorAll('section.theme');
-  const bgImageTheme = document.querySelector('.content-img.theme');
+  const bgImageTheme = document.querySelector('.content-img.theme').children;
   if (!localStorage.getItem('theme')) {
-    localStorage.setItem('theme', 'light');
-    lightTheme();
+    localStorage.setItem('theme', 'dark');
+    darkTheme();
   } else {
     if (localStorage.getItem('theme') === 'dark') {
       btn.classList.add('theme-btn_dark');
@@ -2093,9 +2114,9 @@ const theme = () => {
           item.style.background = '#fff';
       }
     });
-    // bgImageTheme.style.background = 'url("./assets/img/note.png") 0% 0%/100% no-repeat';
-    bgImageTheme.style.background = 'linear-gradient(to left, rgba(255, 255, 255, .9), rgba(255, 255, 255, 0)), url("./assets/img/bg-13-modif.jpg") 50% 50%/100% no-repeat';
-    // bgImageTheme.style.opacity = '1';
+    bgImageTheme[0].style.display = 'block';
+    bgImageTheme[1].style.display = 'none';
+    bgImageTheme[2].style.background = 'linear-gradient(rgba(255, 255, 255, .8), rgba(255, 255, 255, 0.8))';
     burgerLinesChangeColor.forEach(line => {
       line.style.backgroundColor = '#333';
     });
@@ -2154,9 +2175,10 @@ const theme = () => {
           item.style.background = ' #0d1221';
       }
     });
-    // bgImageTheme.style.background = 'url("./assets/img/note.png") center center/contain no-repeat';
-    bgImageTheme.style.background = 'linear-gradient(rgba(0, 0, 0, .9), rgba(0, 0, 0, .9)), url("./assets/img/bg-12.jpg") center center/cover no-repeat';
-    // bgImageTheme.style.opacity = '0.1';
+    bgImageTheme[0].style.display = 'none';
+    bgImageTheme[1].style.display = 'block';
+    console.log('here');
+    bgImageTheme[2].style.background = 'linear-gradient(rgba(0, 0, 0, .9), rgba(0, 0, 0, 0.9))';
     burgerLinesChangeColor.forEach(line => {
       line.style.backgroundColor = '#fff';
     });

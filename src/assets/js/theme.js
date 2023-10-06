@@ -19,11 +19,12 @@ const theme = () => {
     const aboutImagesLight = document.querySelectorAll('.section-bg .theme-light');
     const introStrokes = document.querySelectorAll('.title-intro__str');
     const sectionBg = document.querySelectorAll('section.theme');
-    const bgImageTheme = document.querySelector('.content-img.theme');
+    const bgImageTheme = document.querySelector('.content-img.theme').children;
+
 
     if (!localStorage.getItem('theme')) {
-        localStorage.setItem('theme', 'light');
-        lightTheme();
+        localStorage.setItem('theme', 'dark');
+        darkTheme();
     } else {
         if (localStorage.getItem('theme') === 'dark') {
             btn.classList.add(('theme-btn_dark'));
@@ -62,9 +63,9 @@ const theme = () => {
             }
 
         })
-        // bgImageTheme.style.background = 'url("./assets/img/note.png") 0% 0%/100% no-repeat';
-        bgImageTheme.style.background = 'linear-gradient(to left, rgba(255, 255, 255, .9), rgba(255, 255, 255, 0)), url("./assets/img/bg-13-modif.jpg") 50% 50%/100% no-repeat';
-        // bgImageTheme.style.opacity = '1';
+        bgImageTheme[0].style.display = 'block';
+        bgImageTheme[1].style.display = 'none';
+        bgImageTheme[2].style.background = 'linear-gradient(rgba(255, 255, 255, .8), rgba(255, 255, 255, 0.8))';
         burgerLinesChangeColor.forEach(line => {
             line.style.backgroundColor = '#333';
         })
@@ -110,9 +111,10 @@ const theme = () => {
                 default: item.style.background = ' #0d1221';
             }
         })
-        // bgImageTheme.style.background = 'url("./assets/img/note.png") center center/contain no-repeat';
-        bgImageTheme.style.background = 'linear-gradient(rgba(0, 0, 0, .9), rgba(0, 0, 0, .9)), url("./assets/img/bg-12.jpg") center center/cover no-repeat';
-        // bgImageTheme.style.opacity = '0.1';
+        bgImageTheme[0].style.display = 'none';
+        bgImageTheme[1].style.display = 'block';
+        console.log('here')
+        bgImageTheme[2].style.background = 'linear-gradient(rgba(0, 0, 0, .9), rgba(0, 0, 0, 0.9))';
         burgerLinesChangeColor.forEach(line => {
             line.style.backgroundColor = '#fff';
         })
