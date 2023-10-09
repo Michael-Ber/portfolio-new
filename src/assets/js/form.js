@@ -28,6 +28,10 @@ const form = (formSelector) => {
             'en': 'This may take some time...',
             'ru': 'Это может занять какое-то время...'
         },
+        'sending-error': {
+            'en': 'Something goes wrong :(',
+            'ru': 'Что-то пошло не так :('
+        },
         'success': {
             'img': './assets/icons/success.svg'
         }
@@ -65,10 +69,10 @@ const form = (formSelector) => {
         spinner.style.cssText = `width: 40px; height: 40px; margin: 0 0 0 10px`;
         submit.appendChild(spinner);
 
-        let timerWaiting = setTimeout(() => createSideMsg('wait'), 1000)
 
         let a = 0;
         let hash = window.location.hash.substring(1);
+        createSideMsg('wait');
         inputs.forEach(input => {
             if (!input.value || (input.type === 'checkbox' && !input.checked)) {
                 let span = document.createElement('span');
@@ -94,17 +98,16 @@ const form = (formSelector) => {
         sendReq("https://portfolio-mailer-8yue.onrender.com/send_mail", jsonData)
             .then((res) => {
                 submit.removeChild(spinner);
-                clearTimeout(timerWaiting);
-                removeSideMsg(document.querySelector('.contact__notfilled-main'));
                 body.style.overflow = 'hidden';
                 showModal(res, window.location.hash.substring(1), modal);
             })
             .catch((err) => {
                 submit.removeChild(spinner);
-                showModal('error', window.location.hash.substring(1), modal);
+                showModal({ error: err }, window.location.hash.substring(1), modal);
             })
             .finally(() => {
                 this.reset();
+                removeSideMsg(document.querySelector('.contact__notfilled-main'));
                 inputs.forEach(input => {
                     if (input.type === 'checkbox') {
                         input.checked = false;
@@ -125,6 +128,7 @@ const form = (formSelector) => {
                     removeModal(modal);
                 }
             });
+            console.log(condition);
             if (condition.hasOwnProperty('success')) {
                 modal.innerHTML =
                     `
@@ -140,7 +144,7 @@ const form = (formSelector) => {
                         <div class="modal__img modal__img_wrong">
                             <img src="${message['error']['img']}">
                         </div>
-                        <div class="modal__msg">${condition.message[hash]}</div>
+                        <div class="modal__msg">${message['sending-error'][hash]}</div>
                         <div class="modal__close" data-close>&#10005;</div>
                     `
             }
@@ -153,18 +157,19 @@ const form = (formSelector) => {
                 case 'btn': divForm.innerHTML = message['error-for-btn'][hash]; break;
                 case 'wait': divForm.innerHTML = message['waiting-to-long'][hash]; break;
             }
-            document.documentElement.appendChild(divForm);
+            body.appendChild(divForm);
         }
 
         function removeSideMsg(element) {
-            document.documentElement.removeChild(element);
+            console.log(element)
+            body.removeChild(element);
 
         }
 
         function removeModal(modalElem) {
             modalElem.classList.remove('modal_active');
             overlay.classList.remove('overlay-form-submit_active');
-            body.style.overflow = 'scroll';
+            body.style.overflow = 'unset';
             modalElem.innerHTML = '';
         }
     });

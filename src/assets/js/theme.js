@@ -22,6 +22,7 @@ const theme = () => {
     const bgImageTheme = document.querySelector('.content-img.theme').children;
 
 
+
     if (!localStorage.getItem('theme')) {
         localStorage.setItem('theme', 'dark');
         darkTheme();
@@ -113,7 +114,6 @@ const theme = () => {
         })
         bgImageTheme[0].style.display = 'none';
         bgImageTheme[1].style.display = 'block';
-        console.log('here')
         bgImageTheme[2].style.background = 'linear-gradient(rgba(0, 0, 0, .9), rgba(0, 0, 0, 0.9))';
         burgerLinesChangeColor.forEach(line => {
             line.style.backgroundColor = '#fff';
