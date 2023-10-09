@@ -128,7 +128,6 @@ const form = (formSelector) => {
                     removeModal(modal);
                 }
             });
-            console.log(condition);
             if (condition.hasOwnProperty('success')) {
                 modal.innerHTML =
                     `
@@ -161,7 +160,6 @@ const form = (formSelector) => {
         }
 
         function removeSideMsg(element) {
-            console.log(element)
             body.removeChild(element);
 
         }
