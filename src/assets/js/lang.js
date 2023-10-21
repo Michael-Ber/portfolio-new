@@ -31,12 +31,12 @@ const lang = {
         'ru': ['Фрилансер', 'Фронт-енд разработчик']
     },
     'lng-descrBeforeLink': {
-        'en': "Hello, my name is Michael. I'm junior front-end developer.I like front-end I've been learning front-end for two years, finished five web developing courses on Udemy and have been practicing all that time. My ",
+        'en': "Hello, my name is Michael. I'm junior front-end developer. I've been learning front-end for two years, finished five web developing courses on Udemy and have been practicing all that time. My ",
         'ru': 'Привет, меня зовут Михаил. Я джуниор фронт-енд разработчик. Я изучаю фронт-енд два года, закончил пять курсов веб-разработки на Udemy, все это время практикуюсь. '
     },
     'lng-descrAfterLink': {
         'en': "you can see on works section.",
-        'ru': 'вы можете посмотреть в секции работ. '
+        'ru': 'вы можете посмотреть в секции работ.'
     },
     'lng-worksLink': {
         'en': "works",

@@ -7,7 +7,7 @@ import { form } from './form';
 import { theme } from './theme';
 import { preload } from './preload';
 import { sectionCommutator } from './section-commutator';
-
+import { changePhotoLocation } from './changePhotoLocation';
 
 
 window.addEventListener('DOMContentLoaded', () => {
@@ -28,5 +28,9 @@ window.addEventListener('DOMContentLoaded', () => {
     theme();
     preload();
     sectionCommutator();
+    window.addEventListener('resize', changePhotoLocation);
+    changePhotoLocation();
+
+
 });
 

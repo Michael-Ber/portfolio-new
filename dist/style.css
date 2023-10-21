@@ -311,7 +311,6 @@
   left: 0;
   padding: 20px;
   background: linear-gradient(#6c3fd0, #132d9c);
-  box-shadow: 0 0 10px 0 #ffffff;
   transition: 0.3s all;
   transform: translateX(calc(-100% - 50px));
 }
@@ -548,6 +547,7 @@
 @media (max-width: 767px) {
   .about__left {
     flex: 0 0 100%;
+    margin-bottom: 30px;
   }
 }
 .about__left img {
@@ -567,9 +567,11 @@
   }
 }
 .about__right {
+  display: flex;
+  flex-direction: column;
+  position: relative;
   flex: 0 0 70%;
   padding: 0 100px 0 130px;
-  position: relative;
 }
 @media (max-width: 1239px) {
   .about__right {

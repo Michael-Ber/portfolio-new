@@ -1209,6 +1209,44 @@ function getScrollWidth() {
 
 /***/ }),
 
+/***/ "./src/assets/js/changePhotoLocation.js":
+/*!**********************************************!*\
+  !*** ./src/assets/js/changePhotoLocation.js ***!
+  \**********************************************/
+/*! exports provided: changePhotoLocation */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "changePhotoLocation", function() { return changePhotoLocation; });
+const changePhotoLocation = () => {
+  try {
+    if (window.matchMedia("(max-width: 767px)").matches) {
+      if (document.querySelector('.about__wrapper').children.length > 1) {
+        document.querySelector('.about__wrapper .about__left').remove();
+        document.querySelector('.about__right .right-about__text .about__title').insertAdjacentElement('afterend', createElement());
+        console.log('here?');
+      }
+    } else {
+      if (document.querySelector('.about__right .about__left')) {
+        document.querySelector('.about__right .about__left').remove();
+        document.querySelector('.about__wrapper').insertAdjacentElement('afterbegin', createElement());
+      }
+    }
+    function createElement() {
+      console.log('resize');
+      const leftPart = document.createElement('div');
+      leftPart.classList.add('about__left');
+      leftPart.innerHTML = `<img src="./assets/img/photo-min.png" width="100%" height="100%" alt="photo" loading="lazy">`;
+      return leftPart;
+    }
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+/***/ }),
+
 /***/ "./src/assets/js/form.js":
 /*!*******************************!*\
   !*** ./src/assets/js/form.js ***!
@@ -1430,12 +1468,12 @@ const lang = {
     'ru': ['Фрилансер', 'Фронт-енд разработчик']
   },
   'lng-descrBeforeLink': {
-    'en': "Hello, my name is Michael. I'm junior front-end developer.I like front-end I've been learning front-end for two years, finished five web developing courses on Udemy and have been practicing all that time. My ",
+    'en': "Hello, my name is Michael. I'm junior front-end developer. I've been learning front-end for two years, finished five web developing courses on Udemy and have been practicing all that time. My ",
     'ru': 'Привет, меня зовут Михаил. Я джуниор фронт-енд разработчик. Я изучаю фронт-енд два года, закончил пять курсов веб-разработки на Udemy, все это время практикуюсь. '
   },
   'lng-descrAfterLink': {
     'en': "you can see on works section.",
-    'ru': 'вы можете посмотреть в секции работ. '
+    'ru': 'вы можете посмотреть в секции работ.'
   },
   'lng-worksLink': {
     'en': "works",
@@ -1698,6 +1736,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _theme__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./theme */ "./src/assets/js/theme.js");
 /* harmony import */ var _preload__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./preload */ "./src/assets/js/preload.js");
 /* harmony import */ var _section_commutator__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./section-commutator */ "./src/assets/js/section-commutator.js");
+/* harmony import */ var _changePhotoLocation__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./changePhotoLocation */ "./src/assets/js/changePhotoLocation.js");
+
 
 
 
@@ -1726,6 +1766,8 @@ window.addEventListener('DOMContentLoaded', () => {
   Object(_theme__WEBPACK_IMPORTED_MODULE_5__["theme"])();
   Object(_preload__WEBPACK_IMPORTED_MODULE_6__["preload"])();
   Object(_section_commutator__WEBPACK_IMPORTED_MODULE_7__["sectionCommutator"])();
+  window.addEventListener('resize', _changePhotoLocation__WEBPACK_IMPORTED_MODULE_8__["changePhotoLocation"]);
+  Object(_changePhotoLocation__WEBPACK_IMPORTED_MODULE_8__["changePhotoLocation"])();
 });
 
 /***/ }),

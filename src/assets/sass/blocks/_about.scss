@@ -25,9 +25,9 @@
         position: relative;
         flex: 0 0 30%;
         z-index: 1;
-
         @media(max-width: $container-media-767) {
             flex: 0 0 100%;
+            margin-bottom: 30px;
         }
 
         img {
@@ -45,9 +45,11 @@
     }
 
     &__right {
+        display: flex;
+        flex-direction: column;
+        position: relative;
         flex: 0 0 70%;
         padding: 0 100px 0 130px;
-        position: relative;
 
         @media(max-width: $container-media-1239) {
             padding: 0px 70px 0px 30px;
