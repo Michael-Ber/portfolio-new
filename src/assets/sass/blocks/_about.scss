@@ -25,6 +25,7 @@
         position: relative;
         flex: 0 0 30%;
         z-index: 1;
+
         @media(max-width: $container-media-767) {
             flex: 0 0 100%;
             margin-bottom: 30px;
@@ -35,9 +36,11 @@
             height: 100%;
             object-fit: cover;
             border-radius: 30%;
+
             @media(max-width: $container-media-767) {
                 width: 100px;
             }
+
             @media(max-width: $container-media-575) {
                 width: 70px;
             }
